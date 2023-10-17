@@ -1,13 +1,17 @@
 "use client";
 
-import React, { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Fragment, useRef, useState } from "react";
+import { Disclosure, Menu, Transition, Combobox } from "@headlessui/react";
 import {
+  ArrowTrendingUpIcon,
   Bars3Icon,
   BellIcon,
   ChevronDownIcon,
+  MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import promo from "../../public/discount.svg";
+import Image from "next/image";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
@@ -22,11 +26,29 @@ const more = [
   { href: "#", label: "Entertainment" },
 ];
 
+const people = [
+  { id: 1, name: "Promo" },
+  { id: 3, name: "bidadari surgamu" },
+  { id: 4, name: "ftv" },
+  { id: 5, name: "antv" },
+];
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+  const [query, setQuery] = useState("");
+
+  const comboBtn = useRef<HTMLButtonElement>(null);
+
+  const filteredPeople =
+    query === ""
+      ? people
+      : people.filter((person) => {
+          return person.name.toLowerCase().includes(query.toLowerCase());
+        });
   return (
     <Disclosure as="nav" className="bg-transparent z-10">
       {({ open }) => (
@@ -96,23 +118,21 @@ export default function Navbar() {
                           >
                             <Menu.Items className="absolute z-10 mt-2 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                               {more.map((item) => (
-                                <>
-                                  <Menu.Item>
-                                    {({ active }) => (
-                                      <a
-                                        href={item.href}
-                                        className={classNames(
-                                          active
-                                            ? "text-blue-700"
-                                            : "text-gray-600 hover:text-blue-700",
-                                          "block px-2 py-4 text-sm font-medium hover:bg-blue-100"
-                                        )}
-                                      >
-                                        {item.label}
-                                      </a>
-                                    )}
-                                  </Menu.Item>
-                                </>
+                                <Menu.Item key={item.label}>
+                                  {({ active }) => (
+                                    <a
+                                      href={item.href}
+                                      className={classNames(
+                                        active
+                                          ? "text-blue-700"
+                                          : "text-gray-600 hover:text-blue-700",
+                                        "block px-2 py-4 text-sm font-medium hover:bg-blue-100"
+                                      )}
+                                    >
+                                      {item.label}
+                                    </a>
+                                  )}
+                                </Menu.Item>
                               ))}
                             </Menu.Items>
                           </Transition>
@@ -122,7 +142,74 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex gap-x-4 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <Combobox
+                  as="div"
+                  className="relative"
+                  value={selectedPerson}
+                  onChange={setSelectedPerson}
+                >
+                  {({ open }) => (
+                    <>
+                      <Combobox.Button
+                        className="hidden"
+                        ref={comboBtn}
+                      ></Combobox.Button>
+                      <div>
+                        <Combobox.Input
+                          onChange={(event) => setQuery(event.target.value)}
+                          onClick={() => comboBtn.current?.click()}
+                          placeholder="Cari"
+                          className="relative text-sm rounded-md focus:outline-none border-none focus:ring-0 py-0 pr-8 h-8 bg-gray-600/50 text-white placeholder:text-white"
+                        />
+                        <MagnifyingGlassIcon className="absolute right-2 top-1 w-6 h-6 text-white"></MagnifyingGlassIcon>
+                      </div>
+
+                      {open && (
+                        <Transition
+                          enter="transition duration-100 ease-out"
+                          enterFrom="transform scale-95 opacity-0"
+                          enterTo="transform scale-100 opacity-100"
+                          leave="transition duration-75 ease-out"
+                          leaveFrom="transform scale-100 opacity-100"
+                          leaveTo="transform scale-95 opacity-0"
+                        >
+                          <Combobox.Options
+                            as="div"
+                            className={`absolute w-full z-10 mt-2 rounded-md ${
+                              filteredPeople.length == 0 ? "hidden " : "bg-white "
+                            } py-1 px-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                          >
+                            <h2 className="text-lg p-2 font-semibold">
+                              Pencarian Populer
+                            </h2>
+                            {filteredPeople.map((person) => (
+                              <Combobox.Option
+                                key={person.id}
+                                value={person}
+                                className="w-full p-2 text-sm font-normal flex flex-row gap-x-2 items-center text-gray-600"
+                              as="button"
+                              >
+                                {person.name == "Promo" ? (
+                                  <Image
+                                    priority
+                                    src={promo}
+                                    alt=""
+                                    className="w-6 h-6"
+                                  />
+                                ) : (
+                                  <ArrowTrendingUpIcon className="w-6 h-6"></ArrowTrendingUpIcon>
+                                )}
+                                {person.name}
+                              </Combobox.Option>
+                            ))}
+                          </Combobox.Options>
+                        </Transition>
+                      )}
+                    </>
+                  )}
+                </Combobox>
+
                 <button
                   type="button"
                   className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -133,7 +220,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                <Menu as="div" className="relative">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />

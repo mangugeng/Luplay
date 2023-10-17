@@ -58,7 +58,7 @@
   font-weight: 700 !important;
 }
 
-.premium-headline__gradient {
+.overlay-gradient-video {
   background: -webkit-linear-gradient(left, rgba(14, 26, 32, 0) 100%, #0e1820 0),
     -webkit-linear-gradient(181.57deg, rgba(14, 24, 32, 0) 11.7%, #0e1820 62.24%, #0e1820
           84.81%),
@@ -83,4 +83,14 @@
   top: 0;
   width: 100%;
   z-index: 2;
+}
+
+.video-container {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
