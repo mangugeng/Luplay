@@ -16,6 +16,9 @@ const config: Config = {
         "pallete-5": "#0c143b",
       },
     },
+    backgroundImage: {
+      'play-episode': "url('../public/play-button.svg')",
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),

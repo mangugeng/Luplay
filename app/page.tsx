@@ -25,6 +25,7 @@ export default function Home() {
   const [playvideo, setPlayVideo] = useState<boolean>(false);
   const [mutedvideo, setMutedVideo] = useState<boolean>(true);
   const [videofinished, setVideoFinished] = useState<boolean>(false);
+  const [colorchange, setColorChange] = useState<boolean>(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -46,9 +47,26 @@ export default function Home() {
     // when we update it
   }, [timeleft]);
 
+  useEffect(() => {
+    const changeNavbarColor = () => {
+      if (window.scrollY >= 80) {
+        setColorChange(true);
+      } else {
+        setColorChange(false);
+      }
+    };
+    window.addEventListener("scroll", changeNavbarColor);
+
+    return () => window.removeEventListener("scroll", changeNavbarColor);
+  }, []);
+
   return (
     <>
-      <header className="fixed z-10 w-full">
+      <header
+        className={`fixed z-10 w-full transition-all duration-300 shadow-md ${
+          colorchange ? "bg-pallete-5 " : "bg-transparent "
+        }`}
+      >
         <Navbar></Navbar>
       </header>
       <main>
@@ -255,7 +273,9 @@ export default function Home() {
               <SwiperSlide className="rounded-md">
                 <div className="flex flex-col items-center justify-center h-full text-sm text-gray-300">
                   Lihat semua
-                  <div className="text-3xl font-semibold mt-2">Lunar Originals</div>
+                  <div className="text-3xl font-semibold mt-2">
+                    Lunar Originals
+                  </div>
                 </div>
               </SwiperSlide>
             </Swiper>

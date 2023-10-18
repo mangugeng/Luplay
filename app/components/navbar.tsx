@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Disclosure, Menu, Transition, Combobox } from "@headlessui/react";
 import {
   ArrowTrendingUpIcon,
@@ -26,7 +26,7 @@ const more = [
   { href: "#", label: "Entertainment" },
 ];
 
-const people = [
+const search = [
   { id: 1, name: "Promo" },
   { id: 3, name: "bidadari surgamu" },
   { id: 4, name: "ftv" },
@@ -38,32 +38,21 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
-  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+  const [selectedsearch, setSelectedSearch] = useState(search[0]);
   const [query, setQuery] = useState("");
-  const [colorChange, setColorchange] = useState(false);
 
   const comboBtn = useRef<HTMLButtonElement>(null);
 
-  const filteredPeople =
+  const filteredSearch =
     query === ""
-      ? people
-      : people.filter((person) => {
-          return person.name.toLowerCase().includes(query.toLowerCase());
+      ? search
+      : search.filter((search) => {
+          return search.name.toLowerCase().includes(query.toLowerCase());
         });
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 80) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
-  };
-  window.addEventListener("scroll", changeNavbarColor);
+
   return (
     <Disclosure
       as="nav"
-      className={`${
-        colorChange ? "bg-pallete-5 shadow-md " : "bg-transparent "
-      } transition-all duration-300 z-10`}
     >
       {({ open }) => (
         <>
@@ -160,8 +149,8 @@ export default function Navbar() {
                 <Combobox
                   as="div"
                   className="relative"
-                  value={selectedPerson}
-                  onChange={setSelectedPerson}
+                  value={selectedsearch}
+                  onChange={setSelectedSearch}
                 >
                   {({ open }) => (
                     <>
@@ -191,7 +180,7 @@ export default function Navbar() {
                           <Combobox.Options
                             as="div"
                             className={`absolute w-full z-10 mt-2 rounded-md ${
-                              filteredPeople.length == 0
+                              filteredSearch.length == 0
                                 ? "hidden "
                                 : "bg-white "
                             } py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
@@ -199,14 +188,14 @@ export default function Navbar() {
                             <h2 className="text-lg px-4 py-2 font-semibold">
                               Pencarian Populer
                             </h2>
-                            {filteredPeople.map((person) => (
+                            {filteredSearch.map((search) => (
                               <Combobox.Option
-                                key={person.id}
-                                value={person}
+                                key={search.id}
+                                value={search}
                                 className="w-full px-4 py-2 text-sm font-normal flex flex-row gap-x-2 items-center text-gray-600 hover:bg-gray-100"
                                 as="button"
                               >
-                                {person.name == "Promo" ? (
+                                {search.name == "Promo" ? (
                                   <Image
                                     priority
                                     src={promo}
@@ -216,7 +205,7 @@ export default function Navbar() {
                                 ) : (
                                   <ArrowTrendingUpIcon className="w-6 h-6"></ArrowTrendingUpIcon>
                                 )}
-                                {person.name}
+                                {search.name}
                               </Combobox.Option>
                             ))}
                           </Combobox.Options>
