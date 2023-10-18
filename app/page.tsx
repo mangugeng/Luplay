@@ -13,6 +13,7 @@ import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import banner1 from "../public/banner-1.webp";
 import banner2 from "../public/banner-2.webp";
 import banner3 from "../public/banner-3.webp";
+import post1 from "../public/post-1.webp";
 import {
   ArrowPathIcon,
   SpeakerWaveIcon,
@@ -47,7 +48,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="sticky z-10">
+      <header className="fixed z-10 w-full">
         <Navbar></Navbar>
       </header>
       <main>
@@ -63,7 +64,7 @@ export default function Home() {
             swiper.realIndex == 2 ? setTimeLeft(2) : setPlayVideo(false)
           }
           effect="fade"
-          className="mySwiper"
+          className="main-carousel-swiper"
         >
           <SwiperSlide>
             <div className="h-full">
@@ -182,9 +183,82 @@ export default function Home() {
             <div className="overlay-gradient-video"></div>
           </SwiperSlide>
         </Swiper>
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl py-12">
           <section>
-            <h2 className="text-xl text-gray-100 font-semibold">Lunar Originals</h2>
+            <h2 className="text-xl text-gray-100 font-semibold mb-4">
+              Lunar Originals
+            </h2>
+            <Swiper
+              slidesPerView={7}
+              spaceBetween={10}
+              centeredSlides={false}
+              navigation={true}
+              modules={[Navigation]}
+              className="home-carousel-swiper"
+            >
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <Image
+                  src={post1}
+                  className="rounded-md"
+                  alt="Picture of the author"
+                />
+              </SwiperSlide>
+              <SwiperSlide className="rounded-md">
+                <div className="flex flex-col items-center justify-center h-full text-sm text-gray-300">
+                  Lihat semua
+                  <div className="text-3xl font-semibold mt-2">Lunar Originals</div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </section>
         </div>
       </main>

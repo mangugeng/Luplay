@@ -40,6 +40,7 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
   const [selectedPerson, setSelectedPerson] = useState(people[0]);
   const [query, setQuery] = useState("");
+  const [colorChange, setColorchange] = useState(false);
 
   const comboBtn = useRef<HTMLButtonElement>(null);
 
@@ -49,8 +50,21 @@ export default function Navbar() {
       : people.filter((person) => {
           return person.name.toLowerCase().includes(query.toLowerCase());
         });
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
   return (
-    <Disclosure as="nav" className="bg-transparent z-10">
+    <Disclosure
+      as="nav"
+      className={`${
+        colorChange ? "bg-pallete-5 shadow-md " : "bg-transparent "
+      } transition-all duration-300 z-10`}
+    >
       {({ open }) => (
         <>
           <div className="px-2 sm:px-6 lg:px-8">
@@ -177,18 +191,20 @@ export default function Navbar() {
                           <Combobox.Options
                             as="div"
                             className={`absolute w-full z-10 mt-2 rounded-md ${
-                              filteredPeople.length == 0 ? "hidden " : "bg-white "
-                            } py-1 px-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                              filteredPeople.length == 0
+                                ? "hidden "
+                                : "bg-white "
+                            } py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
                           >
-                            <h2 className="text-lg p-2 font-semibold">
+                            <h2 className="text-lg px-4 py-2 font-semibold">
                               Pencarian Populer
                             </h2>
                             {filteredPeople.map((person) => (
                               <Combobox.Option
                                 key={person.id}
                                 value={person}
-                                className="w-full p-2 text-sm font-normal flex flex-row gap-x-2 items-center text-gray-600"
-                              as="button"
+                                className="w-full px-4 py-2 text-sm font-normal flex flex-row gap-x-2 items-center text-gray-600 hover:bg-gray-100"
+                                as="button"
                               >
                                 {person.name == "Promo" ? (
                                   <Image
@@ -219,8 +235,21 @@ export default function Navbar() {
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
+                <button
+                  type="button"
+                  className="text-sm font-medium rounded-md py-2 px-4 bg-pallete-4 text-gray-300 hover:text-white shadow-lg"
+                >
+                  Langganan
+                </button>
+                <button
+                  type="button"
+                  className="text-sm font-medium rounded-md py-2 px-4 bg-white shadow-lg text-gray-600 hover:text-gray-900"
+                >
+                  Masuk
+                </button>
+
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative">
+                {/* <Menu as="div" className="relative">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
@@ -248,7 +277,7 @@ export default function Navbar() {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-600"
                             )}
                           >
                             Your Profile
@@ -261,7 +290,7 @@ export default function Navbar() {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-600"
                             )}
                           >
                             Settings
@@ -274,7 +303,7 @@ export default function Navbar() {
                             href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-600"
                             )}
                           >
                             Sign out
@@ -283,7 +312,7 @@ export default function Navbar() {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>
+                </Menu> */}
               </div>
             </div>
           </div>
