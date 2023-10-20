@@ -150,7 +150,7 @@ export default function Home() {
               <>
                 <video
                   ref={videoRef}
-                  className="video-container"
+                  className="video-container-swiper"
                   muted={mutedvideo}
                   playsInline={true}
                   autoPlay={true}
