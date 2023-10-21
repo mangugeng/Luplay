@@ -9,6 +9,14 @@ export default function Page() {
   const playerRef = useRef(null);
 
   const videoJsOptions = {
+    playbackRates: [0.5, 1, 1.5, 2],
+    controlBar: {
+      skipButtons: {
+        backward: 10,
+        forward:10
+      },
+    },
+    preferFullWindow: true,
     autoplay: true,
     controls: true,
     responsive: true,
@@ -32,6 +40,7 @@ export default function Page() {
     player.on("dispose", () => {
       videojs.log("player will dispose");
     });
+
   };
   return (
     <>

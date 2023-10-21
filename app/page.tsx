@@ -19,6 +19,7 @@ import {
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
 } from "@heroicons/react/24/outline";
+import crown from "../public/crown.png";
 
 export default function Home() {
   const [timeleft, setTimeLeft] = useState<number | null>(null);
@@ -63,8 +64,8 @@ export default function Home() {
   return (
     <>
       <header
-        className={`fixed z-10 w-full transition-all duration-300 shadow-md ${
-          colorchange ? "bg-pallete-5 " : "bg-transparent "
+        className={`fixed z-10 w-full transition-all duration-300 ${
+          colorchange ? "bg-pallete-5 shadow-md " : "bg-transparent "
         }`}
       >
         <Navbar></Navbar>
@@ -93,21 +94,32 @@ export default function Home() {
                 alt="Picture of the author"
               />
             </div>
-            <div className="absolute w-96 top-1/4 left-24 z-[3]">
-              <h3 className="text-4xl text-white font-bold text-left">
-                Dia Yang Kau Pilih
-              </h3>
-              <p className="text-white text-base font-normal line-clamp-3 text-left mt-4">
-                SETIAP HARI - 16.45 WIB | Kinara, seorang gadis yang baik hati
-                dan menjadi tulang punggung keluarga.
-              </p>
-              <button
-                type="button"
-                className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
-              >
-                <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
-                Sekarang
-              </button>
+            <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
+              <div className="inline-block h-auto left-[5px] absolute text-left top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
+                <h3 className="text-4xl text-white font-bold text-left">
+                  Dia Yang Kau Pilih
+                </h3>
+                <p className="text-white text-base font-normal line-clamp-3 text-left my-4">
+                  SETIAP HARI - 16.45 WIB | Kinara, seorang gadis yang baik hati
+                  dan menjadi tulang punggung keluarga.
+                </p>
+                <span className="flex">
+                  <div
+                    className="bg-[50%] bg-no-repeat bg-[length:24px_24px] rounded-lg inline-block h-6 w-6 mr-5 relative"
+                    style={{ backgroundImage: `url(${crown.src})` }}
+                  ></div>
+                  <div className="text-xs font-semibold text-gray-300 inline-block pt-2">
+                    DRAMA
+                  </div>
+                </span>
+                <button
+                  type="button"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                >
+                  <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
+                  Sekarang
+                </button>
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -119,21 +131,32 @@ export default function Home() {
                 alt="Picture of the author"
               />
             </div>
-            <div className="absolute w-96 top-1/4 left-24 z-[3]">
-              <h3 className="text-4xl text-white font-bold text-left">
-                Cinta Setelah Cinta
-              </h3>
-              <p className="text-white text-base font-normal line-clamp-3 text-left mt-4">
-                NONTON SEKARANG! 2 Episode Terakhir tayang Eksklusif hanya di
-                Vidio.
-              </p>
-              <button
-                type="button"
-                className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
-              >
-                <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
-                Sekarang
-              </button>
+            <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
+              <div className="inline-block h-auto left-[5px] absolute text-left top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
+                <h3 className="text-4xl text-white font-bold text-left">
+                  Cinta Setelah Cinta
+                </h3>
+                <p className="text-white text-base font-normal line-clamp-3 text-left my-4">
+                  NONTON SEKARANG! 2 Episode Terakhir tayang Eksklusif hanya di
+                  Vidio.
+                </p>
+                <span className="flex">
+                  <div
+                    className="bg-[50%] bg-no-repeat bg-[length:24px_24px] rounded-lg inline-block h-6 w-6 mr-5 relative"
+                    style={{ backgroundImage: `url(${crown.src})` }}
+                  ></div>
+                  <div className="text-xs font-semibold text-gray-300 inline-block pt-2">
+                    DRAMA
+                  </div>
+                </span>
+                <button
+                  type="button"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                >
+                  <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
+                  Sekarang
+                </button>
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -181,22 +204,33 @@ export default function Home() {
                 </button>
               </>
             )}
-            <div className="absolute w-96 top-1/4 left-24 z-[3]">
-              <h3 className="text-4xl text-white font-bold text-left">
-                Merajut Dendam
-              </h3>
-              <p className="text-white text-base font-normal line-clamp-3 text-left mt-4">
-                Nina memiliki segalanya; suami yang mapan dan keluarga yang
-                sempurna. Semua berubah ketika suaminya, Rasya, dituduh sebagai
-                tersangka kasus pencabulan.
-              </p>
-              <button
-                type="button"
-                className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
-              >
-                <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
-                Sekarang
-              </button>
+            <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
+              <div className="inline-block h-auto left-[5px] absolute text-left top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
+                <h3 className="text-4xl text-white font-bold text-left">
+                  Merajut Dendam
+                </h3>
+                <p className="text-white text-base font-normal line-clamp-3 text-left my-4">
+                  Nina memiliki segalanya; suami yang mapan dan keluarga yang
+                  sempurna. Semua berubah ketika suaminya, Rasya, dituduh
+                  sebagai tersangka kasus pencabulan.
+                </p>
+                <span className="flex">
+                  <div
+                    className="bg-[50%] bg-no-repeat bg-[length:24px_24px] rounded-lg inline-block h-6 w-6 mr-5 relative"
+                    style={{ backgroundImage: `url(${crown.src})` }}
+                  ></div>
+                  <div className="text-xs font-semibold text-gray-300 inline-block pt-2">
+                    DRAMA
+                  </div>
+                </span>
+                <button
+                  type="button"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                >
+                  <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
+                  Sekarang
+                </button>
+              </div>
             </div>
             <div className="overlay-gradient-video"></div>
           </SwiperSlide>

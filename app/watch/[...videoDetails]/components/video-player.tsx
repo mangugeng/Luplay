@@ -1,6 +1,7 @@
 import React, { FC, useRef, useEffect } from "react";
 import videojs from "video.js";
-import "video.js/dist/video-js.css";
+import type Player from 'video.js/dist/types/player';
+import "./video-js.css";
 
 interface VideoJSProps {
   options: any;
@@ -9,7 +10,7 @@ interface VideoJSProps {
 
 const VideoJS: FC<VideoJSProps> = (props) => {
   const videoRef = useRef<HTMLDivElement>(null);
-  const playerRef = useRef<any | null>(null);
+  const playerRef = useRef<Player | null>(null);
   const { options, onReady } = props;
 
   useEffect(() => {
