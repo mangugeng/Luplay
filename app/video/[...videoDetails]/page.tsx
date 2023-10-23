@@ -18,8 +18,8 @@ import headline from "../../../public/headline-1.webp";
 import trailer from "../../../public/trailer-1.webp";
 import extra from "../../../public/extra-1.webp";
 import similar from "../../../public/similar-1.webp";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import Link from 'next/link'
 
 const filterepisode = [
   { id: 1, name: "Terlama ke Terbaru" },
@@ -32,6 +32,8 @@ const filtertrailerextra = [
 ];
 
 export default function Page() {
+  const router = useRouter()
+  
   const [selectedfilterepisode, setSelectedFilterEpisode] = useState(
     filterepisode[0]
   );
@@ -85,6 +87,7 @@ export default function Page() {
                   <div className="basis-1/2 grow-[2] justify-end m-0 text-right flex gap-2">
                     <div className="flex gap-2 mb-4">
                       <button
+                      onClick={()=>router.push('/watch/632/merajut-dendam')}
                         type="button"
                         className="inline-flex py-3 px-6 text-center bg-pallete-4 hover:bg-pallete-3 rounded-md font-bold items-center shadow-lg text-white"
                       >
@@ -228,6 +231,7 @@ export default function Page() {
                       </div>
                       <div className="flex gap-2 mb-4">
                         <button
+                        onClick={()=>router.push('/watch/632/merajut-dendam')}
                           type="button"
                           className="inline-flex py-3 px-6 text-center bg-pallete-4 hover:bg-pallete-3 rounded-md font-bold items-center shadow-lg"
                         >
@@ -356,8 +360,8 @@ export default function Page() {
                       <div className="relative -z-[1]">
                         <ul>
                           <li className="block">
-                            <a
-                              href="#"
+                            <Link
+                              href='/watch/632/merajut-dendam'
                               className="group block py-4 relative before:bg-transparent before:rounded-md before:content-[''] before:h-full before:-left-4 before:absolute before:top-0 before:ease-linear before:transition-all before:duration-200 before:w-[calc(100%+32px)]"
                             >
                               <div className="bg-gray-950 rounded-md inline-block h-32 overflow-hidden relative align-top w-56 z-[1] after:bg-black/40 after:bg-play-episode after:bg-[56%] after:bg-no-repeat after:bg-[length:32px_32px] after:rounded-[100%] after:content-[''] after:inline-block after:h-[50px] after:left-1/2 after:opacity-0 group-hover:after:opacity-100 after:absolute after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[50px]">
@@ -384,11 +388,11 @@ export default function Page() {
                                   penyebaran video itu?
                                 </p>
                               </div>
-                            </a>
+                            </Link>
                           </li>
                           <li className="block">
-                            <a
-                              href="#"
+                            <Link
+                              href='/watch/632/merajut-dendam'
                               className="group block py-4 relative before:bg-transparent before:rounded-md before:content-[''] before:h-full before:-left-4 before:absolute before:top-0 before:ease-linear before:transition-all before:duration-200 before:w-[calc(100%+32px)]"
                             >
                               <div className="bg-gray-950 rounded-md inline-block h-32 overflow-hidden relative align-top w-56 z-[1] after:bg-black/40 after:bg-play-episode after:bg-[56%] after:bg-no-repeat after:bg-[length:32px_32px] after:rounded-[100%] after:content-[''] after:inline-block after:h-[50px] after:left-1/2 after:opacity-0 group-hover:after:opacity-100 after:absolute after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[50px]">
@@ -415,11 +419,11 @@ export default function Page() {
                                   penyebaran video itu?
                                 </p>
                               </div>
-                            </a>
+                            </Link>
                           </li>
                           <li className="block">
-                            <a
-                              href="#"
+                            <Link
+                              href='/watch/632/merajut-dendam'
                               className="group block py-4 relative before:bg-transparent before:rounded-md before:content-[''] before:h-full before:-left-4 before:absolute before:top-0 before:ease-linear before:transition-all before:duration-200 before:w-[calc(100%+32px)]"
                             >
                               <div className="bg-gray-950 rounded-md inline-block h-32 overflow-hidden relative align-top w-56 z-[1] after:bg-black/40 after:bg-play-episode after:bg-[56%] after:bg-no-repeat after:bg-[length:32px_32px] after:rounded-[100%] after:content-[''] after:inline-block after:h-[50px] after:left-1/2 after:opacity-0 group-hover:after:opacity-100 after:absolute after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[50px]">
@@ -446,7 +450,7 @@ export default function Page() {
                                   penyebaran video itu?
                                 </p>
                               </div>
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>

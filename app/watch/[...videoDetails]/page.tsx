@@ -11,7 +11,7 @@ import {
   ShareIcon,
   ChevronUpDownIcon,
   FunnelIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -20,6 +20,8 @@ import "swiper/css/navigation";
 import trailer from "../../../public/trailer-1.webp";
 import { Listbox, Transition } from "@headlessui/react";
 import user from "../../../public/user.png";
+import episode from "../../../public/episode-1.webp";
+import similar from "../../../public/similar-1.webp"
 
 const filtercomment = [
   { id: 1, name: "Terlama ke Terbaru" },
@@ -91,8 +93,10 @@ export default function Page() {
       <header className="fixed z-50 w-full top-0 bg-pallete-5 shadow-md">
         <Navbar></Navbar>
       </header>
-      <div className="p-0 mx-auto before:content-[''] before:table">
-        <main className="justify-between mx-auto max-w-[1360px] w-[1360px] py-8 grid gap-y-8 before:content-[''] before:table">
+      <div className="p-0 mx-auto mt-12 before:content-[''] before:table">
+        <main
+          className="justify-between mx-auto max-w-[1360px] w-[1360px] grid gap-x-8 py-6 grid-rows-2 grid-flow-col h-[calc(100vh--35rem)]"
+        >
           <div className="min-h-[569px] w-[1012px] bg-black/40 block h-[441px] overflow-hidden relative">
             <VideoPlayer options={VIDEOJS_OPTIONS} />
           </div>
@@ -232,7 +236,7 @@ export default function Page() {
                     className="watch-carousel-swiper"
                   >
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -246,7 +250,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -254,7 +258,7 @@ export default function Page() {
                       </a>
                     </SwiperSlide>
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -268,7 +272,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -276,7 +280,7 @@ export default function Page() {
                       </a>
                     </SwiperSlide>
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -290,7 +294,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -298,7 +302,7 @@ export default function Page() {
                       </a>
                     </SwiperSlide>
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -312,7 +316,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -320,7 +324,7 @@ export default function Page() {
                       </a>
                     </SwiperSlide>
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -334,7 +338,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -342,7 +346,7 @@ export default function Page() {
                       </a>
                     </SwiperSlide>
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -356,7 +360,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -364,7 +368,7 @@ export default function Page() {
                       </a>
                     </SwiperSlide>
                     <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
+                      <a href="#" className="group">
                         <div className="relative">
                           <Image
                             src={trailer}
@@ -378,29 +382,7 @@ export default function Page() {
                           </div>
                         </div>
                         <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                            Merajut Dendam - Vidio Original Series | Official
-                            Teaser
-                          </h3>
-                        </div>
-                      </a>
-                    </SwiperSlide>
-                    <SwiperSlide className="rounded-lg relative align-top">
-                      <a href="#" className="">
-                        <div className="relative">
-                          <Image
-                            src={trailer}
-                            className="rounded-lg"
-                            alt="Picture of the author"
-                          />
-                          <div className="absolute bottom-2 right-2">
-                            <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
-                              00:45
-                            </time>
-                          </div>
-                        </div>
-                        <div className="mt-2">
-                          <h3 className="font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
                             Merajut Dendam - Vidio Original Series | Official
                             Teaser
                           </h3>
@@ -521,9 +503,9 @@ export default function Page() {
                         <div className="break-words text-gray-100 text-sm mt-2 mb-4">
                           Lorem Ipsum is simply dummy text of the printing and
                           typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the 1500s,
-                          when an unknown printer took a galley of type and
-                          scrambled it to make a type specimen book. It has
+                          industry&apos;s standard dummy text ever since the
+                          1500s, when an unknown printer took a galley of type
+                          and scrambled it to make a type specimen book. It has
                           survived not only five centuries, but also the leap
                           into electronic typesetting, remaining essentially
                           unchanged. It was popularised in the 1960s with the
@@ -546,9 +528,9 @@ export default function Page() {
                           >
                             <path
                               fill="currentColor"
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M12 2a2.275 2.275 0 1 0 0 4.55A2.275 2.275 0 0 0 12 2Zm0 15.45A2.275 2.275 0 1 0 12 22a2.275 2.275 0 0 0 0-4.55ZM9.725 12a2.275 2.275 0 1 1 4.55 0 2.275 2.275 0 0 1-4.55 0Z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                         </button>
@@ -567,6 +549,314 @@ export default function Page() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="w-[316px] min-h-[569px] inline-block">
+            <section className="my-4 rounded overflow-y-scroll h-[570px] no-scrollbar">
+              <div className="p-4">
+                <span className="rounded-lg inline-block text-sm py-3 px-4 border border-solid border-gray-300 text-gray-100 font-semibold">
+                  Season
+                </span>
+              </div>
+              <ul className="flex flex-col relative">
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="bg-pallete-2/20 py-3 px-4">
+                    <a href="#" className="group flex items-center">
+                      <div className="h-16 w-32 rounded-lg overflow-hidden relative align-top z-[1]">
+                        <Image
+                          src={episode}
+                          alt="Picture of the author"
+                          className="object-cover object-center aspect-[16/9]"
+                        />
+                        <div className="absolute bottom-1 left-0">
+                          <span className="text-[8px] py-[3px] px-[6px] bg-gray-50 border border-solid border-gray-300 rounded text-gray-900 font-medium mb-1 ml-1">
+                            GRATIS
+                          </span>
+                        </div>
+                        <div className="absolute bottom-1 right-2">
+                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/60 rounded text-white text-center">
+                            43:35
+                          </time>
+                        </div>
+                      </div>
+                      <div className="flex-[1_1] ml-2">
+                        <h3 className="line-clamp-2 max-h-[36px] break-words text-sm font-semibold text-gray-100 group-hover:text-blue-700">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h3>
+                      </div>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <div className="w-[316px] inline-block">
+          <section className="mb-8 mt-4">
+              <div className="mb-4 flex items-center justify-between relative">
+                <h3 className="text-xl font-bold line-clamp-1 text-gray-100 text-ellipsis whitespace-normal">Rekomendasi yang Serupa</h3>
+              </div>
+              <div>
+                <ul className="grid grid-cols-3 gap-4">
+                  <li className="max-w-full overflow-hidden">
+                    <div className="h-full w-full text-center">
+                      <a href="#">
+                        <div className="bg-pallete-2/20 rounded-lg relative">
+                        <Image
+                          src={similar}
+                          alt="Picture of the author"
+                          className="h-auto w-full flex items-center text-sm rounded-lg"
+                          width={112}
+                          height={162}
+                        />
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="max-w-full overflow-hidden">
+                    <div className="h-full w-full text-center">
+                      <a href="#">
+                        <div className="bg-pallete-2/20 rounded-lg relative">
+                        <Image
+                          src={similar}
+                          alt="Picture of the author"
+                          className="h-auto w-full flex items-center text-sm rounded-lg"
+                          width={112}
+                          height={162}
+                        />
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="max-w-full overflow-hidden">
+                    <div className="h-full w-full text-center">
+                      <a href="#">
+                        <div className="bg-pallete-2/20 rounded-lg relative">
+                        <Image
+                          src={similar}
+                          alt="Picture of the author"
+                          className="h-auto w-full flex items-center text-sm rounded-lg"
+                          width={112}
+                          height={162}
+                        />
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="max-w-full overflow-hidden">
+                    <div className="h-full w-full text-center">
+                      <a href="#">
+                        <div className="bg-pallete-2/20 rounded-lg relative">
+                        <Image
+                          src={similar}
+                          alt="Picture of the author"
+                          className="h-auto w-full flex items-center text-sm rounded-lg"
+                          width={112}
+                          height={162}
+                        />
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="max-w-full overflow-hidden">
+                    <div className="h-full w-full text-center">
+                      <a href="#">
+                        <div className="bg-pallete-2/20 rounded-lg relative">
+                        <Image
+                          src={similar}
+                          alt="Picture of the author"
+                          className="h-auto w-full flex items-center text-sm rounded-lg"
+                          width={112}
+                          height={162}
+                        />
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="max-w-full overflow-hidden">
+                    <div className="h-full w-full text-center">
+                      <a href="#">
+                        <div className="bg-pallete-2/20 rounded-lg relative">
+                        <Image
+                          src={similar}
+                          alt="Picture of the author"
+                          className="h-auto w-full flex items-center text-sm rounded-lg"
+                          width={112}
+                          height={162}
+                        />
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
         </main>
       </div>

@@ -20,8 +20,11 @@ import {
   SpeakerXMarkIcon,
 } from "@heroicons/react/24/outline";
 import crown from "../public/crown.png";
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
+  const router = useRouter()
+
   const [timeleft, setTimeLeft] = useState<number | null>(null);
   const [playvideo, setPlayVideo] = useState<boolean>(false);
   const [mutedvideo, setMutedVideo] = useState<boolean>(true);
@@ -113,6 +116,7 @@ export default function Home() {
                   </div>
                 </span>
                 <button
+                onClick={()=>router.push('/video/632/merajut-dendam')}
                   type="button"
                   className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
                 >
@@ -150,6 +154,7 @@ export default function Home() {
                   </div>
                 </span>
                 <button
+                onClick={()=>router.push('/video/632/merajut-dendam')}
                   type="button"
                   className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
                 >
@@ -224,6 +229,7 @@ export default function Home() {
                   </div>
                 </span>
                 <button
+                onClick={()=>router.push('/video/632/merajut-dendam')}
                   type="button"
                   className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
                 >
@@ -238,7 +244,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl py-12">
           <section>
             <h2 className="text-xl text-gray-100 font-semibold mb-4">
-              Lunar Originals
+              Luplay Originals
             </h2>
             <Swiper
               slidesPerView={7}
@@ -308,7 +314,7 @@ export default function Home() {
                 <div className="flex flex-col items-center justify-center h-full text-sm text-gray-300">
                   Lihat semua
                   <div className="text-3xl font-semibold mt-2">
-                    Lunar Originals
+                    Luplay Originals
                   </div>
                 </div>
               </SwiperSlide>

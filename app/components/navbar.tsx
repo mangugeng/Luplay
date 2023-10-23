@@ -14,7 +14,7 @@ import promo from "../../public/discount.svg";
 import Image from "next/image";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
+  { name: "Home", href: "/", current: true },
   { name: "TV Show", href: "#", current: false },
   { name: "Movies", href: "#", current: false },
   { name: "Series", href: "#", current: false },
