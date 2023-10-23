@@ -157,3 +157,11 @@ body::-webkit-scrollbar {
   top: 0;
   width: 50%;
 }
+
+.watch-carousel-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+.watch-carousel-swiper .swiper-slide {
+  background: transparent !important;
+}
