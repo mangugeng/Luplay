@@ -1,8 +1,7 @@
 "use client";
-
-import { useEffect, useRef, useState } from "react";
+import Navbar from "@/app/components/navbar";
 import Image from "next/image";
-import Navbar from "./components/navbar";
+import { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,19 +9,21 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { Pagination, Navigation, EffectFade, Autoplay } from "swiper/modules";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
-import banner1 from "../public/banner-1.webp";
-import banner2 from "../public/banner-2.webp";
-import banner3 from "../public/banner-3.webp";
-import post1 from "../public/post-1.webp";
+import banner1 from "../../../public/banner-1.webp";
+import banner2 from "../../../public/banner-2.webp";
+import banner3 from "../../../public/banner-3.webp";
+import post1 from "../../../public/post-1.webp";
 import {
   ArrowPathIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
 } from "@heroicons/react/24/outline";
-import crown from "../public/crown.png";
+import crown from "../../../public/crown.png";
 import { useRouter } from "next/navigation";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import categories from "../../../public/categories.webp";
+import number from "../../../public/number.svg";
 
 export default function Home() {
   const router = useRouter();
@@ -75,7 +76,6 @@ export default function Home() {
 
     return () => window.removeEventListener("scroll", changeNavbarColor);
   }, []);
-
   return (
     <>
       <header
@@ -259,8 +259,134 @@ export default function Home() {
             <div className="overlay-gradient-video"></div>
           </SwiperSlide>
         </Swiper>
-        <div className="mx-auto max-w-6xl py-12">
-          <section>
+        <div className="mx-auto max-w-6xl mt-6">
+          <section className="mb-6 relative">
+            <ul className="opacity-100 overflow-x-[initial] overflow-hidden whitespace-nowrap -ml-2">
+              <div className="overflow-hidden block relative">
+                <div className="opacity-100 flex justify-center relative before:content-[''] before:table">
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                  <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
+                    <div>
+                      <a href="#">
+                        <div
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          style={{ backgroundImage: `url(${categories.src})` }}
+                        ></div>
+                        <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
+                          Categories
+                        </p>
+                      </a>
+                    </div>
+                  </li>
+                </div>
+              </div>
+            </ul>
+            <div className="relative"></div>
+          </section>
+          <section className="mb-6 relative">
             <h2 className="text-xl text-gray-100 font-semibold mb-4">
               Luplay Originals
             </h2>
@@ -367,6 +493,174 @@ export default function Home() {
                           Luplay Originals
                         </div>
                       </div>
+                    </div>
+                  </a>
+                </SwiperSlide>
+              </Swiper>
+            )}
+          </section>
+          <section className="mb-6 relative">
+            <h2 className="text-xl text-gray-100 font-semibold mb-4">
+              Top 20 Minggu Ini
+            </h2>
+            {toggleskeleton ? (
+              <SkeletonTheme
+                baseColor="#202020"
+                highlightColor="#444"
+                height={232}
+              >
+                <Skeleton></Skeleton>
+              </SkeletonTheme>
+            ) : (
+              <Swiper
+                slidesPerView={7}
+                spaceBetween={20}
+                centeredSlides={false}
+                navigation={true}
+                modules={[Navigation]}
+                className={`top-carousel-swiper bg-black h-[232px]`}
+              >
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-6">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
+                    </div>
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide className="rounded-md shadow-md !flex items-center pl-4">
+                  <div className="self-end flex text-white text-6xl font-black ">
+                    <Image
+                      src={number}
+                      className="w-12 h-12 top-number"
+                      alt="Picture of the author"
+                    />
+                  </div>
+                  <a href="" className="group">
+                    <div className="relative">
+                      <Image
+                        src={post1}
+                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                        alt="Picture of the author"
+                      />
                     </div>
                   </a>
                 </SwiperSlide>

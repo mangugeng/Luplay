@@ -12,18 +12,19 @@ import {
 } from "@heroicons/react/24/outline";
 import promo from "../../public/discount.svg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "TV Show", href: "#", current: false },
-  { name: "Movies", href: "#", current: false },
-  { name: "Series", href: "#", current: false },
+  { name: "TV Show", href: "/categories/1-dummy-video", current: false },
+  { name: "Movies", href: "/categories/1-dummy-video", current: false },
+  { name: "Series", href: "/categories/1-dummy-video", current: false },
 ];
 
 const more = [
-  { href: "#", label: "Kids" },
-  { href: "#", label: "Premier" },
-  { href: "#", label: "Entertainment" },
+  { href: "/categories/1-dummy-video", label: "Kids" },
+  { href: "/categories/1-dummy-video", label: "Premier" },
+  { href: "/categories/1-dummy-video", label: "Entertainment" },
 ];
 
 const search = [
@@ -38,6 +39,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+  const router = useRouter();
+
   const [selectedsearch, setSelectedSearch] = useState(search[0]);
   const [query, setQuery] = useState("");
 
@@ -51,9 +54,7 @@ export default function Navbar() {
         });
 
   return (
-    <Disclosure
-      as="nav"
-    >
+    <Disclosure as="nav">
       {({ open }) => (
         <>
           <div className="px-2 sm:px-6 lg:px-8">
@@ -232,6 +233,7 @@ export default function Navbar() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => router.push("/users/login")}
                   className="text-sm font-medium rounded-md py-2 px-4 bg-white shadow-lg text-gray-600 hover:text-gray-900"
                 >
                   Masuk

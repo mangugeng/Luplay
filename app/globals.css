@@ -15,8 +15,23 @@ body::-webkit-scrollbar {
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.inner-shadow-header {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.55)),
+    to(transparent)
+  );
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.55), transparent);
+  background: linear-gradient(rgba(0, 0, 0, 0.55), transparent);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 56px;
 }
 
 .main-carousel-swiper.swiper {
@@ -36,11 +51,18 @@ body::-webkit-scrollbar {
   height: auto !important;
 }
 
-.swiper-slide img {
+.swiper-slide img:not(.top-number) {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.top-carousel-swiper .swiper-slide img:not(.top-number) {
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  object-fit: unset;
 }
 
 .main-carousel-swiper .swiper-button-prev {
@@ -167,7 +189,8 @@ body::-webkit-scrollbar {
   width: 50%;
 }
 
-.watch-carousel-swiper .swiper-wrapper {
+.watch-carousel-swiper .swiper-wrapper,
+.top-carousel-swiper .swiper-wrapper {
   align-items: center;
 }
 
