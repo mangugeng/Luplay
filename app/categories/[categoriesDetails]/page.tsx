@@ -387,7 +387,7 @@ export default function Home() {
             <div className="relative"></div>
           </section>
           <section className="mb-6 relative">
-            <h2 className="text-xl text-gray-100 font-semibold mb-4">
+            <h2 className="text-xl text-gray-100 font-semibold">
               Luplay Originals
             </h2>
             {toggleskeleton ? (
@@ -500,7 +500,7 @@ export default function Home() {
             )}
           </section>
           <section className="mb-6 relative">
-            <h2 className="text-xl text-gray-100 font-semibold mb-4">
+            <h2 className="text-xl text-gray-100 font-semibold">
               Top 20 Minggu Ini
             </h2>
             {toggleskeleton ? (

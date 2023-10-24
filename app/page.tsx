@@ -16,6 +16,7 @@ import banner3 from "../public/banner-3.webp";
 import post1 from "../public/post-1.webp";
 import {
   ArrowPathIcon,
+  ChevronRightIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -261,9 +262,12 @@ export default function Home() {
         </Swiper>
         <div className="mx-auto max-w-6xl py-12">
           <section>
-            <h2 className="text-xl text-gray-100 font-semibold mb-4">
+            <div className="flex justify-between mb-3 items-center">
+            <h2 className="text-xl text-gray-100 font-semibold">
               Luplay Originals
             </h2>
+            <span><a href="#"><ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon></a></span>
+            </div>
             {toggleskeleton ? (
               <SkeletonTheme
                 baseColor="#202020"
