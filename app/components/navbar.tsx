@@ -1,7 +1,13 @@
 "use client";
 
 import { Fragment, useEffect, useRef, useState } from "react";
-import { Disclosure, Menu, Transition, Combobox } from "@headlessui/react";
+import {
+  Disclosure,
+  Menu,
+  Transition,
+  Combobox,
+  Dialog,
+} from "@headlessui/react";
 import {
   ArrowTrendingUpIcon,
   Bars3Icon,
@@ -9,6 +15,9 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
   XMarkIcon,
+  EllipsisHorizontalIcon,
+  ChevronRightIcon,
+  ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
 import promo from "../../public/discount.svg";
 import Image from "next/image";
@@ -43,6 +52,7 @@ export default function Navbar() {
 
   const [selectedsearch, setSelectedSearch] = useState(search[0]);
   const [query, setQuery] = useState("");
+  const [openmodalsearch, setOpenModalSearch] = useState(false);
 
   const comboBtn = useRef<HTMLButtonElement>(null);
 
@@ -57,7 +67,7 @@ export default function Navbar() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="px-2 sm:px-6 lg:px-8">
+          <div className="px-2 sm:px-6 lg:px-8 3xl:max-w-7xl mx-auto">
             <div className="relative flex h-12 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -149,7 +159,7 @@ export default function Navbar() {
               <div className="absolute inset-y-0 right-0 flex gap-x-4 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Combobox
                   as="div"
-                  className="relative"
+                  className="relative hidden xl:block"
                   value={selectedsearch}
                   onChange={setSelectedSearch}
                 >
@@ -164,7 +174,7 @@ export default function Navbar() {
                           onChange={(event) => setQuery(event.target.value)}
                           onClick={() => comboBtn.current?.click()}
                           placeholder="Cari"
-                          className="relative text-sm rounded-md focus:outline-none border-none focus:ring-0 py-0 pr-8 h-8 bg-gray-600/50 text-white placeholder:text-white"
+                          className="relative text-sm rounded-md focus:outline-none border-none focus:ring-0 py-0 pr-8 h-8 bg-gray-600/50 text-white placeholder:text-white/50"
                         />
                         <MagnifyingGlassIcon className="absolute right-2 top-1 w-6 h-6 text-white"></MagnifyingGlassIcon>
                       </div>
@@ -218,7 +228,7 @@ export default function Navbar() {
 
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hidden xl:block"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -304,6 +314,80 @@ export default function Navbar() {
                     </Menu.Items>
                   </Transition>
                 </Menu> */}
+                <Menu as="div" className="relative">
+                  {({ open }) => (
+                    <>
+                      <Menu.Button
+                        className={
+                          "flex items-center gap-x-1 px-2 text-sm font-medium text-gray-300 hover:text-white"
+                        }
+                      >
+                        <EllipsisHorizontalIcon className="h-6 w-6"></EllipsisHorizontalIcon>
+                      </Menu.Button>
+                      <Transition
+                        as={Fragment}
+                        show={open}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                        <Menu.Items
+                          as="ul"
+                          className="absolute z-10 mt-4 w-64 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none right-0"
+                        >
+                          <Menu.Item as="li" className='block xl:hidden'>
+                            <div className="p-2">
+                              <input
+                                placeholder="Cari"
+                                className="relative text-sm rounded-md focus:outline-none border-none focus:ring-0 py-0 pr-8 h-8 bg-gray-600/50 text-white placeholder:text-white"
+                                onClick={() => setOpenModalSearch(true)}
+                              />
+                              <MagnifyingGlassIcon className="absolute right-4 top-4 w-6 h-6 text-white"></MagnifyingGlassIcon>
+                            </div>
+                          </Menu.Item>
+                          <Menu.Item as={"li"} className='block xl:hidden'>
+                            <a
+                              href="#"
+                              className="flex justify-between text-gray-600 hover:text-blue-700 p-2 text-sm font-medium hover:bg-blue-100"
+                            >
+                              Notifikasi{" "}
+                            </a>
+                          </Menu.Item>
+                          <Menu.Item as={"li"}>
+                            <a
+                              href="#"
+                              className="flex justify-between text-gray-600 hover:text-blue-700 p-2 text-sm font-medium hover:bg-blue-100"
+                            >
+                              Bantuan dan Lainnya{" "}
+                              <ChevronRightIcon className="h-4 w-4"></ChevronRightIcon>
+                            </a>
+                          </Menu.Item>
+                          <Menu.Item as={"li"}>
+                            <a
+                              href="#"
+                              className="flex justify-between text-gray-600 hover:text-blue-700 p-2 text-sm font-medium hover:bg-blue-100"
+                            >
+                              Blog{" "}
+                            </a>
+                          </Menu.Item>
+                          <Menu.Item as={"li"}>
+                            <hr className="my-2 mx-3 border-b border-solid border-gray-300"></hr>
+                          </Menu.Item>
+                          <Menu.Item>
+                            <div className="text-gray-400 text-[10px] font-normal p-2">
+                              Hak Cipta ©2023 LunarPlay.com
+                              <br></br>
+                              PT Lunar Film. Hak cipta dilindungi Undang-undang.
+                            </div>
+                          </Menu.Item>
+                        </Menu.Items>
+                      </Transition>
+                    </>
+                  )}
+                </Menu>
               </div>
             </div>
           </div>
@@ -328,6 +412,123 @@ export default function Navbar() {
               ))}
             </div>
           </Disclosure.Panel>
+
+          <Transition appear show={openmodalsearch} as={Fragment}>
+            <Dialog
+              as="div"
+              className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/80"
+              onClose={() => setOpenModalSearch(false)}
+            >
+              <div className="min-h-screen px-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Dialog.Overlay className="fixed inset-0" />
+                </Transition.Child>
+
+                {/* This element is to trick the browser into centering the modal contents. */}
+                <span
+                  className="inline-block h-screen align-middle"
+                  aria-hidden="true"
+                >
+                  &#8203;
+                </span>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-pallete-5/90 shadow-xl rounded-md">
+                    <section className="flex gap-x-4 items-center">
+                      <button
+                        type="button"
+                        onClick={() => setOpenModalSearch(false)}
+                        className="text-gray-300 hover:text-gray-100"
+                      >
+                        <ArrowLeftIcon className="h-8 w-8"></ArrowLeftIcon>
+                      </button>
+                      <div className="p-2 relative w-full">
+                        <input
+                          placeholder="Cari"
+                          className="relative text-sm rounded-md focus:outline-none border-none focus:ring-0 py-0 pr-8 bg-gray-600/50 text-white placeholder:text-white/50 w-full h-12"
+                        />
+                        <MagnifyingGlassIcon className="absolute right-4 top-5 w-6 h-6 text-white"></MagnifyingGlassIcon>
+                      </div>
+                    </section>
+                    <section>
+                      <h2 className="text-sm text-gray-100 font-semibold my-3">
+                        Pencarian Populer
+                      </h2>
+                      <ul>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                bidadari surgamu
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                takdir cinta yang kupilih
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                magic 5
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                pintu berkah
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </section>
+                  </div>
+                </Transition.Child>
+              </div>
+            </Dialog>
+          </Transition>
         </>
       )}
     </Disclosure>

@@ -7,6 +7,14 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1920px",
+    },
     extend: {
       colors: {
         "pallete-1": "#cbccce",
@@ -17,13 +25,11 @@ const config: Config = {
       },
     },
     backgroundImage: {
-      'play-episode': "url('../public/play-button.svg')",
-      'google' : "url('../public/google.svg')",
-      'facebook' : "url('../public/facebook.svg')"
-    }
+      "play-episode": "url('../public/play-button.svg')",
+      google: "url('../public/google.svg')",
+      facebook: "url('../public/facebook.svg')",
+    },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require("@tailwindcss/forms")],
 };
 export default config;

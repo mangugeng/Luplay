@@ -105,7 +105,7 @@ export default function Home() {
             swiper.realIndex == 2 ? setTimeLeft(2) : setPlayVideo(false)
           }
           effect="fade"
-          className="main-carousel-swiper"
+          className="main-carousel-swiper 3xl:h-[52rem]"
         >
           <SwiperSlide>
             <div className="h-full">
@@ -117,7 +117,7 @@ export default function Home() {
               />
             </div>
             <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
-              <div className="inline-block h-auto left-[5px] absolute text-left top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
+              <div className="inline-block h-auto lg:left-40 xl:left-[5px] absolute text-left lg:top-[50%] xl:top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
                 <h3 className="text-4xl text-white font-bold text-left">
                   Dia Yang Kau Pilih
                 </h3>
@@ -137,7 +137,7 @@ export default function Home() {
                 <button
                   onClick={() => router.push("/video/632/merajut-dendam")}
                   type="button"
-                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
                   <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
                   Sekarang
@@ -155,7 +155,7 @@ export default function Home() {
               />
             </div>
             <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
-              <div className="inline-block h-auto left-[5px] absolute text-left top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
+              <div className="inline-block h-auto lg:left-40 xl:left-[5px] absolute text-left lg:top-[50%] xl:top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
                 <h3 className="text-4xl text-white font-bold text-left">
                   Cinta Setelah Cinta
                 </h3>
@@ -175,7 +175,7 @@ export default function Home() {
                 <button
                   onClick={() => router.push("/video/632/merajut-dendam")}
                   type="button"
-                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
                   <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
                   Sekarang
@@ -229,7 +229,7 @@ export default function Home() {
               </>
             )}
             <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
-              <div className="inline-block h-auto left-[5px] absolute text-left top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
+              <div className="inline-block h-auto lg:left-40 xl:left-[5px] absolute text-left lg:top-[50%] xl:top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
                 <h3 className="text-4xl text-white font-bold text-left">
                   Merajut Dendam
                 </h3>
@@ -250,7 +250,7 @@ export default function Home() {
                 <button
                   onClick={() => router.push("/video/632/merajut-dendam")}
                   type="button"
-                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
                   <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
                   Sekarang
@@ -260,13 +260,17 @@ export default function Home() {
             <div className="overlay-gradient-video"></div>
           </SwiperSlide>
         </Swiper>
-        <div className="mx-auto max-w-6xl py-12">
+        <div className="mx-auto lg:max-w-4xl xl:max-w-6xl py-12">
           <section>
             <div className="flex justify-between mb-3 items-center">
-            <h2 className="text-xl text-gray-100 font-semibold">
-              Luplay Originals
-            </h2>
-            <span><a href="#"><ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon></a></span>
+              <h2 className="text-xl text-gray-100 font-semibold">
+                Luplay Originals
+              </h2>
+              <span>
+                <a href="#">
+                  <ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon>
+                </a>
+              </span>
             </div>
             {toggleskeleton ? (
               <SkeletonTheme
@@ -280,6 +284,24 @@ export default function Home() {
               <Swiper
                 slidesPerView={7}
                 spaceBetween={10}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 5,
+                    spaceBetween: 10,
+                  },
+                  1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 10,
+                  },
+                  1280: {
+                    slidesPerView: 7,
+                    spaceBetween: 10,
+                  }
+                }}
                 centeredSlides={false}
                 navigation={true}
                 modules={[Navigation]}

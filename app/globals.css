@@ -96,6 +96,10 @@ body::-webkit-scrollbar {
   font-weight: 700 !important;
 }
 
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+  display:none;   
+}
+
 .overlay-gradient-video {
   background: -webkit-linear-gradient(left, rgba(14, 26, 32, 0) 100%, #0e1820 0),
     -webkit-linear-gradient(181.57deg, rgba(14, 24, 32, 0) 11.7%, #0e1820 62.24%, #0e1820
@@ -196,4 +200,22 @@ body::-webkit-scrollbar {
 
 .watch-carousel-swiper .swiper-slide {
   background: transparent !important;
+}
+
+.sections-overlay-background {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#15235c),
+    to(#0c143b)
+  );
+  background-image: -webkit-linear-gradient(top, #15235c, #0c143b);
+  background-image: linear-gradient(180deg, #15235c, #0c143b);
+  height: 250px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }

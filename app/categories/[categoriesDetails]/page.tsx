@@ -15,6 +15,7 @@ import banner3 from "../../../public/banner-3.webp";
 import post1 from "../../../public/post-1.webp";
 import {
   ArrowPathIcon,
+  ChevronRightIcon,
   SpeakerWaveIcon,
   SpeakerXMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -136,7 +137,7 @@ export default function Home() {
                 <button
                   onClick={() => router.push("/video/632/merajut-dendam")}
                   type="button"
-                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
                   <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
                   Sekarang
@@ -174,7 +175,7 @@ export default function Home() {
                 <button
                   onClick={() => router.push("/video/632/merajut-dendam")}
                   type="button"
-                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
                   <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
                   Sekarang
@@ -249,7 +250,7 @@ export default function Home() {
                 <button
                   onClick={() => router.push("/video/632/merajut-dendam")}
                   type="button"
-                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold"
+                  className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
                   <PlayCircleIcon className="w-4 h-4"></PlayCircleIcon>Cek
                   Sekarang
@@ -266,9 +267,9 @@ export default function Home() {
                 <div className="opacity-100 flex justify-center relative before:content-[''] before:table">
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -279,9 +280,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -292,9 +293,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -305,9 +306,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -318,9 +319,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -331,9 +332,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -344,9 +345,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -357,9 +358,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -370,9 +371,9 @@ export default function Home() {
                   </li>
                   <li className="w-[121px] block p-2 align-top float-left h-full min-h-[1px]">
                     <div>
-                      <a href="#">
+                      <a href="#" className="group">
                         <div
-                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full"
+                          className="bg-[50%] bg-no-repeat bg-cover shadow-md pb-[100%] w-full rounded-full group-hover:scale-110 transition-all duration-200 ease-linear"
                           style={{ backgroundImage: `url(${categories.src})` }}
                         ></div>
                         <p className="line-clamp-2 text-gray-100 block text-sm mt-2 max-h-[36.4px] text-center text-ellipsis whitespace-[inherit] font-normal">
@@ -387,9 +388,16 @@ export default function Home() {
             <div className="relative"></div>
           </section>
           <section className="mb-6 relative">
-            <h2 className="text-xl text-gray-100 font-semibold">
-              Luplay Originals
-            </h2>
+            <div className="flex justify-between mb-3 items-center">
+              <h2 className="text-xl text-gray-100 font-semibold">
+                Luplay Originals
+              </h2>
+              <span>
+                <a href="#">
+                  <ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon>
+                </a>
+              </span>
+            </div>
             {toggleskeleton ? (
               <SkeletonTheme
                 baseColor="#202020"
@@ -500,7 +508,7 @@ export default function Home() {
             )}
           </section>
           <section className="mb-6 relative">
-            <h2 className="text-xl text-gray-100 font-semibold">
+            <h2 className="text-xl text-gray-100 font-semibold mb-3">
               Top 20 Minggu Ini
             </h2>
             {toggleskeleton ? (
