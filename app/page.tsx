@@ -109,7 +109,7 @@ export default function Home() {
         <Navbar></Navbar>
       </header>
       {devicemobile ? <NavbarBottomMobiel></NavbarBottomMobiel> : <></>}
-      <div className="curtain">
+      <div className={pageloaded? 'curtain':'curtain h-screen'}>
         <div className="curtain__wrapper" id="curtain-wrappper">
           <input
             type="checkbox"
@@ -124,7 +124,7 @@ export default function Home() {
             {pageloaded ? (
               <main>
                 {devicemobile ? (
-                  <section className="mb-6 mt-24">
+                  <section className="mb-6 mt-24 ">
                     <Swiper
                       slidesPerView={1.1}
                       spaceBetween={10}
