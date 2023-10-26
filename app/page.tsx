@@ -28,6 +28,140 @@ import NavbarBottomMobiel from "./components/navbar-bottom-mobile";
 import bannermobile1 from "../public/banner-mobile-1.webp";
 import bannermobile2 from "../public/banner-mobile-2.webp";
 import bannermobile3 from "../public/banner-mobile-3.webp";
+import handleViewport, { type InjectedViewportProps } from "react-in-viewport";
+
+const Block = (props: InjectedViewportProps<HTMLDivElement>) => {
+  const { inViewport, forwardedRef } = props;
+  const animate = inViewport ? "inviewport" : "outviewport";
+  return (
+    <section className="mt-6 lg:mt-0 viewport-block" ref={forwardedRef}>
+      <div className="flex justify-between mb-3 items-center">
+        <h2 className="text-xl text-gray-100 font-semibold">Originals</h2>
+        <span>
+          <a href="#">
+            <ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon>
+          </a>
+        </span>
+      </div>
+      <Swiper
+        breakpoints={{
+          0: {
+            slidesPerView: 3.7,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 4.7,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 6.7,
+            spaceBetween: 10,
+          },
+          1280: {
+            slidesPerView: 7,
+            spaceBetween: 10,
+          },
+        }}
+        centeredSlides={false}
+        navigation={true}
+        modules={[Navigation]}
+        className={`home-carousel-swiper`}
+      >
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative">
+              <Image
+                src={post1}
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                alt="Picture of the author"
+              />
+            </div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
+          <a href="" className="group">
+            <div className="relative contents">
+              <div className="flex flex-col items-center justify-center h-full text-sm text-gray-300 group-hover:underline">
+                Lihat semua
+                <div className="text-xl md:text-2xl lg:text-3xl font-semibold mt-2">
+                  Luplay Originals
+                </div>
+              </div>
+            </div>
+          </a>
+        </SwiperSlide>
+      </Swiper>
+    </section>
+  );
+};
+
+const ViewportBlock = handleViewport(Block /** options: {}, config: {} **/);
 
 export default function Home() {
   const router = useRouter();
@@ -109,7 +243,7 @@ export default function Home() {
         <Navbar></Navbar>
       </header>
       {devicemobile ? <NavbarBottomMobiel></NavbarBottomMobiel> : <></>}
-      <div className={pageloaded? 'curtain':'curtain h-screen'}>
+      <div className={pageloaded ? "curtain" : "curtain h-screen"}>
         <div className="curtain__wrapper" id="curtain-wrappper">
           <input
             type="checkbox"
@@ -501,6 +635,10 @@ export default function Home() {
                       </Swiper>
                     )}
                   </section>
+                  <ViewportBlock
+          onEnterViewport={() => console.log("enter")}
+          onLeaveViewport={() => console.log("leave")}
+        />
                 </div>
               </main>
             ) : (
