@@ -10,11 +10,9 @@ import {
 } from "@headlessui/react";
 import {
   ArrowTrendingUpIcon,
-  Bars3Icon,
   BellIcon,
   ChevronDownIcon,
   MagnifyingGlassIcon,
-  XMarkIcon,
   EllipsisHorizontalIcon,
   ChevronRightIcon,
   ArrowLeftIcon,
@@ -53,6 +51,7 @@ export default function Navbar() {
   const [selectedsearch, setSelectedSearch] = useState(search[0]);
   const [query, setQuery] = useState("");
   const [openmodalsearch, setOpenModalSearch] = useState(false);
+  const [openmodalsearchmobile, setOpenModalSearchMobile] = useState(false);
 
   const comboBtn = useRef<HTMLButtonElement>(null);
 
@@ -69,19 +68,7 @@ export default function Navbar() {
         <>
           <div className="px-2 sm:px-6 lg:px-8 3xl:max-w-7xl mx-auto">
             <div className="relative flex h-12 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center lg:items-stretch justify-between lg:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
@@ -89,7 +76,12 @@ export default function Navbar() {
                     alt="Your Company"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:flex">
+                <div className="block lg:hidden">
+                  <button type="button" onClick={()=>setOpenModalSearchMobile(true)}>
+                    <MagnifyingGlassIcon className="w-6 h6 text-gray-100"></MagnifyingGlassIcon>
+                  </button>
+                </div>
+                <div className="hidden lg:ml-6 lg:flex">
                   <div className="flex space-x-4 items-center">
                     {navigation.map((item) => (
                       <a
@@ -156,7 +148,7 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex gap-x-4 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex gap-x-4 items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0">
                 <Combobox
                   as="div"
                   className="relative hidden xl:block"
@@ -237,14 +229,14 @@ export default function Navbar() {
 
                 <button
                   type="button"
-                  className="text-sm font-medium rounded-md py-2 px-4 bg-pallete-4 text-gray-300 hover:text-white shadow-lg"
+                  className="text-sm font-medium rounded-md py-2 px-4 bg-pallete-4 text-gray-300 hover:text-white shadow-lg hidden lg:block"
                 >
                   Langganan
                 </button>
                 <button
                   type="button"
                   onClick={() => router.push("/users/login")}
-                  className="text-sm font-medium rounded-md py-2 px-4 bg-white shadow-lg text-gray-600 hover:text-gray-900"
+                  className="text-sm font-medium rounded-md py-2 px-4 bg-white shadow-lg text-gray-600 hover:text-gray-900 hidden lg:block"
                 >
                   Masuk
                 </button>
@@ -314,7 +306,7 @@ export default function Navbar() {
                     </Menu.Items>
                   </Transition>
                 </Menu> */}
-                <Menu as="div" className="relative">
+                <Menu as="div" className="relative hidden lg:block">
                   {({ open }) => (
                     <>
                       <Menu.Button
@@ -338,7 +330,7 @@ export default function Navbar() {
                           as="ul"
                           className="absolute z-10 mt-4 w-64 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none right-0"
                         >
-                          <Menu.Item as="li" className='block xl:hidden'>
+                          <Menu.Item as="li" className="block xl:hidden">
                             <div className="p-2">
                               <input
                                 placeholder="Cari"
@@ -348,7 +340,7 @@ export default function Navbar() {
                               <MagnifyingGlassIcon className="absolute right-4 top-4 w-6 h-6 text-white"></MagnifyingGlassIcon>
                             </div>
                           </Menu.Item>
-                          <Menu.Item as={"li"} className='block xl:hidden'>
+                          <Menu.Item as={"li"} className="block xl:hidden">
                             <a
                               href="#"
                               className="flex justify-between text-gray-600 hover:text-blue-700 p-2 text-sm font-medium hover:bg-blue-100"
@@ -390,28 +382,36 @@ export default function Navbar() {
                 </Menu>
               </div>
             </div>
-          </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "text-white"
-                      : "text-gray-300 hover:text-white",
-                    "block px-2 text-sm font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
+            <div className="flex gap-x-2 lg:hidden py-[6px]">
+              <a
+                href="#"
+                className="bg-pallete-1 shadow-md text-gray-900 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+              >
+                Home
+              </a>
+              <a
+                href="#"
+                className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+              >
+                TV Show
+              </a>
+              <a
+                href="#"
+                className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+              >
+                Movies
+              </a>
+              <a
+                href="#"
+                className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+              >
+                Series
+              </a>
+              <button className="bg-pallete-4 shadow-md items-center gap-x-1 text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3">
+                Lainnya <ChevronDownIcon className="h-4 w-4"></ChevronDownIcon>
+              </button>
             </div>
-          </Disclosure.Panel>
+          </div>
 
           <Transition appear show={openmodalsearch} as={Fragment}>
             <Dialog
@@ -456,6 +456,122 @@ export default function Navbar() {
                         className="text-gray-300 hover:text-gray-100"
                       >
                         <ArrowLeftIcon className="h-8 w-8"></ArrowLeftIcon>
+                      </button>
+                      <div className="p-2 relative w-full">
+                        <input
+                          placeholder="Cari"
+                          className="relative text-sm rounded-md focus:outline-none border-none focus:ring-0 py-0 pr-8 bg-gray-600/50 text-white placeholder:text-white/50 w-full h-12"
+                        />
+                        <MagnifyingGlassIcon className="absolute right-4 top-5 w-6 h-6 text-white"></MagnifyingGlassIcon>
+                      </div>
+                    </section>
+                    <section>
+                      <h2 className="text-sm text-gray-100 font-semibold my-3">
+                        Pencarian Populer
+                      </h2>
+                      <ul>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                bidadari surgamu
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                takdir cinta yang kupilih
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                magic 5
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center hover:bg-pallete-1/20"
+                            >
+                              <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                pintu berkah
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </section>
+                  </div>
+                </Transition.Child>
+              </div>
+            </Dialog>
+          </Transition>
+          <Transition appear show={openmodalsearchmobile} as={Fragment}>
+            <Dialog
+              as="div"
+              className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/80"
+              onClose={() => setOpenModalSearchMobile(false)}
+            >
+              <div className="min-h-screen text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Dialog.Overlay className="fixed inset-0" />
+                </Transition.Child>
+
+                {/* This element is to trick the browser into centering the modal contents. */}
+                <span
+                  className="inline-block h-screen align-middle"
+                  aria-hidden="true"
+                >
+                  &#8203;
+                </span>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <div className="inline-block w-full h-screen max-w-full min-h-full p-6 overflow-hidden text-left align-middle transition-all transform bg-pallete-5">
+                    <section className="flex gap-x-4 items-center">
+                      <button
+                        type="button"
+                        onClick={() => setOpenModalSearchMobile(false)}
+                        className="text-gray-300 hover:text-gray-100"
+                      >
+                        <ArrowLeftIcon className="h-6 w-6"></ArrowLeftIcon>
                       </button>
                       <div className="p-2 relative w-full">
                         <input
