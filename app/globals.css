@@ -61,6 +61,11 @@ body::-webkit-scrollbar {
   height: auto !important;
 }
 
+.mobile-categories-swiper .swiper-slide {
+  background: none;
+  width: auto !important;
+}
+
 .swiper-slide img:not(.top-number) {
   display: block;
   width: 100%;
@@ -249,4 +254,97 @@ body::-webkit-scrollbar {
   top: 0;
   width: 100%;
   z-index: -1;
+}
+
+.curtain {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.curtain__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.curtain__wrapper input[type="checkbox"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.curtain__wrapper input[type="checkbox"]:checked ~ div.curtain__panel--left {
+  transform: translateX(0);
+}
+
+.curtain__wrapper input[type="checkbox"]:checked ~ div.curtain__panel--right {
+  transform: translateX(0);
+}
+
+.curtain__panel {
+  display: flex;
+  align-items: center;
+  background: #0c143b;
+  color: #fff;
+  float: left;
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  transition: all 1s ease-out;
+  z-index: 2;
+}
+
+.curtain__wrapper input[type="checkbox"]:not(:checked) ~ .curtain__panel--left {
+  justify-content: flex-end;
+  transform: translateX(-100%);
+  background: rgb(12, 20, 59);
+  background: linear-gradient(
+    90deg,
+    rgba(12, 20, 59, 1) 0%,
+    rgba(12, 20, 59, 0.9023984593837535) 50%,
+    rgba(12, 20, 59, 0) 100%
+  );
+  animation: fadeIn ease-out 100s;
+}
+.curtain__wrapper
+  input[type="checkbox"]:not(:checked)
+  ~ .curtain__panel--right {
+  justify-content: flex-start;
+  transform: translateX(100%);
+  background: rgb(12, 20, 59);
+  background: linear-gradient(
+    270deg,
+    rgba(12, 20, 59, 1) 0%,
+    rgba(12, 20, 59, 0.9023984593837535) 50%,
+    rgba(12, 20, 59, 0) 100%
+  );
+  animation: fadeIn ease-out 100s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0;
+  }
+}
+
+.curtain__content {
+  height: 100vh;
+  position: absolute;
+  width: 100%;
 }

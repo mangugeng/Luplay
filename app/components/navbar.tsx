@@ -20,6 +20,9 @@ import {
 import promo from "../../public/discount.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import crown from "../../public/crown.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -52,6 +55,7 @@ export default function Navbar() {
   const [query, setQuery] = useState("");
   const [openmodalsearch, setOpenModalSearch] = useState(false);
   const [openmodalsearchmobile, setOpenModalSearchMobile] = useState(false);
+  const [openmodalother, setOpenModalOther] = useState(false);
 
   const comboBtn = useRef<HTMLButtonElement>(null);
 
@@ -76,8 +80,18 @@ export default function Navbar() {
                     alt="Your Company"
                   />
                 </div>
-                <div className="block lg:hidden">
-                  <button type="button" onClick={()=>setOpenModalSearchMobile(true)}>
+                <div className="flex items-center gap-x-4 lg:hidden">
+                  <button className="flex flex-row items-center gap-x-2 text-sm text-yellow-700 font-bold border border-yellow-700 rounded-md px-2 p-1">
+                    <div
+                      className="bg-[50%] bg-no-repeat bg-[length:24px_24px] inline-block h-4 w-4 relative"
+                      style={{ backgroundImage: `url(${crown.src})` }}
+                    ></div>
+                    Langganan
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setOpenModalSearchMobile(true)}
+                  >
                     <MagnifyingGlassIcon className="w-6 h6 text-gray-100"></MagnifyingGlassIcon>
                   </button>
                 </div>
@@ -382,34 +396,55 @@ export default function Navbar() {
                 </Menu>
               </div>
             </div>
-            <div className="flex gap-x-2 lg:hidden py-[6px]">
-              <a
-                href="#"
-                className="bg-pallete-1 shadow-md text-gray-900 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+            <div className="lg:hidden overflow-hidden py-[6px] no-scrollbar">
+              <Swiper
+                slidesPerView={4.7}
+                spaceBetween={10}
+                className="mobile-categories-swiper"
               >
-                Home
-              </a>
-              <a
-                href="#"
-                className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-              >
-                TV Show
-              </a>
-              <a
-                href="#"
-                className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-              >
-                Movies
-              </a>
-              <a
-                href="#"
-                className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-              >
-                Series
-              </a>
-              <button className="bg-pallete-4 shadow-md items-center gap-x-1 text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3">
-                Lainnya <ChevronDownIcon className="h-4 w-4"></ChevronDownIcon>
-              </button>
+                <SwiperSlide>
+                  <a
+                    href="#"
+                    className="bg-pallete-1 shadow-md text-gray-900 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                  >
+                    Home
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <a
+                    href="#"
+                    className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                  >
+                    TV Show
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <a
+                    href="#"
+                    className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                  >
+                    Movies
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <a
+                    href="#"
+                    className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                  >
+                    Series
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button
+                    type="button"
+                    onClick={() => setOpenModalOther(true)}
+                    className="bg-pallete-4 shadow-md items-center gap-x-1 text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                  >
+                    Lainnya{" "}
+                    <ChevronDownIcon className="h-4 w-4"></ChevronDownIcon>
+                  </button>
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
 
@@ -634,6 +669,99 @@ export default function Navbar() {
                               <ArrowTrendingUpIcon className="w-6 h-6 flex-shrink-0 mr-6 text-gray-100"></ArrowTrendingUpIcon>
                               <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
                                 pintu berkah
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+                    </section>
+                  </div>
+                </Transition.Child>
+              </div>
+            </Dialog>
+          </Transition>
+          <Transition appear show={openmodalother} as={Fragment}>
+            <Dialog
+              as="div"
+              className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/80"
+              onClose={() => setOpenModalOther(false)}
+            >
+              <div className="min-h-screen text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Dialog.Overlay className="fixed inset-0" />
+                </Transition.Child>
+
+                {/* This element is to trick the browser into centering the modal contents. */}
+                <span
+                  className="inline-block h-screen align-middle"
+                  aria-hidden="true"
+                >
+                  &#8203;
+                </span>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <div className="inline-block w-full h-screen max-w-full min-h-full p-6 overflow-hidden text-left align-middle transition-all transform bg-pallete-5/70">
+                    <section className="flex gap-x-4 items-center">
+                      <button
+                        type="button"
+                        onClick={() => setOpenModalOther(false)}
+                        className="text-gray-300 hover:text-gray-100"
+                      >
+                        <ArrowLeftIcon className="h-6 w-6"></ArrowLeftIcon>
+                      </button>
+                    </section>
+                    <section>
+                      <h2 className="text-xl text-center text-gray-100 font-semibold my-3">
+                        Kategori Lainnya
+                      </h2>
+                      <ul>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center justify-center hover:bg-pallete-1/20"
+                            >
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                Kids
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center justify-center hover:bg-pallete-1/20"
+                            >
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                Premier
+                              </span>
+                            </a>
+                          </div>
+                        </li>
+                        <li className="border-b border-solid border-gray-700 ">
+                          <div className="flex flex-row items-center">
+                            <a
+                              href="#"
+                              className="w-full overflow-hidden py-3 pl-4 flex flex-row items-center justify-center hover:bg-pallete-1/20"
+                            >
+                              <span className="text-gray-100 overflow-hidden text-ellipsis whitespace-nowrap">
+                                Entertainment
                               </span>
                             </a>
                           </div>
