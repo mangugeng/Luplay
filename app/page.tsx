@@ -30,7 +30,7 @@ import bannermobile2 from "../public/banner-mobile-2.webp";
 import bannermobile3 from "../public/banner-mobile-3.webp";
 import handleViewport, { type InjectedViewportProps } from "react-in-viewport";
 
-const Block = (props: InjectedViewportProps<HTMLDivElement>) => {
+const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
   const { inViewport, forwardedRef } = props;
   const animate = inViewport ? "inviewport" : "outviewport";
   return (
@@ -161,7 +161,7 @@ const Block = (props: InjectedViewportProps<HTMLDivElement>) => {
   );
 };
 
-const ViewportBlock = handleViewport(Block /** options: {}, config: {} **/);
+const ViewLunarPlay = handleViewport(LunarPlay /** options: {}, config: {} **/);
 
 export default function Home() {
   const router = useRouter();
@@ -365,8 +365,8 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() =>
-                              router.push("/video/632/merajut-dendam")
+                            onClick={() =>{
+                              router.push("/video/632/merajut-dendam");setPageLoaded(false)}
                             }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
@@ -406,7 +406,8 @@ export default function Home() {
                           </span>
                           <button
                             onClick={() =>
-                              router.push("/video/632/merajut-dendam")
+                              {
+                                router.push("/video/632/merajut-dendam");setPageLoaded(false)}
                             }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
@@ -484,7 +485,8 @@ export default function Home() {
                           </span>
                           <button
                             onClick={() =>
-                              router.push("/video/632/merajut-dendam")
+                              {
+                                router.push("/video/632/merajut-dendam");setPageLoaded(false)}
                             }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
@@ -499,146 +501,10 @@ export default function Home() {
                   </Swiper>
                 )}
                 <div className="mx-auto max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl py-0 lg:py-12 mb-20 lg:mb-0">
-                  <section className="mt-6 lg:mt-0">
-                    <div className="flex justify-between mb-3 items-center">
-                      <h2 className="text-xl text-gray-100 font-semibold">
-                        Luplay Originals
-                      </h2>
-                      <span>
-                        <a href="#">
-                          <ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon>
-                        </a>
-                      </span>
-                    </div>
-                    {toggleskeleton ? (
-                      <SkeletonTheme
-                        baseColor="#202020"
-                        highlightColor="#444"
-                        height={devicemobile ? 150 : 211}
-                      >
-                        <Skeleton></Skeleton>
-                      </SkeletonTheme>
-                    ) : (
-                      <Swiper
-                        breakpoints={{
-                          0: {
-                            slidesPerView: 3.7,
-                            spaceBetween: 10,
-                          },
-                          768: {
-                            slidesPerView: 4.7,
-                            spaceBetween: 10,
-                          },
-                          1024: {
-                            slidesPerView: 6.7,
-                            spaceBetween: 10,
-                          },
-                          1280: {
-                            slidesPerView: 7,
-                            spaceBetween: 10,
-                          },
-                        }}
-                        centeredSlides={false}
-                        navigation={true}
-                        modules={[Navigation]}
-                        className={`home-carousel-swiper`}
-                      >
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative">
-                              <Image
-                                src={post1}
-                                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                alt="Picture of the author"
-                              />
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                        <SwiperSlide className="rounded-md shadow-md">
-                          <a href="" className="group">
-                            <div className="relative contents">
-                              <div className="flex flex-col items-center justify-center h-full text-sm text-gray-300 group-hover:underline">
-                                Lihat semua
-                                <div className="text-xl md:text-2xl lg:text-3xl font-semibold mt-2">
-                                  Luplay Originals
-                                </div>
-                              </div>
-                            </div>
-                          </a>
-                        </SwiperSlide>
-                      </Swiper>
-                    )}
-                  </section>
-                  <ViewportBlock
-          onEnterViewport={() => console.log("enter")}
-          onLeaveViewport={() => console.log("leave")}
-        />
+                  <ViewLunarPlay
+                    onEnterViewport={() => console.log("enter")}
+                    onLeaveViewport={() => console.log("leave")}
+                  />
                 </div>
               </main>
             ) : (
