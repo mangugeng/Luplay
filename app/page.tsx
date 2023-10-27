@@ -174,14 +174,9 @@ export default function Home() {
   const [colorchange, setColorChange] = useState<boolean>(false);
   const [devicemobile, setDeviceMobile] = useState<boolean>(false);
   const [pageloaded, setPageLoaded] = useState<boolean>(false);
+  const [checkboxcurtain, setCheckboxCurtain] = useState<boolean>(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    setTimeout(function () {
-      setToggleSkeleton(false);
-    }, 1000);
-  }, []);
 
   useEffect(() => {
     if (timeleft === 0) {
@@ -227,9 +222,22 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      setTimeout(function () {
+        setToggleSkeleton(false);
+      }, 2000);
       setPageLoaded(true);
+      setCheckboxCurtain(true);
     }
   }, []);
+
+  const movePageFunction = () => {
+    setCheckboxCurtain((current) => !current);
+    function sleep(ms: number) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    sleep(1000).then(() => router.push("/video/632/merajut-dendam"));
+  };
 
   return (
     <>
@@ -248,7 +256,7 @@ export default function Home() {
           <input
             type="checkbox"
             disabled
-            checked={!pageloaded}
+            checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
 
@@ -365,9 +373,7 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() =>{
-                              router.push("/video/632/merajut-dendam");setPageLoaded(false)}
-                            }
+                            onClick={() => movePageFunction()}
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -405,10 +411,7 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() =>
-                              {
-                                router.push("/video/632/merajut-dendam");setPageLoaded(false)}
-                            }
+                            onClick={() => movePageFunction()}
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -484,10 +487,7 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() =>
-                              {
-                                router.push("/video/632/merajut-dendam");setPageLoaded(false)}
-                            }
+                            onClick={() => movePageFunction()}
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -501,10 +501,66 @@ export default function Home() {
                   </Swiper>
                 )}
                 <div className="mx-auto max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl py-0 lg:py-12 mb-20 lg:mb-0">
-                  <ViewLunarPlay
-                    onEnterViewport={() => console.log("enter")}
-                    onLeaveViewport={() => console.log("leave")}
-                  />
+                  {toggleskeleton ? (
+                    <>
+                      <SkeletonTheme
+                        baseColor="#202020"
+                        highlightColor="#444"
+                        height={20}
+                      >
+                        <Skeleton />
+                      </SkeletonTheme>
+                      <div className="flex gap-x-2 overflow-clip">
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={devicemobile ? 150 : 211}
+                          width={devicemobile ? 135 : 156}
+                        ></Skeleton>
+                      </div>
+                    </>
+                  ) : (
+                    <ViewLunarPlay
+                      onEnterViewport={() => console.log("enter")}
+                      onLeaveViewport={() => console.log("leave")}
+                    />
+                  )}
                 </div>
               </main>
             ) : (

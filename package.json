@@ -17,6 +17,7 @@
     "@types/videojs-hls-quality-selector": "^1.1.2",
     "@videojs/http-streaming": "^2.16.2",
     "next": "14.0.0",
+    "npm": "^10.2.1",
     "react": "^18",
     "react-dom": "^18",
     "react-in-viewport": "^1.0.0-alpha.30",

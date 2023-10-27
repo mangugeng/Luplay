@@ -44,10 +44,28 @@ body::-webkit-scrollbar {
   }
 }
 
+.main-carousel-swiper {
+  animation: zoom-in-zoom-out 2s ease;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .main-carousel-swiper.swiper {
   position: relative;
   width: 100%;
 }
+
+
 
 .swiper-slide {
   text-align: center;
@@ -278,12 +296,24 @@ body::-webkit-scrollbar {
 
 .curtain__wrapper input[type="checkbox"]:checked ~ div.curtain__panel--left {
   transform: translateX(0);
-  animation: fadeInX ease-out 100s;
+  background: rgb(12, 20, 59);
+  /* background: linear-gradient(
+    90deg,
+    rgba(12, 20, 59, 1) 0%,
+    rgba(12, 20, 59, 0.9023984593837535) 50%,
+    rgba(12, 20, 59, 0) 100%
+  ); */
 }
 
 .curtain__wrapper input[type="checkbox"]:checked ~ div.curtain__panel--right {
   transform: translateX(0);
-  animation: fadeInX ease-out 100s;
+  background: rgb(12, 20, 59);
+  /* background: linear-gradient(
+    270deg,
+    rgba(12, 20, 59, 1) 0%,
+    rgba(12, 20, 59, 0.9023984593837535) 50%,
+    rgba(12, 20, 59, 0) 100%
+  ); */
 }
 
 .curtain__panel {
@@ -295,7 +325,7 @@ body::-webkit-scrollbar {
   position: relative;
   width: 50%;
   height: 100vh;
-  transition: all 1s ease-out;
+  transition: all 2s ease-out;
   z-index: 2;
 }
 
@@ -307,9 +337,9 @@ body::-webkit-scrollbar {
     90deg,
     rgba(12, 20, 59, 1) 0%,
     rgba(12, 20, 59, 0.9023984593837535) 50%,
-    rgba(12, 20, 59, 0) 100%
+    rgba(12, 20, 59, 0.3) 100%
   );
-  animation: fadeOutX ease-out 100s;
+  animation: fadeOutX ease-in 100s;
 }
 .curtain__wrapper
   input[type="checkbox"]:not(:checked)
@@ -321,7 +351,7 @@ body::-webkit-scrollbar {
     270deg,
     rgba(12, 20, 59, 1) 0%,
     rgba(12, 20, 59, 0.9023984593837535) 50%,
-    rgba(12, 20, 59, 0) 100%
+    rgba(12, 20, 59, 0.3) 100%
   );
   animation: fadeOutX ease-out 100s;
 }
@@ -344,26 +374,8 @@ body::-webkit-scrollbar {
   }
 }
 
-@keyframes fadeInX {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.3;
-  }
-  40% {
-    opacity: 0.7;
-  }
-  60% {
-    opacity: 0.9;
-  }
-  80% {
-    opacity: 1;
-  }
-}
-
 .home-carousel-swiper .swiper-slide {
-  animation: fadeIn 1s ease-in both;
+  animation: fadeInY 1s ease-in both;
 }
 
 .home-carousel-swiper .swiper-slide.outviewport {
@@ -389,7 +401,7 @@ body::-webkit-scrollbar {
 	animation-delay: 1.75s;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInY {
 	0% {
 		opacity: 0;
 		transform: translate3d(0, -10%, 0);
