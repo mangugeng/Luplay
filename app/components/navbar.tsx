@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState, FC } from "react";
 import {
   Disclosure,
   Menu,
@@ -48,7 +48,11 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+interface NavbarProps{
+  movePageFunction: (param:string) => void
+}
+
+const Navbar:FC<NavbarProps> = ({movePageFunction}) => {
   const router = useRouter();
 
   const [selectedsearch, setSelectedSearch] = useState(search[0]);
@@ -98,9 +102,8 @@ export default function Navbar() {
                 <div className="hidden lg:ml-6 lg:flex">
                   <div className="flex space-x-4 items-center">
                     {navigation.map((item) => (
-                      <a
+                      <button
                         key={item.name}
-                        href={item.href}
                         className={classNames(
                           item.current
                             ? "text-white"
@@ -108,9 +111,11 @@ export default function Navbar() {
                           "px-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
+                        onClick={()=>movePageFunction(item.href)}
+                        type="button"
                       >
                         {item.name}
-                      </a>
+                      </button>
                     ))}
                     <Menu as="div" className="relative">
                       {({ open }) => (
@@ -778,3 +783,5 @@ export default function Navbar() {
     </Disclosure>
   );
 }
+
+export default Navbar;

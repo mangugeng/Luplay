@@ -69,10 +69,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
       >
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -80,10 +80,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         </SwiperSlide>
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -91,10 +91,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         </SwiperSlide>
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -102,10 +102,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         </SwiperSlide>
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -113,10 +113,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         </SwiperSlide>
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -124,10 +124,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         </SwiperSlide>
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -135,10 +135,10 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         </SwiperSlide>
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-md">
               <Image
                 src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
+                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
             </div>
@@ -183,19 +183,12 @@ export default function Home() {
       setTimeLeft(null);
       setPlayVideo(true);
     }
-    // exit early when we reach 0
     if (!timeleft) return;
-    // save intervalId to clear the interval when the
-    // component re-renders
     const intervalId = setInterval(() => {
       setTimeLeft(timeleft - 1);
     }, 1000);
-    // clear interval on re-render to avoid memory leaks
     return () => clearInterval(intervalId);
-    // add timeLeft as a dependency to re-rerun the effect
-    // when we update it
   }, [timeleft]);
-
   useEffect(() => {
     if (window.pageYOffset >= 80) {
       setColorChange(true);
@@ -208,10 +201,8 @@ export default function Home() {
       }
     };
     window.addEventListener("scroll", changeNavbarColor);
-
     return () => window.removeEventListener("scroll", changeNavbarColor);
   }, []);
-
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setDeviceMobile(true);
@@ -219,7 +210,6 @@ export default function Home() {
       setDeviceMobile(false);
     }
   }, []);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       setTimeout(function () {
@@ -230,13 +220,13 @@ export default function Home() {
     }
   }, []);
 
-  const movePageFunction = () => {
+  const movePageFunction = (param:string)  => {
+    console.log('param',param)
     setCheckboxCurtain((current) => !current);
     function sleep(ms: number) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
-
-    sleep(1000).then(() => router.push("/video/632/merajut-dendam"));
+    sleep(1000).then(() => router.push(param));
   };
 
   return (
@@ -248,7 +238,7 @@ export default function Home() {
             : "bg-transparent inner-shadow-header max-[768px]:bg-pallete-5"
         }`}
       >
-        <Navbar></Navbar>
+        <Navbar movePageFunction={movePageFunction}></Navbar>
       </header>
       {devicemobile ? <NavbarBottomMobiel></NavbarBottomMobiel> : <></>}
       <div className={pageloaded ? "curtain" : "curtain h-screen"}>
@@ -259,9 +249,7 @@ export default function Home() {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-
           <div className="curtain__panel curtain__panel--left"></div>
-
           <div className="curtain__content">
             {pageloaded ? (
               <main>
@@ -373,7 +361,7 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() => movePageFunction()}
+                            onClick={() => movePageFunction("/video/632/merajut-dendam")}
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -411,7 +399,7 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() => movePageFunction()}
+                            onClick={() => movePageFunction("/video/632/merajut-dendam")}
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -487,7 +475,7 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() => movePageFunction()}
+                            onClick={() => movePageFunction("/video/632/merajut-dendam")}
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -510,7 +498,7 @@ export default function Home() {
                       >
                         <Skeleton />
                       </SkeletonTheme>
-                      <div className="flex gap-x-2 overflow-clip">
+                      <div className="flex gap-x-2 overflow-clip mt-3">
                         <Skeleton
                           baseColor="#202020"
                           highlightColor="#444"
@@ -567,7 +555,6 @@ export default function Home() {
               <></>
             )}
           </div>
-
           <div className="curtain__panel curtain__panel--right"></div>
         </div>
       </div>
