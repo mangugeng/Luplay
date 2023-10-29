@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import crown from "../../public/crown.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -48,12 +49,13 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-interface NavbarProps{
-  movePageFunction: (param:string) => void
+interface NavbarProps {
+  movePageFunction: (param: string) => void;
 }
 
-const Navbar:FC<NavbarProps> = ({movePageFunction}) => {
+const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [selectedsearch, setSelectedSearch] = useState(search[0]);
   const [query, setQuery] = useState("");
@@ -111,8 +113,9 @@ const Navbar:FC<NavbarProps> = ({movePageFunction}) => {
                           "px-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
-                        onClick={()=>movePageFunction(item.href)}
+                        onClick={() => movePageFunction(item.href)}
                         type="button"
+                        disabled={pathname == item.href ? true : false}
                       >
                         {item.name}
                       </button>
@@ -782,6 +785,6 @@ const Navbar:FC<NavbarProps> = ({movePageFunction}) => {
       )}
     </Disclosure>
   );
-}
+};
 
 export default Navbar;

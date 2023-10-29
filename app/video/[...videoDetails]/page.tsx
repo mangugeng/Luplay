@@ -474,10 +474,18 @@ export default function Page() {
     }
   }, []);
 
+  const movePageFunction = (param: string) => {
+    setCheckboxCurtain((current) => !current);
+    function sleep(ms: number) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    sleep(1000).then(() => router.push(param));
+  };
+
   return (
     <>
       <header className="fixed z-50 w-full top-0 bg-pallete-5 shadow-md">
-        <Navbar></Navbar>
+        <Navbar movePageFunction={movePageFunction}></Navbar>
       </header>
       <div className={pageloaded ? "curtain" : "curtain h-screen"}>
         <div className="curtain__wrapper" id="curtain-wrappper">

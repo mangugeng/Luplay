@@ -220,8 +220,7 @@ export default function Home() {
     }
   }, []);
 
-  const movePageFunction = (param:string)  => {
-    console.log('param',param)
+  const movePageFunction = (param: string) => {
     setCheckboxCurtain((current) => !current);
     function sleep(ms: number) {
       return new Promise((resolve) => setTimeout(resolve, ms));
@@ -361,7 +360,9 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() => movePageFunction("/video/632/merajut-dendam")}
+                            onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -399,7 +400,9 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() => movePageFunction("/video/632/merajut-dendam")}
+                            onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -475,7 +478,9 @@ export default function Home() {
                             </div>
                           </span>
                           <button
-                            onClick={() => movePageFunction("/video/632/merajut-dendam")}
+                            onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
