@@ -88,7 +88,7 @@ body::-webkit-scrollbar {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .mobile-carousel-swiper .swiper-slide img {
@@ -444,4 +444,72 @@ body::-webkit-scrollbar {
 .curtain__content {
   position: absolute;
   width: 100%;
+}
+
+.tabs-detail-video .react-tabs__tab-list{
+  border-color: #4b4b4b;
+}
+
+.tabs-detail-video  .react-tabs__tab.react-tabs__tab--selected {
+  background: transparent;
+  color: white;  
+  border-bottom-color:#223893;
+}
+
+.tabs-detail-video .react-tabs__tab {
+  border-color: transparent;
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  border: solid transparent;
+  border-width: 0 0 3px;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 700;
+  height: 40px;
+  justify-content: center;
+  line-height: 20px;
+  min-width: 104px;
+  overflow: hidden;
+  padding: 0 16px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  transition: color 0.2s linear, border-bottom-color 0.2s linear;
+  vertical-align: top;
+  color: rgb(107 114 128);
+}
+
+.detail-selected-bottom {
+  animation: fadeInYSelectedBottom 0.5s ease-out both;
+}
+
+.detail-selected-bottom-hidden {
+  animation: fadeOutYSelectedBottom 0.5s ease-out both;
+}
+
+
+@keyframes fadeInYSelectedBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutYSelectedBottom {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }

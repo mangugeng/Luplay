@@ -314,7 +314,7 @@ export default function Home() {
                 ) : (
                   <Swiper
                     autoplay={{
-                      delay: 25000,
+                      delay: 25000000,
                       disableOnInteraction: false,
                     }}
                     pagination={{
@@ -330,7 +330,7 @@ export default function Home() {
                         : setPlayVideo(false)
                     }
                     effect="fade"
-                    className="main-carousel-swiper 3xl:h-[52rem]"
+                    className="main-carousel-swiper"
                   >
                     <SwiperSlide>
                       <div className="h-full">
