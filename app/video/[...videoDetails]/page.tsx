@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useRef } from "react";
 import Navbar from "../../components/navbar";
 import Image from "next/image";
 import banner from "../../../public/banner-detail.webp";
@@ -458,6 +458,8 @@ export default function Page() {
   const [openselectedtrailerextra, setOpensetSelectedFilterEpisode] =
     useState<boolean>(false);
 
+    const curtaincontentRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const changeHeadlineVisible = () => {
       if (window.scrollY >= 280) {
@@ -518,8 +520,8 @@ export default function Page() {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-          <div className="curtain__panel curtain__panel--left"></div>
-          <div className="curtain__content">
+          <div className={`curtain__panel ${headlinevisible?``:'h-[132vh]'} curtain__panel--left`} style={{height: headlinevisible? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
+          <div className="curtain__content" ref={curtaincontentRef}>
             {pageloaded ? (
               devicemobile ? (
                 <div className="relative text-white">
@@ -1658,7 +1660,7 @@ export default function Page() {
               <></>
             )}
           </div>
-          <div className="curtain__panel curtain__panel--right"></div>
+          <div className={`curtain__panel ${headlinevisible?``:'h-[132vh]'} curtain__panel--right`} style={{height: headlinevisible? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
         </div>
       </div>
     </>

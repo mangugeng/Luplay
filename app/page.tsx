@@ -178,6 +178,7 @@ export default function Home() {
   const [checkboxcurtain, setCheckboxCurtain] = useState<boolean>(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const curtaincontentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (timeleft === 0) {
@@ -191,9 +192,6 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, [timeleft]);
   useEffect(() => {
-    if (window.pageYOffset >= 80) {
-      setColorChange(true);
-    }
     const changeNavbarColor = () => {
       if (window.scrollY >= 80) {
         setColorChange(true);
@@ -249,8 +247,8 @@ export default function Home() {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-          <div className="curtain__panel curtain__panel--left"></div>
-          <div className="curtain__content">
+          <div className={`curtain__panel ${colorchange?``:'h-screen'} curtain__panel--left`} style={{height: colorchange? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
+          <div className="curtain__content" ref={curtaincontentRef}>
             {pageloaded ? (
               <main>
                 {devicemobile ? (
@@ -580,7 +578,7 @@ export default function Home() {
               <></>
             )}
           </div>
-          <div className="curtain__panel curtain__panel--right"></div>
+          <div className={`curtain__panel ${colorchange?``:'h-screen'} curtain__panel--right`} style={{height: colorchange? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
         </div>
       </div>
     </>

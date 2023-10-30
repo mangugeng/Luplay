@@ -76,8 +76,10 @@ export default function Page() {
   const [infomobile, setInfoMobile] = useState<boolean>(false);
   const [commentmobile, setCommentMobile] = useState<boolean>(false);
   const [trailerextramobile, setTrailerExtraMobile] = useState<boolean>(false);
+  const [heightcurtain, setHeightCurtain] = useState<string>('100vh')
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const curtaincontentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -87,6 +89,25 @@ export default function Page() {
       setPageLoaded(true);
       setCheckboxCurtain(true);
     }
+  }, []);
+  useEffect(() => {
+    const changeHeightCurtain = () => {
+      if (window.scrollY >= 80) {
+        if(window.innerWidth >= 1920){
+          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -20rem)`);
+        } else if (window.innerWidth >= 1536 && window.innerWidth <= 1919) {
+          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -30rem)`);
+        } else if (window.innerWidth >= 1280 && window.innerWidth <= 1535) {
+          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -35rem)`);
+        } else if (window.innerWidth >= 1024 && window.innerWidth <= 1279) {
+          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -40rem)`);
+        }
+      } else {
+        setHeightCurtain('100vh');        
+      }
+    };
+    window.addEventListener("scroll", changeHeightCurtain);
+    return () => window.removeEventListener("scroll", changeHeightCurtain);
   }, []);
   useEffect(() => {
     if (window.innerWidth <= 768) {
@@ -145,8 +166,8 @@ export default function Page() {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-          <div className="curtain__panel curtain__panel--left"></div>
-          <div className="curtain__content">
+          <div className="curtain__panel curtain__panel--left" style={{height: `${heightcurtain}`}}></div>
+          <div className="curtain__content" ref={curtaincontentRef}>
             {pageloaded ? (
               devicemobile ? (
                 <div className="mx-auto">
@@ -1729,7 +1750,7 @@ export default function Page() {
               <></>
             )}
           </div>
-          <div className="curtain__panel curtain__panel--right"></div>
+          <div className="curtain__panel curtain__panel--right" style={{height: `${heightcurtain}`}}></div>
         </div>
       </div>
     </>

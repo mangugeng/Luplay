@@ -328,7 +328,6 @@ body::-webkit-scrollbar {
   float: left;
   position: relative;
   width: 50%;
-  height: 100vh;
   transition: all 2s ease-out;
   z-index: 30;
 }
