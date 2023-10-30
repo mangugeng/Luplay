@@ -6,6 +6,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
+import logo from "../../../public//logo.webp"
+import Image from "next/image";
 
 export default function Navbar() {
   const router = useRouter();
@@ -38,9 +40,9 @@ export default function Navbar() {
                   </button>
                 </div>
                 <div className="flex w-full items-center justify-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  <Image
+                    className="h-8 w-auto bg-white rounded-md"
+                    src={logo}
                     alt="Your Company"
                   />
                 </div>

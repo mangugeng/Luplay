@@ -256,6 +256,10 @@ body::-webkit-scrollbar {
   background: transparent !important;
 }
 
+.watch-carousel-swiper.watch-carousel-swiper-mobile .swiper-wrapper>.swiper-slide:first-child {
+  margin-left: 16px;
+}
+
 .sections-overlay-background {
   background-image: -webkit-gradient(
     linear,
@@ -326,7 +330,7 @@ body::-webkit-scrollbar {
   width: 50%;
   height: 100vh;
   transition: all 2s ease-out;
-  z-index: 3;
+  z-index: 30;
 }
 
 .curtain__wrapper input[type="checkbox"]:not(:checked) ~ .curtain__panel--left {
@@ -512,4 +516,11 @@ body::-webkit-scrollbar {
     opacity: 0;
     transform: translateY(20px);
   }
+}
+
+.icon-arrow-right-view-all {
+  background: -webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,67%,.12)),color-stop(98.94%,hsla(0,0%,45%,.02)));
+  background: -webkit-linear-gradient(top,hsla(0,0%,67%,.12),hsla(0,0%,45%,.02) 98.94%);
+  background: linear-gradient(180deg,hsla(0,0%,67%,.12),hsla(0,0%,45%,.02) 98.94%);
+  border: 1px solid hsla(0,0%,60%,.1);
 }

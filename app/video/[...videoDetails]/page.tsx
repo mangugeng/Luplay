@@ -1003,7 +1003,7 @@ export default function Page() {
                         <div
                           className={`${
                             headlinevisible ? "visible" : "invisible opacity-0"
-                          } items-center bg-gray-600 flex h-24 left-0 overflow-hidden fixed w-full z-30 container-headline-details`}
+                          } items-center bg-gray-600 flex h-24 left-0 overflow-hidden fixed w-full z-20 container-headline-details`}
                         >
                           <div>
                             <Image
@@ -1020,7 +1020,7 @@ export default function Page() {
                               <div className="flex gap-2 mb-4">
                                 <button
                                   onClick={() =>
-                                    router.push("/watch/632/merajut-dendam")
+                                    movePageFunction("/watch/632/merajut-dendam")
                                   }
                                   type="button"
                                   className="inline-flex py-3 px-6 text-center bg-pallete-4 hover:bg-pallete-3 rounded-md font-bold items-center shadow-lg text-white transition-all duration-200 ease-linear"
@@ -1172,7 +1172,7 @@ export default function Page() {
                                 <div className="flex gap-2 mb-4">
                                   <button
                                     onClick={() =>
-                                      router.push("/watch/632/merajut-dendam")
+                                      movePageFunction("/watch/632/merajut-dendam")
                                     }
                                     type="button"
                                     className="inline-flex py-3 px-6 text-center bg-pallete-4 hover:bg-pallete-3 rounded-md font-bold items-center shadow-lg transition-all duration-200 ease-linear"

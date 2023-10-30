@@ -12,6 +12,10 @@ import {
   ChevronUpDownIcon,
   FunnelIcon,
   ChevronDownIcon,
+  XMarkIcon,
+  ChatBubbleBottomCenterTextIcon,
+  ChevronRightIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -23,6 +27,7 @@ import user from "../../../public/user.png";
 import episode from "../../../public/episode-1.webp";
 import similar from "../../../public/similar-1.webp";
 import { useRouter } from "next/navigation";
+import postermobille from "../../../public/poster-mobile.webp";
 
 const filtercomment = [
   { id: 1, name: "Terlama ke Terbaru" },
@@ -67,6 +72,8 @@ export default function Page() {
     filtercomment[0]
   );
   const [valuecomment, setValueComment] = useState("");
+  const [infomobile, setInfoMobile] = useState<boolean>(false);
+  const [trailerextramobile, setTrailerExtraMobile] = useState<boolean>(false);
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -133,7 +140,639 @@ export default function Page() {
           <div className="curtain__content">
             {pageloaded ? (
               devicemobile ? (
-                <></>
+                <div className="mx-auto">
+                  <div className="fixed w-full left-1/2 -translate-x-1/2 z-[4] shadow-md">
+                    <div
+                      className="pt-[42.6%] relative bg-black/50 bg-no-repeat bg-cover"
+                      style={{ backgroundImage: `url(${episode.src})` }}
+                    >
+                      <VideoPlayer options={VIDEOJS_OPTIONS} />
+                    </div>
+                  </div>
+                  <div className="pt-[42.6%]">
+                    <div className="text-white mx-auto relative">
+                      <div className="h-[calc(100%-0.5*100%)] relative overflow-y-scroll">
+                        <section className="my-6">
+                          <div className="mx-4">
+                            <div className="flex justify-between w-full">
+                              <div>
+                                <span>
+                                  <h1 className="line-clamp-2 text-white text-base font-semibold mb-[5px] text-ellipsis">
+                                    Merajut Dendam
+                                  </h1>
+                                </span>
+                                <div className="line-clamp-2 text-gray-300 text-xs font-semibold mt-[3px] mb-2 text-ellipsis">
+                                  Season : Ep 01 - Harta, Tahta, Wanita
+                                </div>
+                                <div className="flex text-xs">
+                                  <span className="border-r border-gray-300 px-2">
+                                    <Image
+                                      src={crown}
+                                      className="w-4 h-4"
+                                      alt="Picture of the author"
+                                    />
+                                  </span>
+                                  <span className="border-r-0 px-2">2023</span>
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                className="text-right w-[50px]"
+                                onClick={() =>
+                                  setInfoMobile((current) => !current)
+                                }
+                              >
+                                <ChevronDownIcon className="w-4 h-4"></ChevronDownIcon>
+                              </button>
+                            </div>
+                          </div>
+                          <div
+                            className={`bottom-0 fixed h-[calc(100%-0.5*100%)] w-full ${
+                              infomobile
+                                ? "detail-selected-bottom z-[7]"
+                                : "detail-selected-bottom-hidden z-[-1]"
+                            }`}
+                          >
+                            <div className="h-full left-0 absolute top-0 w-full z-[6] overflow-y-scroll">
+                              <div className="items-center bg-pallete-4 flex flex-row justify-between left-0 py-3 px-4 sticky top-0 w-full z-[5]">
+                                <h3 className="text-white text-xl font-bold overflow-hidden text-ellipsis whitespace-nowrap w-11/12">
+                                  Info
+                                </h3>
+                                <button
+                                  type="button"
+                                  className="w-6 h-6 text-white"
+                                  onClick={() =>
+                                    setInfoMobile((current) => !current)
+                                  }
+                                >
+                                  <XMarkIcon></XMarkIcon>
+                                </button>
+                              </div>
+                              <div className="bg-pallete-5 h-100% overflow-y-scroll">
+                                <div className="p-4">
+                                  <div className="text-base font-semibold mb-3">
+                                    Sinopsis
+                                  </div>
+                                  <div className="text-white text-sm font-semibold">
+                                    Season : Ep 01 - Harta, Tahta, Wanita
+                                  </div>
+                                  <div className="text-gray-300 text-xs font-normal mt-2">
+                                    <div className="overflow-hidden relative">
+                                      <article>
+                                        <p className="text-gray-300 text-xs font-normal">
+                                          Rasya Perdana, pengacara handal dari
+                                          keluarga terpandang yang tersandung
+                                          kasus video perselingkuhannya. Siapa
+                                          dalang dibalik penyebaran video itu?
+                                        </p>
+                                      </article>
+                                    </div>
+                                  </div>
+                                </div>
+                                <hr className="border-b-[6px] border-b-gray-600 border-t-0 opacity-30" />
+                                <div className="mt-4 px-4">
+                                  <div className="text-base font-semibold mb-3">
+                                    Detail Serial
+                                  </div>
+                                  <div className="flex items-center mb-4">
+                                    <div className="mr-3 relative">
+                                      <a href="" className="overflow-hidden">
+                                        <picture>
+                                          <Image
+                                            src={postermobille}
+                                            width={55}
+                                            height={80}
+                                            className="rounded-[4%]"
+                                            alt="Picture of the author"
+                                          />
+                                        </picture>
+                                      </a>
+                                    </div>
+                                    <div className="items-center flex-[3_1]">
+                                      <div className="flex justify-between w-full">
+                                        <div>
+                                          <span>
+                                            <h1 className="text-sm mb-1 line-clamp-2 text-white font-semibold text-ellipsis">
+                                              Merajut Dendam
+                                            </h1>
+                                          </span>
+                                          <div className="text-xs flex">
+                                            <span className="border-r border-r-gray-300 pr-2">
+                                              <Image
+                                                src={crown}
+                                                className="w-4 h-4"
+                                                alt="Picture of the author"
+                                              />
+                                            </span>
+                                            <span className="border-r-0 px-2">
+                                              2023
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="mb-4 text-gray-300 font-normal whitespace-pre-wrap break-words">
+                                    <div className="overflow-hidden relative">
+                                      <article>
+                                        <p className="text-gray-300 text-xs font-normal whitespace-pre-wrap break-words">
+                                          Nina memiliki segalanya, suami yang
+                                          mapan dan keluarga yang sempurna.
+                                          Semua berubah ketika suaminya, Rasya,
+                                          dituduh sebagai tersangka kasus
+                                          pencabulan.
+                                        </p>
+                                      </article>
+                                    </div>
+                                    <a
+                                      href=""
+                                      className="text-blue-600 font-semibold text-xs"
+                                    >
+                                      Lebih Sedikit
+                                    </a>
+                                  </div>
+                                  <div>
+                                    <div className="flex flex-wrap">
+                                      <a
+                                        href="#"
+                                        className="mr-2 bg-pallete-3 rounded text-white block text-[10px] font-bold mb-2 py-[5px] px-2"
+                                      >
+                                        Drama
+                                      </a>
+                                      <a
+                                        href="#"
+                                        className="mr-2 bg-pallete-3 rounded text-white block text-[10px] font-bold mb-2 py-[5px] px-2"
+                                      >
+                                        Romance
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                        <section className="my-6">
+                          <ul className="flex gap-2 m-4 overflow-x-scroll overflow-y-hidden whitespace-nowrap">
+                            <li className="flex items-center justify-center flex-col min-w-[60px]">
+                              <div className="h-8 w-8 flex items-center justify-center">
+                                <BookmarkIcon></BookmarkIcon>
+                              </div>
+                              <p className="text-white text-[10px] font-semibold text-center">
+                                Daftarku
+                              </p>
+                            </li>
+                            <li className="flex items-center justify-center flex-col min-w-[60px]">
+                              <div className="h-8 w-8 flex items-center justify-center">
+                                <ChatBubbleBottomCenterTextIcon></ChatBubbleBottomCenterTextIcon>
+                              </div>
+                              <p className="text-white text-[10px] font-semibold text-center">
+                                Komentar
+                              </p>
+                            </li>
+                            <li className="flex items-center justify-center flex-col min-w-[60px]">
+                              <div className="h-8 w-8 flex items-center justify-center">
+                                <ShareIcon></ShareIcon>
+                              </div>
+                              <p className="text-white text-[10px] font-semibold text-center">
+                                Bagikan
+                              </p>
+                            </li>
+                          </ul>
+                        </section>
+                        <section className="my-6">
+                          <div className="flex items-center justify-between mx-4 mb-[10px] relative">
+                            <span className="p-2 border border-gray-300 rounded text-white text-xs font-semibold">
+                              Season
+                            </span>
+                          </div>
+                          <Swiper
+                            breakpoints={{
+                              0: {
+                                slidesPerView: 3.7,
+                                spaceBetween: 10,
+                              },
+                              768: {
+                                slidesPerView: 4.7,
+                                spaceBetween: 10,
+                              },
+                            }}
+                            slidesPerView={2.9}
+                            spaceBetween={10}
+                            centeredSlides={false}
+                            navigation={true}
+                            modules={[Navigation]}
+                            className="watch-carousel-swiper watch-carousel-swiper-mobile"
+                          >
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={episode}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-semibold">
+                                    Ep 01 - Harta, Tahta, Wanita
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={episode}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-semibold">
+                                    Ep 01 - Harta, Tahta, Wanita
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={episode}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-semibold">
+                                    Ep 01 - Harta, Tahta, Wanita
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={episode}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-semibold">
+                                    Ep 01 - Harta, Tahta, Wanita
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={episode}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-semibold">
+                                    Ep 01 - Harta, Tahta, Wanita
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                          </Swiper>
+                        </section>
+                        <section className="my-6">
+                          <div className="flex items-center justify-between mx-4 mb-[10px] relative">
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setTrailerExtraMobile((current) => !current)
+                              }
+                            >
+                              <h3 className="line-clamp-1 text-white text-base font-semibold text-ellipsis whitespace-normal">
+                                Trailer & Extra
+                              </h3>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setTrailerExtraMobile((current) => !current)
+                              }
+                              className="text-white block text-sm font-normal h-4 whitespace-nowrap w-4"
+                            >
+                              <ChevronRightIcon></ChevronRightIcon>
+                            </button>
+                          </div>
+                          <Swiper
+                            breakpoints={{
+                              0: {
+                                slidesPerView: 3.7,
+                                spaceBetween: 10,
+                              },
+                              768: {
+                                slidesPerView: 4.7,
+                                spaceBetween: 10,
+                              },
+                            }}
+                            slidesPerView={2.9}
+                            spaceBetween={10}
+                            centeredSlides={false}
+                            navigation={true}
+                            modules={[Navigation]}
+                            className="watch-carousel-swiper watch-carousel-swiper-mobile"
+                          >
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={trailer}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
+                                    Merajut Dendam - Vidio Original Series |
+                                    Official Teaser
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={trailer}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
+                                    Merajut Dendam - Vidio Original Series |
+                                    Official Teaser
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={trailer}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
+                                    Merajut Dendam - Vidio Original Series |
+                                    Official Teaser
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={trailer}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
+                                    Merajut Dendam - Vidio Original Series |
+                                    Official Teaser
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="relative">
+                                  <Image
+                                    src={trailer}
+                                    className="rounded-lg"
+                                    alt="Picture of the author"
+                                  />
+                                  <div className="absolute bottom-2 right-2">
+                                    <time className="text-[10px] py-[1px] px-[2px] bg-black/60 rounded-sm text-white text-center">
+                                      00:45
+                                    </time>
+                                  </div>
+                                </div>
+                                <div className="mt-2">
+                                  <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
+                                    Merajut Dendam - Vidio Original Series |
+                                    Official Teaser
+                                  </h3>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                            <SwiperSlide className="rounded-lg relative align-top">
+                              <a href="#" className="group">
+                                <div className="flex items-center h-full justify-center">
+                                  <div className="flex flex-col relative items-center">
+                                    <ArrowRightIcon className="text-white h-10 w-10 p-3 m-auto rounded-full icon-arrow-right-view-all"></ArrowRightIcon>
+                                    <span className="text-white text-xs mt-2 text-center whitespace-normal w-[50px]">
+                                      Lihat Semua
+                                    </span>
+                                  </div>
+                                </div>
+                              </a>
+                            </SwiperSlide>
+                          </Swiper>
+                          <div
+                            className={`bottom-0 fixed h-[calc(100%-0.5*100%)] w-full ${
+                              trailerextramobile
+                                ? "detail-selected-bottom z-[7]"
+                                : "detail-selected-bottom-hidden z-[-1]"
+                            }`}
+                          >
+                            <div className="h-full left-0 absolute top-0 w-full z-[6] overflow-y-scroll">
+                              <div className="items-center bg-pallete-4 flex flex-row justify-between left-0 py-3 px-4 sticky top-0 w-full z-[5]">
+                                <h3 className="text-white text-xl font-bold overflow-hidden text-ellipsis whitespace-nowrap w-11/12">
+                                  Trailer & Extra
+                                </h3>
+                                <button
+                                  type="button"
+                                  className="w-6 h-6 text-white"
+                                  onClick={() =>
+                                    setTrailerExtraMobile((current) => !current)
+                                  }
+                                >
+                                  <XMarkIcon></XMarkIcon>
+                                </button>
+                              </div>
+                              <div className="bg-pallete-5 h-100% overflow-y-scroll">
+                                <div>
+                                  <ul>
+                                    <li className="my-2">
+                                      <a href="" className="block">
+                                        <div className="flex items-center py-2 px-4">
+                                          <div className="flex-[0_0_auto] mr-4 w-36">
+                                            <div className="bg-black/50 rounded-lg overflow-hidden pb-[56%] relative">
+                                              <Image
+                                                src={trailer}
+                                                alt="Picture of the author"
+                                                className="h-full left-0 top-0 overflow-hidden absolute w-full"
+                                                width={600}
+                                                height={360}
+                                              />
+                                              <span className="bg-black/50 rounded bottom-[7px] text-white text-[10px] font-medium py-[2px] px-[5px] absolute right-[7px]">
+                                                00:45
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div>
+                                            <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
+                                              Merajut Dendam - Vidio Original
+                                              Series | Official Teaser
+                                            </h3>
+                                          </div>
+                                        </div>
+                                      </a>
+                                    </li>
+                                    <li className="my-2">
+                                      <a href="" className="block">
+                                        <div className="flex items-center py-2 px-4">
+                                          <div className="flex-[0_0_auto] mr-4 w-36">
+                                            <div className="bg-black/50 rounded-lg overflow-hidden pb-[56%] relative">
+                                              <Image
+                                                src={trailer}
+                                                alt="Picture of the author"
+                                                className="h-full left-0 top-0 overflow-hidden absolute w-full"
+                                                width={600}
+                                                height={360}
+                                              />
+                                              <span className="bg-black/50 rounded bottom-[7px] text-white text-[10px] font-medium py-[2px] px-[5px] absolute right-[7px]">
+                                                00:45
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div>
+                                            <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
+                                              Merajut Dendam - Vidio Original
+                                              Series | Official Teaser
+                                            </h3>
+                                          </div>
+                                        </div>
+                                      </a>
+                                    </li>
+                                    <li className="my-2">
+                                      <a href="" className="block">
+                                        <div className="flex items-center py-2 px-4">
+                                          <div className="flex-[0_0_auto] mr-4 w-36">
+                                            <div className="bg-black/50 rounded-lg overflow-hidden pb-[56%] relative">
+                                              <Image
+                                                src={trailer}
+                                                alt="Picture of the author"
+                                                className="h-full left-0 top-0 overflow-hidden absolute w-full"
+                                                width={600}
+                                                height={360}
+                                              />
+                                              <span className="bg-black/50 rounded bottom-[7px] text-white text-[10px] font-medium py-[2px] px-[5px] absolute right-[7px]">
+                                                00:45
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div>
+                                            <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
+                                              Merajut Dendam - Vidio Original
+                                              Series | Official Teaser
+                                            </h3>
+                                          </div>
+                                        </div>
+                                      </a>
+                                    </li>
+                                    <li className="my-2">
+                                      <a href="" className="block">
+                                        <div className="flex items-center py-2 px-4">
+                                          <div className="flex-[0_0_auto] mr-4 w-36">
+                                            <div className="bg-black/50 rounded-lg overflow-hidden pb-[56%] relative">
+                                              <Image
+                                                src={trailer}
+                                                alt="Picture of the author"
+                                                className="h-full left-0 top-0 overflow-hidden absolute w-full"
+                                                width={600}
+                                                height={360}
+                                              />
+                                              <span className="bg-black/50 rounded bottom-[7px] text-white text-[10px] font-medium py-[2px] px-[5px] absolute right-[7px]">
+                                                00:45
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div>
+                                            <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
+                                              Merajut Dendam - Vidio Original
+                                              Series | Official Teaser
+                                            </h3>
+                                          </div>
+                                        </div>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <div className="p-0 mx-auto mt-12 before:content-[''] before:table">
                   <main className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] grid gap-x-8 py-6 grid-rows-2 grid-flow-col lg:h-[calc(100vh--25rem)] xl:h-[calc(100vh--35rem)] 2xl:h-[calc(100vh--30rem)] 3xl:h-[calc(100vh--20rem)]">

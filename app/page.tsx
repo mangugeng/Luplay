@@ -232,7 +232,7 @@ export default function Home() {
   return (
     <>
       <header
-        className={`fixed z-10 top-0 w-full transition-all duration-300 ${
+        className={`fixed z-50 top-0 w-full transition-all duration-300 ${
           colorchange
             ? "bg-pallete-5 shadow-md "
             : "bg-transparent inner-shadow-header max-[768px]:bg-pallete-5"

@@ -24,6 +24,7 @@ import crown from "../../public/crown.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { usePathname } from "next/navigation";
+import logo from "../../public/logo.webp"
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -80,9 +81,9 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
             <div className="relative flex h-12 items-center justify-between">
               <div className="flex flex-1 items-center lg:items-stretch justify-between lg:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  <Image
+                    className="h-8 w-auto bg-white rounded-md"
+                    src={logo}
                     alt="Your Company"
                   />
                 </div>

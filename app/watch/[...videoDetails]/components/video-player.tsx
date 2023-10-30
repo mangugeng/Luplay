@@ -20,7 +20,7 @@ const VideoPlayer: FC<VideoJSProps> = (props) => {
         document.createElement("video-js")
       );
 
-      videoElement.classList.add("!h-full");
+      videoElement.classList.add(`container-vjs`);
 
       const player  = (videoRef.current = videojs(videoElement, options, () => {
         player.log("player is ready");
