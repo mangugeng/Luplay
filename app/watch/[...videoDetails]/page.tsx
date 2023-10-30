@@ -16,6 +16,7 @@ import {
   ChatBubbleBottomCenterTextIcon,
   ChevronRightIcon,
   ArrowRightIcon,
+  ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -73,6 +74,7 @@ export default function Page() {
   );
   const [valuecomment, setValueComment] = useState("");
   const [infomobile, setInfoMobile] = useState<boolean>(false);
+  const [commentmobile, setCommentMobile] = useState<boolean>(false);
   const [trailerextramobile, setTrailerExtraMobile] = useState<boolean>(false);
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -100,6 +102,13 @@ export default function Page() {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
     sleep(1000).then(() => router.push(param));
+  };
+  const previousPageFunction = () => {
+    setCheckboxCurtain((current) => !current);
+    function sleep(ms: number) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    sleep(1000).then(() => router.back());
   };
   const useAutosizeTextArea = (
     textAreaRef: HTMLTextAreaElement | null,
@@ -141,6 +150,23 @@ export default function Page() {
             {pageloaded ? (
               devicemobile ? (
                 <div className="mx-auto">
+                  <div className="ml-4 absolute top-4 z-[5] transitio">
+                    <button
+                      type="button"
+                      className="bg-pallete-4/50 rounded-full inline p-2 text-white"
+                      onClick={() => previousPageFunction()}
+                    >
+                      <ArrowLeftIcon className="w-6 h-6"></ArrowLeftIcon>
+                    </button>
+                  </div>
+                  <div className="right-4 absolute top-4 z-[5]">
+                    <button
+                      type="button"
+                      className="bg-pallete-4/50 rounded-full inline p-2 text-white"
+                    >
+                      <ShareIcon className="w-6 h-6"></ShareIcon>
+                    </button>
+                  </div>
                   <div className="fixed w-full left-1/2 -translate-x-1/2 z-[4] shadow-md">
                     <div
                       className="pt-[42.6%] relative bg-black/50 bg-no-repeat bg-cover"
@@ -151,7 +177,7 @@ export default function Page() {
                   </div>
                   <div className="pt-[42.6%]">
                     <div className="text-white mx-auto relative">
-                      <div className="h-[calc(100%-0.5*100%)] relative overflow-y-scroll">
+                      <div className="h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] relative overflow-y-scroll">
                         <section className="my-6">
                           <div className="mx-4">
                             <div className="flex justify-between w-full">
@@ -177,7 +203,7 @@ export default function Page() {
                               </div>
                               <button
                                 type="button"
-                                className="text-right w-[50px]"
+                                className="justify-center flex flex-col items-center w-[50px]"
                                 onClick={() =>
                                   setInfoMobile((current) => !current)
                                 }
@@ -187,7 +213,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div
-                            className={`bottom-0 fixed h-[calc(100%-0.5*100%)] w-full ${
+                            className={`bottom-0 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full detail-selected-bottom ${
                               infomobile
                                 ? "detail-selected-bottom z-[7]"
                                 : "detail-selected-bottom-hidden z-[-1]"
@@ -323,12 +349,76 @@ export default function Page() {
                               </p>
                             </li>
                             <li className="flex items-center justify-center flex-col min-w-[60px]">
-                              <div className="h-8 w-8 flex items-center justify-center">
+                              <button
+                                type="button"
+                                className="h-8 w-8 flex items-center justify-center"
+                                onClick={() =>
+                                  setCommentMobile((current) => !current)
+                                }
+                              >
                                 <ChatBubbleBottomCenterTextIcon></ChatBubbleBottomCenterTextIcon>
-                              </div>
+                              </button>
                               <p className="text-white text-[10px] font-semibold text-center">
                                 Komentar
                               </p>
+                              <div
+                                className={`bottom-0 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full left-0 ${
+                                  commentmobile
+                                    ? "detail-selected-bottom z-[7]"
+                                    : "detail-selected-bottom-hidden z-[-1]"
+                                }`}
+                              >
+                                <div className="h-full left-0 absolute top-0 w-full z-[6] overflow-y-scroll">
+                                  <div className="items-center bg-pallete-4 flex flex-row justify-between left-0 py-3 px-4 sticky top-0 w-full z-[5]">
+                                    <h3 className="text-white text-xl font-bold overflow-hidden text-ellipsis whitespace-nowrap w-11/12">
+                                      Komentar
+                                    </h3>
+                                    <button
+                                      type="button"
+                                      className="w-6 h-6 text-white"
+                                      onClick={() =>
+                                        setCommentMobile(
+                                          (current) => !current
+                                        )
+                                      }
+                                    >
+                                      <XMarkIcon></XMarkIcon>
+                                    </button>
+                                  </div>
+                                  <div className="bg-pallete-5 h-100% overflow-y-scroll">
+                                    <div className="flex justify-between pt-4 px-4">
+                                      <span className="text-gray-300 text-xs font-normal">
+                                        1 Komentar
+                                      </span>
+                                    </div>
+                                    <ul className="py-2 px-4">
+                                      <li className="border-b border-gray-600 py-2 flex">
+                                        <a href="">
+                                          <div className="flex items-center border bg-pallete-3 border-gray-600 rounded-full h-8 justify-center min-w-[32px] overflow-hidden align-middle text-white">
+                                            J
+                                          </div>
+                                        </a>
+                                        <div className="ml-4 w-[calc(100%-40px)]">
+                                          <a href="" className="flex w-full items-center">
+                                            <span className="text-gray-300 text-[13px] font-semibold max-w-[27vw] overflow-hidden text-ellipsis whitespace-nowrap">John Doe</span>
+                                            <span className="text-xs text-gray-300 whitespace-nowrap before:content-[•] before:mx-1 ">1 jam yang lalu</span>
+                                          </a>
+                                          <div className="my-1">
+                                            <div className="overflow-hidden relative">
+                                              <p className="mt-0 break-words text-white text-sm font-normal my-1">
+                                              yg di tunggu²
+                                              </p>
+                                            </div>
+                                          </div>
+                                          <div className="flex items-center justify-between my-4">
+                                            <button type="button" className="items-baseline bg-transparent"></button>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
                             </li>
                             <li className="flex items-center justify-center flex-col min-w-[60px]">
                               <div className="h-8 w-8 flex items-center justify-center">
@@ -349,7 +439,7 @@ export default function Page() {
                           <Swiper
                             breakpoints={{
                               0: {
-                                slidesPerView: 3.7,
+                                slidesPerView: 2.7,
                                 spaceBetween: 10,
                               },
                               768: {
@@ -496,7 +586,7 @@ export default function Page() {
                           <Swiper
                             breakpoints={{
                               0: {
-                                slidesPerView: 3.7,
+                                slidesPerView: 2.7,
                                 spaceBetween: 10,
                               },
                               768: {
@@ -635,7 +725,7 @@ export default function Page() {
                             </SwiperSlide>
                           </Swiper>
                           <div
-                            className={`bottom-0 fixed h-[calc(100%-0.5*100%)] w-full ${
+                            className={`bottom-0 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full ${
                               trailerextramobile
                                 ? "detail-selected-bottom z-[7]"
                                 : "detail-selected-bottom-hidden z-[-1]"
@@ -767,6 +857,94 @@ export default function Page() {
                                 </div>
                               </div>
                             </div>
+                          </div>
+                        </section>
+                        <section className="my-6">
+                          <div>
+                            <div className="flex items-center justify-between mx-4 mb-[10px] relative">
+                              <h3 className="line-clamp-1 text-base font-semibold text-ellipsis whitespace-normal">
+                                Rekomendasi yang Serupa
+                              </h3>
+                            </div>
+                          </div>
+                          <div>
+                            <ul className="grid grid-cols-3 md:grid-cols-5 gap-4 mx-4">
+                              <li className="max-w-full overflow-hidden">
+                                <div className="h-full w-full text-center">
+                                  <a href="#">
+                                    <div className="bg-pallete-2/20 rounded-lg relative">
+                                      <Image
+                                        src={similar}
+                                        alt="Picture of the author"
+                                        className="h-auto w-full flex items-center text-sm rounded-lg"
+                                        width={112}
+                                        height={162}
+                                      />
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li className="max-w-full overflow-hidden">
+                                <div className="h-full w-full text-center">
+                                  <a href="#">
+                                    <div className="bg-pallete-2/20 rounded-lg relative">
+                                      <Image
+                                        src={similar}
+                                        alt="Picture of the author"
+                                        className="h-auto w-full flex items-center text-sm rounded-lg"
+                                        width={112}
+                                        height={162}
+                                      />
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li className="max-w-full overflow-hidden">
+                                <div className="h-full w-full text-center">
+                                  <a href="#">
+                                    <div className="bg-pallete-2/20 rounded-lg relative">
+                                      <Image
+                                        src={similar}
+                                        alt="Picture of the author"
+                                        className="h-auto w-full flex items-center text-sm rounded-lg"
+                                        width={112}
+                                        height={162}
+                                      />
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li className="max-w-full overflow-hidden">
+                                <div className="h-full w-full text-center">
+                                  <a href="#">
+                                    <div className="bg-pallete-2/20 rounded-lg relative">
+                                      <Image
+                                        src={similar}
+                                        alt="Picture of the author"
+                                        className="h-auto w-full flex items-center text-sm rounded-lg"
+                                        width={112}
+                                        height={162}
+                                      />
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li className="max-w-full overflow-hidden">
+                                <div className="h-full w-full text-center">
+                                  <a href="#">
+                                    <div className="bg-pallete-2/20 rounded-lg relative">
+                                      <Image
+                                        src={similar}
+                                        alt="Picture of the author"
+                                        className="h-auto w-full flex items-center text-sm rounded-lg"
+                                        width={112}
+                                        height={162}
+                                      />
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
                         </section>
                       </div>

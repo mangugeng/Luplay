@@ -525,13 +525,13 @@ export default function Page() {
                 <div className="relative text-white">
                   <div className={`${headlinevisible ? "visible" : "invisible opacity-0"} bg-pallete-5 shadow-md pb-10 pt-4 fixed w-full z-10 container-headline-details`}>
                     <div className="left-4 top-4 absolute z-[5]">
-                      <button type="button" className="inline">
+                      <button type="button" onClick={()=>previousPageFunction()} className="inline">
                         <ArrowLeftIcon className="h-6 w-6"></ArrowLeftIcon>
                       </button>
                     </div>
                     <h1 className="text-white text-xl font-bold overflow-hidden px-16 text-center text-ellipsis whitespace-nowrap">Merajut Dendam</h1>
                     <div className="flex text-sm font-bold justify-center left-0 max-h-[44px] absolute right-0 top-14 whitespace-nowrap w-auto z-[4]">
-                      <button type="button" className="text-white text-base py-3 px-6 bg-pallete-4 items-center rounded inline-flex font-bold justify-center">
+                      <button type="button" onClick={()=>movePageFunction('/watch/632/merajut-dendam')} className="text-white text-base py-3 px-6 bg-pallete-4 items-center rounded inline-flex font-bold justify-center">
                         <PlayIcon className="mr-3 w-[14px] h-[14px]"></PlayIcon>
                         Putar Sekarang
                       </button>
@@ -554,7 +554,7 @@ export default function Page() {
                       <ShareIcon className="w-6 h-6"></ShareIcon>
                     </button>
                   </div>
-                  <a href="#" className="block pt-[56.27%] relative">
+                  <button type="button" className="block pt-[56.27%] relative w-full" onClick={()=>movePageFunction('/watch/632/merajut-dendam')}>
                     <picture className="top-0 right-0 bottom-0 left-0 absolute">
                       <Image src={bannermobile} alt="Picture of the author" />
                       <div className="bg-pallete-4/50 items-center rounded-2xl bottom-4 text-white inline-flex text-xs font-normal justify-center left-4 min-w-[32px] py-2 px-3 absolute">
@@ -562,7 +562,7 @@ export default function Page() {
                         <span>Trailer</span>
                       </div>
                     </picture>
-                  </a>
+                  </button>
                   <div className="mt-4 mx-4 mb-2">
                     <div className="flex items-start justify-between">
                       <h1 className="line-clamp-2 text-xl font-bold mb-2 text-ellipsis whitespace-pre-wrap">
@@ -604,13 +604,14 @@ export default function Page() {
                       Express Episode 5 & 6 Tayang Tanggal 27 Oktober
                     </p>
                     <div className="my-2 w-100% transition ease-out delay-200">
-                      <a
-                        href="#"
+                      <button
+                        type="button"
+                        onClick={()=>movePageFunction('/watch/632/merajut-dendam')}
                         className="text-sm font-bold mx-auto whitespace-nowrap w-full min-w-[40px] py-2 px-4 items-center rounded inline-flex justify-center bg-pallete-4 shadow-md"
                       >
                         <PlayIcon className="w-4 h-4 mr-3"></PlayIcon>
                         Putar Sekarang
-                      </a>
+                      </button>
                     </div>
                     <div className="my-2">
                       <h4 className="font-medium text-sm overflow-hidden overflow-ellipsis whitespace-nowrap">

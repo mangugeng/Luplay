@@ -267,9 +267,11 @@ export default function Home() {
                       className="mobile-carousel-swiper"
                     >
                       <SwiperSlide className="rounded">
-                        <Link href="/video/632/merajut-dendam" onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
-                            }>
+                        <button type="button" className="w-full"
+                          onClick={() =>
+                            movePageFunction("/video/632/merajut-dendam")
+                          }
+                        >
                           <Image
                             src={bannermobile1}
                             width={480}
@@ -277,12 +279,15 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </Link>
+                        </button>
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
-                        <Link href="/video/632/merajut-dendam" onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
-                            }>
+                        <button
+                          type="button" className="w-full"
+                          onClick={() =>
+                            movePageFunction("/video/632/merajut-dendam")
+                          }
+                        >
                           <Image
                             src={bannermobile2}
                             width={480}
@@ -290,12 +295,15 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </Link>
+                        </button>
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
-                        <Link href="/video/632/merajut-dendam" onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
-                            }>
+                        <button
+                          type="button" className="w-full"
+                          onClick={() =>
+                            movePageFunction("/video/632/merajut-dendam")
+                          }
+                        >
                           <Image
                             src={bannermobile3}
                             width={480}
@@ -303,12 +311,15 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </Link>
+                        </button>
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
-                        <Link href="/video/632/merajut-dendam" onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
-                            }>
+                        <button
+                          type="button" className="w-full"
+                          onClick={() =>
+                            movePageFunction("/video/632/merajut-dendam")
+                          }
+                        >
                           <Image
                             src={bannermobile2}
                             width={480}
@@ -316,7 +327,7 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </Link>
+                        </button>
                       </SwiperSlide>
                     </Swiper>
                   </section>
