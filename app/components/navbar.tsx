@@ -82,7 +82,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
               <div className="flex flex-1 items-center lg:items-stretch justify-between lg:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Image
-                    className="h-8 w-auto bg-white rounded-md"
+                    className="h-8 w-auto bg-white rounded-md px-2"
                     src={logo}
                     alt="Your Company"
                   />

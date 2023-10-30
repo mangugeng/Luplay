@@ -41,7 +41,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex w-full items-center justify-center">
                   <Image
-                    className="h-8 w-auto bg-white rounded-md"
+                    className="h-8 w-auto bg-white rounded-md px-2"
                     src={logo}
                     alt="Your Company"
                   />
