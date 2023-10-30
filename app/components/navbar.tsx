@@ -460,7 +460,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
           <Transition appear show={openmodalsearch} as={Fragment}>
             <Dialog
               as="div"
-              className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/80"
+              className="fixed inset-0 z-[60] overflow-y-auto bg-gray-800/80"
               onClose={() => setOpenModalSearch(false)}
             >
               <div className="min-h-screen px-4 text-center">
@@ -576,7 +576,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
           <Transition appear show={openmodalsearchmobile} as={Fragment}>
             <Dialog
               as="div"
-              className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/80"
+              className="fixed inset-0 z-[60] overflow-y-auto bg-gray-800/80"
               onClose={() => setOpenModalSearchMobile(false)}
             >
               <div className="min-h-screen text-center">
@@ -692,7 +692,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
           <Transition appear show={openmodalother} as={Fragment}>
             <Dialog
               as="div"
-              className="fixed inset-0 z-10 overflow-y-auto bg-gray-800/80"
+              className="fixed inset-0 z-[60] overflow-y-auto bg-gray-800/80"
               onClose={() => setOpenModalOther(false)}
             >
               <div className="min-h-screen text-center">
