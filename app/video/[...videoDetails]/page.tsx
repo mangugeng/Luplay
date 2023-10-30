@@ -497,6 +497,14 @@ export default function Page() {
     sleep(1000).then(() => router.push(param));
   };
 
+  const previousPageFunction = () => {
+    setCheckboxCurtain((current) => !current);
+    function sleep(ms: number) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    sleep(1000).then(() => router.back());
+  };
+
   return (
     <>
       <header className="fixed z-50 w-full top-0 bg-pallete-5 shadow-md hidden lg:block">
@@ -515,10 +523,25 @@ export default function Page() {
             {pageloaded ? (
               devicemobile ? (
                 <div className="relative text-white">
+                  <div className={`${headlinevisible ? "visible" : "invisible opacity-0"} bg-pallete-5 shadow-md pb-10 pt-4 fixed w-full z-10 container-headline-details`}>
+                    <div className="left-4 top-4 absolute z-[5]">
+                      <button type="button" className="inline">
+                        <ArrowLeftIcon className="h-6 w-6"></ArrowLeftIcon>
+                      </button>
+                    </div>
+                    <h1 className="text-white text-xl font-bold overflow-hidden px-16 text-center text-ellipsis whitespace-nowrap">Merajut Dendam</h1>
+                    <div className="flex text-sm font-bold justify-center left-0 max-h-[44px] absolute right-0 top-14 whitespace-nowrap w-auto z-[4]">
+                      <button type="button" className="text-white text-base py-3 px-6 bg-pallete-4 items-center rounded inline-flex font-bold justify-center">
+                        <PlayIcon className="mr-3 w-[14px] h-[14px]"></PlayIcon>
+                        Putar Sekarang
+                      </button>
+                    </div>
+                  </div>
                   <div className="ml-4 absolute top-4 z-[5]">
                     <button
                       type="button"
                       className="bg-pallete-4/50 rounded-full inline p-2"
+                      onClick={()=>previousPageFunction()}
                     >
                       <ArrowLeftIcon className="w-6 h-6"></ArrowLeftIcon>
                     </button>

@@ -29,6 +29,7 @@ import bannermobile1 from "../public/banner-mobile-1.webp";
 import bannermobile2 from "../public/banner-mobile-2.webp";
 import bannermobile3 from "../public/banner-mobile-3.webp";
 import handleViewport, { type InjectedViewportProps } from "react-in-viewport";
+import Link from "next/link";
 
 const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
   const { inViewport, forwardedRef } = props;
@@ -38,9 +39,9 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
       <div className="flex justify-between mb-3 items-center">
         <h2 className="text-xl text-gray-100 font-semibold">Originals</h2>
         <span>
-          <a href="#">
+          <Link href="#">
             <ChevronRightIcon className="h-4 w-4 text-gray-100"></ChevronRightIcon>
-          </a>
+          </Link>
         </span>
       </div>
       <Swiper
@@ -266,7 +267,9 @@ export default function Home() {
                       className="mobile-carousel-swiper"
                     >
                       <SwiperSlide className="rounded">
-                        <a href="#">
+                        <Link href="/video/632/merajut-dendam" onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }>
                           <Image
                             src={bannermobile1}
                             width={480}
@@ -274,10 +277,12 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </a>
+                        </Link>
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
-                        <a href="#">
+                        <Link href="/video/632/merajut-dendam" onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }>
                           <Image
                             src={bannermobile2}
                             width={480}
@@ -285,10 +290,12 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </a>
+                        </Link>
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
-                        <a href="#">
+                        <Link href="/video/632/merajut-dendam" onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }>
                           <Image
                             src={bannermobile3}
                             width={480}
@@ -296,10 +303,12 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </a>
+                        </Link>
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
-                        <a href="#">
+                        <Link href="/video/632/merajut-dendam" onClick={() =>
+                              movePageFunction("/video/632/merajut-dendam")
+                            }>
                           <Image
                             src={bannermobile2}
                             width={480}
@@ -307,7 +316,7 @@ export default function Home() {
                             className="aspect-[16/9] rounded"
                             alt="Picture of the author"
                           />
-                        </a>
+                        </Link>
                       </SwiperSlide>
                     </Swiper>
                   </section>
