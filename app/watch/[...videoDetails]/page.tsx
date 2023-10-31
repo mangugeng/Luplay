@@ -17,7 +17,10 @@ import {
   ChevronRightIcon,
   ArrowRightIcon,
   ArrowLeftIcon,
+  HeartIcon,
+  FlagIcon,
 } from "@heroicons/react/24/outline";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -76,7 +79,7 @@ export default function Page() {
   const [infomobile, setInfoMobile] = useState<boolean>(false);
   const [commentmobile, setCommentMobile] = useState<boolean>(false);
   const [trailerextramobile, setTrailerExtraMobile] = useState<boolean>(false);
-  const [heightcurtain, setHeightCurtain] = useState<string>('100vh')
+  const [heightcurtain, setHeightCurtain] = useState<string>("100vh");
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const curtaincontentRef = useRef<HTMLDivElement>(null);
@@ -93,17 +96,25 @@ export default function Page() {
   useEffect(() => {
     const changeHeightCurtain = () => {
       if (window.scrollY >= 80) {
-        if(window.innerWidth >= 1920){
-          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -20rem)`);
+        if (window.innerWidth >= 1920) {
+          setHeightCurtain(
+            `calc(${curtaincontentRef.current?.offsetHeight}px - -20rem)`
+          );
         } else if (window.innerWidth >= 1536 && window.innerWidth <= 1919) {
-          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -30rem)`);
+          setHeightCurtain(
+            `calc(${curtaincontentRef.current?.offsetHeight}px - -30rem)`
+          );
         } else if (window.innerWidth >= 1280 && window.innerWidth <= 1535) {
-          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -35rem)`);
+          setHeightCurtain(
+            `calc(${curtaincontentRef.current?.offsetHeight}px - -35rem)`
+          );
         } else if (window.innerWidth >= 1024 && window.innerWidth <= 1279) {
-          setHeightCurtain(`calc(${curtaincontentRef.current?.offsetHeight}px - -40rem)`);
+          setHeightCurtain(
+            `calc(${curtaincontentRef.current?.offsetHeight}px - -40rem)`
+          );
         }
       } else {
-        setHeightCurtain('100vh');        
+        setHeightCurtain("100vh");
       }
     };
     window.addEventListener("scroll", changeHeightCurtain);
@@ -153,6 +164,7 @@ export default function Page() {
 
     setValueComment(val);
   };
+
   return (
     <>
       <header className="fixed z-50 w-full top-0 bg-pallete-5 shadow-md hidden lg:block">
@@ -166,7 +178,10 @@ export default function Page() {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-          <div className="curtain__panel curtain__panel--left" style={{height: `${heightcurtain}`}}></div>
+          <div
+            className="curtain__panel curtain__panel--left"
+            style={{ height: `${heightcurtain}` }}
+          ></div>
           <div className="curtain__content" ref={curtaincontentRef}>
             {pageloaded ? (
               devicemobile ? (
@@ -180,25 +195,17 @@ export default function Page() {
                       <ArrowLeftIcon className="w-6 h-6"></ArrowLeftIcon>
                     </button>
                   </div>
-                  <div className="right-4 absolute top-4 z-[5]">
-                    <button
-                      type="button"
-                      className="bg-pallete-4/50 rounded-full inline p-2 text-white"
-                    >
-                      <ShareIcon className="w-6 h-6"></ShareIcon>
-                    </button>
-                  </div>
                   <div className="fixed w-full left-1/2 -translate-x-1/2 z-[4] shadow-md">
                     <div
-                      className="pt-[42.6%] relative bg-black/50 bg-no-repeat bg-cover"
+                      className="pt-[240px] md:pt-[42.6%] relative bg-black/50 bg-no-repeat bg-cover"
                       style={{ backgroundImage: `url(${episode.src})` }}
                     >
                       <VideoPlayer options={VIDEOJS_OPTIONS} />
                     </div>
                   </div>
-                  <div className="pt-[42.6%]">
+                  <div className="pt-[240px] md:pt-[42.6%]">
                     <div className="text-white mx-auto relative">
-                      <div className="h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] relative overflow-y-scroll">
+                      <div className="h-[calc(100%-0.3*100%)] relative overflow-y-scroll">
                         <section className="my-6">
                           <div className="mx-4">
                             <div className="flex justify-between w-full">
@@ -234,7 +241,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div
-                            className={`bottom-0 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full detail-selected-bottom ${
+                            className={`bottom-0 bg-pallete-5 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full detail-selected-bottom ${
                               infomobile
                                 ? "detail-selected-bottom z-[7]"
                                 : "detail-selected-bottom-hidden z-[-1]"
@@ -255,7 +262,7 @@ export default function Page() {
                                   <XMarkIcon></XMarkIcon>
                                 </button>
                               </div>
-                              <div className="bg-pallete-5 h-100% overflow-y-scroll">
+                              <div className="h-100% overflow-y-scroll">
                                 <div className="p-4">
                                   <div className="text-base font-semibold mb-3">
                                     Sinopsis
@@ -362,8 +369,8 @@ export default function Page() {
                         <section className="my-6">
                           <ul className="flex gap-2 m-4 overflow-x-scroll overflow-y-hidden whitespace-nowrap">
                             <li className="flex items-center justify-center flex-col min-w-[60px]">
-                              <div className="h-8 w-8 flex items-center justify-center">
-                                <BookmarkIcon></BookmarkIcon>
+                              <div className="h-8 w-8 flex items-center justify-center text-white">
+                                <BookmarkIcon className="h-6 w-6"></BookmarkIcon>
                               </div>
                               <p className="text-white text-[10px] font-semibold text-center">
                                 Daftarku
@@ -372,18 +379,18 @@ export default function Page() {
                             <li className="flex items-center justify-center flex-col min-w-[60px]">
                               <button
                                 type="button"
-                                className="h-8 w-8 flex items-center justify-center"
+                                className="h-8 w-8 flex items-center justify-center text-white"
                                 onClick={() =>
                                   setCommentMobile((current) => !current)
                                 }
                               >
-                                <ChatBubbleBottomCenterTextIcon></ChatBubbleBottomCenterTextIcon>
+                                <ChatBubbleBottomCenterTextIcon className="h-6 w-6"></ChatBubbleBottomCenterTextIcon>
                               </button>
                               <p className="text-white text-[10px] font-semibold text-center">
                                 Komentar
                               </p>
                               <div
-                                className={`bottom-0 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full left-0 ${
+                                className={`bottom-0 bg-pallete-5 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full left-0 ${
                                   commentmobile
                                     ? "detail-selected-bottom z-[7]"
                                     : "detail-selected-bottom-hidden z-[-1]"
@@ -398,15 +405,13 @@ export default function Page() {
                                       type="button"
                                       className="w-6 h-6 text-white"
                                       onClick={() =>
-                                        setCommentMobile(
-                                          (current) => !current
-                                        )
+                                        setCommentMobile((current) => !current)
                                       }
                                     >
                                       <XMarkIcon></XMarkIcon>
                                     </button>
                                   </div>
-                                  <div className="bg-pallete-5 h-100% overflow-y-scroll">
+                                  <div className="h-100% overflow-y-scroll">
                                     <div className="flex justify-between pt-4 px-4">
                                       <span className="text-gray-300 text-xs font-normal">
                                         1 Komentar
@@ -416,34 +421,197 @@ export default function Page() {
                                       <li className="border-b border-gray-600 py-2 flex">
                                         <a href="">
                                           <div className="flex items-center border bg-pallete-3 border-gray-600 rounded-full h-8 justify-center min-w-[32px] overflow-hidden align-middle text-white">
-                                            J
+                                            JD
                                           </div>
                                         </a>
                                         <div className="ml-4 w-[calc(100%-40px)]">
-                                          <a href="" className="flex w-full items-center">
-                                            <span className="text-gray-300 text-[13px] font-semibold max-w-[27vw] overflow-hidden text-ellipsis whitespace-nowrap">John Doe</span>
-                                            <span className="text-xs text-gray-300 whitespace-nowrap before:content-[•] before:mx-1 ">1 jam yang lalu</span>
+                                          <a
+                                            href=""
+                                            className="flex w-full items-center"
+                                          >
+                                            <span className="text-gray-300 text-[13px] font-semibold max-w-[27vw] overflow-hidden text-ellipsis whitespace-nowrap">
+                                              John Doe
+                                            </span>
+                                            <span className="text-xs text-gray-300 whitespace-nowrap before:content-['•'] before:mx-1 ">
+                                              8 jam yang lalu
+                                            </span>
                                           </a>
                                           <div className="my-1">
                                             <div className="overflow-hidden relative">
-                                              <p className="mt-0 break-words text-white text-sm font-normal my-1">
-                                              yg di tunggu²
+                                              <p className="mt-0 break-words text-white text-sm font-normal my-1 whitespace-break-spaces">
+                                                Lorem Ipsum is simply dummy text
+                                                of the printing and typesetting
+                                                industry. Lorem Ipsum has been
+                                                the industry&apos;s standard
+                                                dummy text ever since the 1500s,
+                                                when an unknown printer took a
+                                                galley of type and scrambled it
+                                                to make a type specimen book. It
+                                                has survived not only five
+                                                centuries, but also the leap
+                                                into electronic typesetting,
+                                                remaining essentially unchanged.
+                                                It was popularised in the 1960s
+                                                with the release of Letraset
+                                                sheets containing Lorem Ipsum
+                                                passages, and more recently with
+                                                desktop publishing software like
+                                                Aldus PageMaker including
+                                                versions of Lorem Ipsum.
                                               </p>
                                             </div>
                                           </div>
                                           <div className="flex items-center justify-between my-4">
-                                            <button type="button" className="items-baseline bg-transparent"></button>
+                                            <button
+                                              type="button"
+                                              className="flex items-baseline bg-transparent text-gray-300 text-sm font-semibold w-fit"
+                                            >
+                                              <HeartIcon className="h-3 w-3 mr-1"></HeartIcon>
+                                              1 Suka
+                                            </button>
+                                            <button
+                                              type="button"
+                                              className="flex items-baseline bg-transparent text-gray-300 text-sm font-semibold w-fit ml-5"
+                                            >
+                                              Balas
+                                            </button>
+                                            <div className="grow flex flex-row justify-end">
+                                              <FlagIcon className="h-3 w-3"></FlagIcon>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li className="border-b border-gray-600 py-2 flex">
+                                        <a href="">
+                                          <div className="flex items-center border bg-pallete-3 border-gray-600 rounded-full h-8 justify-center min-w-[32px] overflow-hidden align-middle text-white">
+                                            JD
+                                          </div>
+                                        </a>
+                                        <div className="ml-4 w-[calc(100%-40px)]">
+                                          <a
+                                            href=""
+                                            className="flex w-full items-center"
+                                          >
+                                            <span className="text-gray-300 text-[13px] font-semibold max-w-[27vw] overflow-hidden text-ellipsis whitespace-nowrap">
+                                              John Doe
+                                            </span>
+                                            <span className="text-xs text-gray-300 whitespace-nowrap before:content-['•'] before:mx-1 ">
+                                              8 jam yang lalu
+                                            </span>
+                                          </a>
+                                          <div className="my-1">
+                                            <div className="overflow-hidden relative">
+                                              <p className="mt-0 break-words text-white text-sm font-normal my-1 whitespace-break-spaces">
+                                                Lorem Ipsum is simply dummy text
+                                                of the printing and typesetting
+                                                industry. Lorem Ipsum has been
+                                                the industry&apos;s standard
+                                                dummy text ever since the 1500s,
+                                                when an unknown printer took a
+                                                galley of type and scrambled it
+                                                to make a type specimen book. It
+                                                has survived not only five
+                                                centuries, but also the leap
+                                                into electronic typesetting,
+                                                remaining essentially unchanged.
+                                                It was popularised in the 1960s
+                                                with the release of Letraset
+                                                sheets containing Lorem Ipsum
+                                                passages, and more recently with
+                                                desktop publishing software like
+                                                Aldus PageMaker including
+                                                versions of Lorem Ipsum.
+                                              </p>
+                                            </div>
+                                          </div>
+                                          <div className="flex items-center justify-between my-4">
+                                            <button
+                                              type="button"
+                                              className="flex items-baseline bg-transparent text-gray-300 text-sm font-semibold w-fit"
+                                            >
+                                              <HeartIcon className="h-3 w-3 mr-1"></HeartIcon>
+                                              1 Suka
+                                            </button>
+                                            <button
+                                              type="button"
+                                              className="flex items-baseline bg-transparent text-gray-300 text-sm font-semibold w-fit ml-5"
+                                            >
+                                              Balas
+                                            </button>
+                                            <div className="grow flex flex-row justify-end">
+                                              <FlagIcon className="h-3 w-3"></FlagIcon>
+                                            </div>
                                           </div>
                                         </div>
                                       </li>
                                     </ul>
                                   </div>
+                                  <div className="flex items-start bg-pallete-4 border-t border-pallete-3 bottom-0 h-fit fixed w-full">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      preserveAspectRatio="none"
+                                      viewBox="0 0 32 32"
+                                      width="32"
+                                      height="32"
+                                      className="mt-auto mr-2 mb-2 ml-4"
+                                    >
+                                      <circle
+                                        cx="16"
+                                        cy="16"
+                                        r="15.5"
+                                        fill="url(#avatar-default_svg__a)"
+                                        stroke="#EEE"
+                                      ></circle>
+                                      <mask
+                                        id="avatar-default_svg__b"
+                                        x="0"
+                                        y="0"
+                                        maskUnits="userSpaceOnUse"
+                                        style={{ maskType: "alpha" }}
+                                      >
+                                        <circle
+                                          cx="16"
+                                          cy="16"
+                                          r="15.5"
+                                          fill="#fff"
+                                          stroke="#fff"
+                                        ></circle>
+                                      </mask>
+                                      <path
+                                        fill="#fff"
+                                        fillRule="evenodd"
+                                        d="M16 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.333c3.682 0 6.667 2.11 6.667 4.714 0 2.604-13.334 2.604-13.334 0 0-2.603 2.985-4.714 6.667-4.714Z"
+                                        clipRule="evenodd"
+                                      ></path>
+                                      <defs>
+                                        <linearGradient
+                                          id="avatar-default_svg__a"
+                                          x1="0"
+                                          x2="0"
+                                          y1="0"
+                                          y2="32"
+                                          gradientUnits="userSpaceOnUse"
+                                        >
+                                          <stop stopColor="#E8EAF4"></stop>
+                                          <stop
+                                            offset="1"
+                                            stopColor="#CACEDE"
+                                          ></stop>
+                                        </linearGradient>
+                                      </defs>
+                                    </svg>
+                                    <textarea className="w-[calc(100%-116px)] bg-pallete-2 rounded-2xl text-white my-2 py-[6px] px-4 resize-none align-middle overflow-auto outline-none text-sm"></textarea>
+                                    <button className="bg-pallete-5 rounded-full text-white h-9 mt-auto mr-4 mb-2 ml-2 w-9 flex justify-center items-center">
+                                      <PaperAirplaneIcon className="w-[18px] h-[18px]"></PaperAirplaneIcon>
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
                             </li>
                             <li className="flex items-center justify-center flex-col min-w-[60px]">
-                              <div className="h-8 w-8 flex items-center justify-center">
-                                <ShareIcon></ShareIcon>
+                              <div className="h-8 w-8 flex items-center justify-cente text-white">
+                                <ShareIcon className="h-6 w-6"></ShareIcon>
                               </div>
                               <p className="text-white text-[10px] font-semibold text-center">
                                 Bagikan
@@ -746,7 +914,7 @@ export default function Page() {
                             </SwiperSlide>
                           </Swiper>
                           <div
-                            className={`bottom-0 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full ${
+                            className={`bottom-0 bg-pallete-5 fixed h-[calc(100%-0.3*100%)] md:h-[calc(100%-0.5*100%)] w-full ${
                               trailerextramobile
                                 ? "detail-selected-bottom z-[7]"
                                 : "detail-selected-bottom-hidden z-[-1]"
@@ -767,7 +935,7 @@ export default function Page() {
                                   <XMarkIcon></XMarkIcon>
                                 </button>
                               </div>
-                              <div className="bg-pallete-5 h-100% overflow-y-scroll">
+                              <div className="h-100% overflow-y-scroll">
                                 <div>
                                   <ul>
                                     <li className="my-2">
@@ -1750,7 +1918,10 @@ export default function Page() {
               <></>
             )}
           </div>
-          <div className="curtain__panel curtain__panel--right" style={{height: `${heightcurtain}`}}></div>
+          <div
+            className="curtain__panel curtain__panel--right"
+            style={{ height: `${heightcurtain}` }}
+          ></div>
         </div>
       </div>
     </>

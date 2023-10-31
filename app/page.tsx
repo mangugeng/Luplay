@@ -511,7 +511,7 @@ export default function Home() {
                     </SwiperSlide>
                   </Swiper>
                 )}
-                <div className="mx-auto max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl py-0 lg:py-12 mb-20 lg:mb-0">
+                <div className="mx-4 sm:mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl py-0 lg:py-12 mb-20 lg:mb-0">
                   {toggleskeleton ? (
                     <>
                       <SkeletonTheme

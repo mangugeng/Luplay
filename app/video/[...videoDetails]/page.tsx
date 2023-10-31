@@ -458,7 +458,7 @@ export default function Page() {
   const [openselectedtrailerextra, setOpensetSelectedFilterEpisode] =
     useState<boolean>(false);
 
-    const curtaincontentRef = useRef<HTMLDivElement>(null);
+  const curtaincontentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const changeHeadlineVisible = () => {
@@ -520,483 +520,649 @@ export default function Page() {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-          <div className={`curtain__panel ${headlinevisible?``:'h-[132vh]'} curtain__panel--left`} style={{height: headlinevisible? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
+          <div
+            className={`curtain__panel ${
+              headlinevisible ? `` : "h-[110vh] lg:h-[132vh]"
+            } curtain__panel--left`}
+            style={{
+              height: headlinevisible
+                ? `${curtaincontentRef.current?.offsetHeight}px`
+                : "",
+            }}
+          ></div>
           <div className="curtain__content" ref={curtaincontentRef}>
             {pageloaded ? (
               devicemobile ? (
-                <div className="relative text-white">
-                  <div className={`${headlinevisible ? "visible" : "invisible opacity-0"} bg-pallete-5 shadow-md pb-10 pt-4 fixed w-full z-10 container-headline-details`}>
-                    <div className="left-4 top-4 absolute z-[5]">
-                      <button type="button" onClick={()=>previousPageFunction()} className="inline">
-                        <ArrowLeftIcon className="h-6 w-6"></ArrowLeftIcon>
-                      </button>
+                toggleskeleton ? (
+                  <>
+                    <div>
+                      <Skeleton
+                        baseColor="#202020"
+                        highlightColor="#444"
+                        height={200}
+                        width={window.innerWidth}
+                      ></Skeleton>
                     </div>
-                    <h1 className="text-white text-xl font-bold overflow-hidden px-16 text-center text-ellipsis whitespace-nowrap">Merajut Dendam</h1>
-                    <div className="flex text-sm font-bold justify-center left-0 max-h-[44px] absolute right-0 top-14 whitespace-nowrap w-auto z-[4]">
-                      <button type="button" onClick={()=>movePageFunction('/watch/632/merajut-dendam')} className="text-white text-base py-3 px-6 bg-pallete-4 items-center rounded inline-flex font-bold justify-center">
-                        <PlayIcon className="mr-3 w-[14px] h-[14px]"></PlayIcon>
-                        Putar Sekarang
-                      </button>
-                    </div>
-                  </div>
-                  <div className="ml-4 absolute top-4 z-[5]">
-                    <button
-                      type="button"
-                      className="bg-pallete-4/50 rounded-full inline p-2"
-                      onClick={()=>previousPageFunction()}
-                    >
-                      <ArrowLeftIcon className="w-6 h-6"></ArrowLeftIcon>
-                    </button>
-                  </div>
-                  <div className="right-4 absolute top-4 z-[5]">
-                    <button
-                      type="button"
-                      className="bg-pallete-4/50 rounded-full inline p-2"
-                    >
-                      <ShareIcon className="w-6 h-6"></ShareIcon>
-                    </button>
-                  </div>
-                  <button type="button" className="block pt-[56.27%] relative w-full" onClick={()=>movePageFunction('/watch/632/merajut-dendam')}>
-                    <picture className="top-0 right-0 bottom-0 left-0 absolute">
-                      <Image src={bannermobile} alt="Picture of the author" />
-                      <div className="bg-pallete-4/50 items-center rounded-2xl bottom-4 text-white inline-flex text-xs font-normal justify-center left-4 min-w-[32px] py-2 px-3 absolute">
-                        <PlayIcon className="w-4 h-4 mr-2"></PlayIcon>
-                        <span>Trailer</span>
+                    <div className="mt-4 mx-4 mb-2">
+                      <div className="flex justify-between mb-2">
+                        <div>
+                          <Skeleton
+                            baseColor="#202020"
+                            highlightColor="#444"
+                            height={28}
+                            width={150}
+                          ></Skeleton>
+                        </div>
+                        <div>
+                          <Skeleton
+                            baseColor="#202020"
+                            highlightColor="#444"
+                            height={28}
+                            width={24}
+                          ></Skeleton>
+                        </div>
                       </div>
-                    </picture>
-                  </button>
-                  <div className="mt-4 mx-4 mb-2">
-                    <div className="flex items-start justify-between">
-                      <h1 className="line-clamp-2 text-xl font-bold mb-2 text-ellipsis whitespace-pre-wrap">
+                      <div className="my-3">
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={20}
+                          width={200}
+                        ></Skeleton>
+                      </div>
+                      <div className="mt-2">
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={20}
+                          width={250}
+                        ></Skeleton>
+                      </div>
+                      <div className="my-2">
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={36}
+                          width={window.innerWidth}
+                        ></Skeleton>
+                      </div>
+                      <div className="mb-2">
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={15}
+                          width={window.innerWidth}
+                          count={2}
+                        ></Skeleton>
+                      </div>
+                      <div>
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={15}
+                          width={100}
+                        ></Skeleton>
+                      </div>
+                    </div>
+                    <div className="mt-4 mx-4">
+                      <div className="mb-[10px]">
+                        <Skeleton
+                          baseColor="#202020"
+                          highlightColor="#444"
+                          height={40}
+                          width={window.innerWidth}
+                        ></Skeleton>
+                      </div>
+                      <div className="flex justify-between">
+                        <div>
+                          <Skeleton
+                            baseColor="#202020"
+                            highlightColor="#444"
+                            height={16}
+                            width={100}
+                          ></Skeleton>
+                        </div>
+                        <div>
+                          <Skeleton
+                            baseColor="#202020"
+                            highlightColor="#444"
+                            height={16}
+                            width={100}
+                          ></Skeleton>
+                        </div>
+                      </div>
+                      <div className="my-4">
+                        <div className="flex items-center gap-x-2">
+                            <div>
+                              <Skeleton
+                                baseColor="#202020"
+                                highlightColor="#444"
+                                height={81}
+                                width={144}
+                              ></Skeleton>
+                            </div>
+                            <div>
+                              <Skeleton
+                                baseColor="#202020"
+                                highlightColor="#444"
+                                height={15}
+                                width={200}
+                              ></Skeleton>
+                            </div>
+                        </div>
+                        <div>
+                              <Skeleton
+                                baseColor="#202020"
+                                highlightColor="#444"
+                                height={15}
+                                width={window.innerWidth}
+                                count={2}
+                              ></Skeleton>
+                            </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="relative text-white">
+                    <div
+                      className={`${
+                        headlinevisible ? "visible" : "invisible opacity-0"
+                      } bg-pallete-5 shadow-md pb-10 pt-4 fixed w-full z-10 container-headline-details`}
+                    >
+                      <div className="left-4 top-4 absolute z-[5]">
+                        <button
+                          type="button"
+                          onClick={() => previousPageFunction()}
+                          className="inline"
+                        >
+                          <ArrowLeftIcon className="h-6 w-6"></ArrowLeftIcon>
+                        </button>
+                      </div>
+                      <h1 className="text-white text-xl font-bold overflow-hidden px-16 text-center text-ellipsis whitespace-nowrap">
                         Merajut Dendam
                       </h1>
-                      <button className="w-fit">
-                        <BookmarkIcon className="w-6 h-6"></BookmarkIcon>
-                      </button>
+                      <div className="flex text-sm font-bold justify-center left-0 max-h-[44px] absolute right-0 top-14 whitespace-nowrap w-auto z-[4]">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            movePageFunction("/watch/632/merajut-dendam")
+                          }
+                          className="text-white text-base py-3 px-6 bg-pallete-4 items-center rounded inline-flex font-bold justify-center"
+                        >
+                          <PlayIcon className="mr-3 w-[14px] h-[14px]"></PlayIcon>
+                          Putar Sekarang
+                        </button>
+                      </div>
                     </div>
-                    <div className="flex items-center text-sm my-3 whitespace-nowrap text-gray-300">
-                      <Image
-                        src={crown}
-                        className="w-4 h-4"
-                        alt="Picture of the author"
-                      />
-                      <div className="border-l border-l-gray-300 ml-1 pl-1">
-                        18+
-                      </div>
-                      <div className="border-l border-l-gray-300 ml-1 pl-1">
-                        2023
-                      </div>
-                      <div className="border-l border-l-gray-300 ml-1 pl-1">
-                        6 Episodes
-                      </div>
-                      <a
-                        href="#"
-                        className="border-l border-l-gray-300 ml-1 pl-1 flex-shrink"
-                      >
-                        Drama
-                      </a>
-                      <a
-                        href="#"
-                        className="border-l border-l-gray-300 ml-1 pl-1 flex-shrink"
-                      >
-                        Romance
-                      </a>
-                    </div>
-                    <p className="text-white text-sm font-medium mt-2 overflow-hidden overflow-ellipsis whitespace-nowrap">
-                      Express Episode 5 & 6 Tayang Tanggal 27 Oktober
-                    </p>
-                    <div className="my-2 w-100% transition ease-out delay-200">
+                    <div className="ml-4 absolute top-4 z-[5]">
                       <button
                         type="button"
-                        onClick={()=>movePageFunction('/watch/632/merajut-dendam')}
-                        className="text-sm font-bold mx-auto whitespace-nowrap w-full min-w-[40px] py-2 px-4 items-center rounded inline-flex justify-center bg-pallete-4 shadow-md"
+                        className="bg-pallete-4/50 rounded-full inline p-2"
+                        onClick={() => previousPageFunction()}
                       >
-                        <PlayIcon className="w-4 h-4 mr-3"></PlayIcon>
-                        Putar Sekarang
+                        <ArrowLeftIcon className="w-6 h-6"></ArrowLeftIcon>
                       </button>
                     </div>
-                    <div className="my-2">
-                      <h4 className="font-medium text-sm overflow-hidden overflow-ellipsis whitespace-nowrap">
-                        Ep 01 - Harta, Tahta, Wanita
-                      </h4>
-                      <span className="flex items-center mt-[2px]">
-                        <div className="bg-white flex-[1_1] w-full rounded-sm h-1">
-                          <div className="w-[37.55%] bg-pallete-4 rounded-sm h-1"></div>
+                    <div className="right-4 absolute top-4 z-[5]">
+                      <button
+                        type="button"
+                        className="bg-pallete-4/50 rounded-full inline p-2"
+                      >
+                        <ShareIcon className="w-6 h-6"></ShareIcon>
+                      </button>
+                    </div>
+                    <button
+                      type="button"
+                      className="block pt-[56.27%] relative w-full"
+                      onClick={() =>
+                        movePageFunction("/watch/632/merajut-dendam")
+                      }
+                    >
+                      <picture className="top-0 right-0 bottom-0 left-0 absolute">
+                        <Image src={bannermobile} alt="Picture of the author" />
+                        <div className="bg-pallete-4/50 items-center rounded-2xl bottom-4 text-white inline-flex text-xs font-normal justify-center left-4 min-w-[32px] py-2 px-3 absolute">
+                          <PlayIcon className="w-4 h-4 mr-2"></PlayIcon>
+                          <span>Trailer</span>
                         </div>
-                        <time className="font-medium text-xs ml-2">
-                          27m tersisa
-                        </time>
-                      </span>
-                    </div>
-                    <div className="text-sm ">
-                      <div className="block relative text-white">
-                        <article className="text-sm">
-                          <p className="mb-2">
-                            Nina memiliki segalanya, suami yang mapan dan
-                            keluarga yang sempurna. Semua berubah ketika
-                            suaminya, Rasya, dituduh sebagai tersangka kasus
-                            pencabulan.
-                          </p>
-                        </article>
-                        <p className="mb-2 flex text-sm ">
-                          <span className="mr-1 text-gray-300">Sutradara:</span>
-                          <span>
-                            <a href="#" className="inline ">
-                              Razka Robby Ertanto
-                            </a>
-                          </span>
-                        </p>
-                        <p className="mb-2 flex text-sm ">
-                          <span className="mr-1 text-gray-300">Pemain:</span>
-                          <span>
-                            <a href="#" className="inline">
-                              Oka Antara
-                            </a>
-                            , &nbsp;
-                            <a href="#" className="inline">
-                              Laura Basuki
-                            </a>
-                            , &nbsp;
-                            <a href="#" className="inline">
-                              Carissa Perusset
-                            </a>
-                            , &nbsp;
-                            <a href="#" className="inline ">
-                              Andri Mashadi
-                            </a>
-                            , &nbsp;
-                            <a href="#" className="inline ">
-                              Sheila Marcia
-                            </a>
-                            , &nbsp;
-                          </span>
-                        </p>
+                      </picture>
+                    </button>
+                    <div className="mt-4 mx-4 mb-2">
+                      <div className="flex items-start justify-between">
+                        <h1 className="line-clamp-2 text-xl font-bold mb-2 text-ellipsis whitespace-pre-wrap">
+                          Merajut Dendam
+                        </h1>
+                        <button className="w-fit">
+                          <BookmarkIcon className="w-6 h-6"></BookmarkIcon>
+                        </button>
                       </div>
-                      <button
-                        type="button"
-                        className="text-blue-400 font-semibold"
-                      >
-                        Lebih Sedikit
-                      </button>
-                    </div>
-                  </div>
-                  <Tabs className="tabs-detail-video">
-                    <TabList>
-                      <Tab>Episode</Tab>
-                      <Tab>Trailer & Ekstra</Tab>
-                      <Tab>Konten Sejenis</Tab>
-                    </TabList>
-                    <TabPanel>
-                      <div className="mt-4 mx-4 min-h-[200px] pb-16">
-                        <div className="flex items-center justify-between">
-                          <p className="text-xs font-semibold py-2 px-3">
-                            Semua Episode
+                      <div className="flex items-center text-sm my-3 whitespace-nowrap text-gray-300">
+                        <Image
+                          src={crown}
+                          className="w-4 h-4"
+                          alt="Picture of the author"
+                        />
+                        <div className="border-l border-l-gray-300 ml-1 pl-1">
+                          18+
+                        </div>
+                        <div className="border-l border-l-gray-300 ml-1 pl-1">
+                          2023
+                        </div>
+                        <div className="border-l border-l-gray-300 ml-1 pl-1">
+                          6 Episodes
+                        </div>
+                        <a
+                          href="#"
+                          className="border-l border-l-gray-300 ml-1 pl-1 flex-shrink"
+                        >
+                          Drama
+                        </a>
+                        <a
+                          href="#"
+                          className="border-l border-l-gray-300 ml-1 pl-1 flex-shrink"
+                        >
+                          Romance
+                        </a>
+                      </div>
+                      <p className="text-white text-sm font-medium mt-2 overflow-hidden overflow-ellipsis whitespace-nowrap">
+                        Express Episode 5 & 6 Tayang Tanggal 27 Oktober
+                      </p>
+                      <div className="my-2 w-100% transition ease-out delay-200">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            movePageFunction("/watch/632/merajut-dendam")
+                          }
+                          className="text-sm font-bold mx-auto whitespace-nowrap w-full min-w-[40px] py-2 px-4 items-center rounded inline-flex justify-center bg-pallete-4 shadow-md"
+                        >
+                          <PlayIcon className="w-4 h-4 mr-3"></PlayIcon>
+                          Putar Sekarang
+                        </button>
+                      </div>
+                      <div className="my-2">
+                        <h4 className="font-medium text-sm overflow-hidden overflow-ellipsis whitespace-nowrap">
+                          Ep 01 - Harta, Tahta, Wanita
+                        </h4>
+                        <span className="flex items-center mt-[2px]">
+                          <div className="bg-white flex-[1_1] w-full rounded-sm h-1">
+                            <div className="w-[37.55%] bg-pallete-4 rounded-sm h-1"></div>
+                          </div>
+                          <time className="font-medium text-xs ml-2">
+                            27m tersisa
+                          </time>
+                        </span>
+                      </div>
+                      <div className="text-sm ">
+                        <div className="block relative text-white">
+                          <article className="text-sm">
+                            <p className="mb-2">
+                              Nina memiliki segalanya, suami yang mapan dan
+                              keluarga yang sempurna. Semua berubah ketika
+                              suaminya, Rasya, dituduh sebagai tersangka kasus
+                              pencabulan.
+                            </p>
+                          </article>
+                          <p className="mb-2 flex text-sm ">
+                            <span className="mr-1 text-gray-300">
+                              Sutradara:
+                            </span>
+                            <span>
+                              <a href="#" className="inline ">
+                                Razka Robby Ertanto
+                              </a>
+                            </span>
                           </p>
-                          <div>
-                            <Listbox
-                              value={selectedfilterepisode}
-                              onChange={setSelectedFilterEpisode}
-                              as="div"
-                              className="relative"
-                            >
-                              {({ open }) => (
-                                <>
-                                  <Listbox.Button className=" flex flex-row items-center gap-x-2 text-xs text-gray-300 font-medium ">
-                                    <FunnelIcon className="w-4 h-4"></FunnelIcon>
-                                    {selectedfilterepisode.name}
-                                    <ChevronUpDownIcon className="w-4 h-4"></ChevronUpDownIcon>
-                                  </Listbox.Button>
+                          <p className="mb-2 flex text-sm ">
+                            <span className="mr-1 text-gray-300">Pemain:</span>
+                            <span>
+                              <a href="#" className="inline">
+                                Oka Antara
+                              </a>
+                              , &nbsp;
+                              <a href="#" className="inline">
+                                Laura Basuki
+                              </a>
+                              , &nbsp;
+                              <a href="#" className="inline">
+                                Carissa Perusset
+                              </a>
+                              , &nbsp;
+                              <a href="#" className="inline ">
+                                Andri Mashadi
+                              </a>
+                              , &nbsp;
+                              <a href="#" className="inline ">
+                                Sheila Marcia
+                              </a>
+                              , &nbsp;
+                            </span>
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          className="text-blue-400 font-semibold"
+                        >
+                          Lebih Sedikit
+                        </button>
+                      </div>
+                    </div>
+                    <Tabs className="tabs-detail-video">
+                      <TabList>
+                        <Tab>Episode</Tab>
+                        <Tab>Trailer & Ekstra</Tab>
+                        <Tab>Konten Sejenis</Tab>
+                      </TabList>
+                      <TabPanel>
+                        <div className="mt-4 mx-4 min-h-[100px] lg:min-h-[200px] pb-16">
+                          <div className="flex items-center justify-between">
+                            <p className="text-xs font-semibold py-2 px-3">
+                              Semua Episode
+                            </p>
+                            <div>
+                              <Listbox
+                                value={selectedfilterepisode}
+                                onChange={setSelectedFilterEpisode}
+                                as="div"
+                                className="relative"
+                              >
+                                {({ open }) => (
+                                  <>
+                                    <Listbox.Button className=" flex flex-row items-center gap-x-2 text-xs text-gray-300 font-medium ">
+                                      <FunnelIcon className="w-4 h-4"></FunnelIcon>
+                                      {selectedfilterepisode.name}
+                                      <ChevronUpDownIcon className="w-4 h-4"></ChevronUpDownIcon>
+                                    </Listbox.Button>
 
-                                  <Transition
-                                    show={open}
-                                    enter="transition duration-100 ease-out"
-                                    enterFrom="transform scale-95 opacity-0"
-                                    enterTo="transform scale-100 opacity-100"
-                                    leave="transition duration-75 ease-out"
-                                    leaveFrom="transform scale-100 opacity-100"
-                                    leaveTo="transform scale-95 opacity-0"
-                                  >
-                                    <Listbox.Options
-                                      static
-                                      className="absolute w-full z-10 text-center mt-2 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    <Transition
+                                      show={open}
+                                      enter="transition duration-100 ease-out"
+                                      enterFrom="transform scale-95 opacity-0"
+                                      enterTo="transform scale-100 opacity-100"
+                                      leave="transition duration-75 ease-out"
+                                      leaveFrom="transform scale-100 opacity-100"
+                                      leaveTo="transform scale-95 opacity-0"
                                     >
-                                      {filterepisode.map((filter) => (
-                                        <Listbox.Option
-                                          key={filter.id}
-                                          value={filter}
-                                          as={Fragment}
-                                        >
-                                          {({ active }) => (
-                                            <li
-                                              className={`cursor-pointer text-xs ${
-                                                active
-                                                  ? "bg-blue-500 text-white"
-                                                  : "bg-white text-gray-600"
-                                              }`}
-                                            >
-                                              {filter.name}
-                                            </li>
-                                          )}
-                                        </Listbox.Option>
-                                      ))}
-                                    </Listbox.Options>
-                                  </Transition>
-                                </>
-                              )}
-                            </Listbox>
+                                      <Listbox.Options
+                                        static
+                                        className="absolute w-full z-10 text-center mt-2 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                      >
+                                        {filterepisode.map((filter) => (
+                                          <Listbox.Option
+                                            key={filter.id}
+                                            value={filter}
+                                            as={Fragment}
+                                          >
+                                            {({ active }) => (
+                                              <li
+                                                className={`cursor-pointer text-xs ${
+                                                  active
+                                                    ? "bg-blue-500 text-white"
+                                                    : "bg-white text-gray-600"
+                                                }`}
+                                              >
+                                                {filter.name}
+                                              </li>
+                                            )}
+                                          </Listbox.Option>
+                                        ))}
+                                      </Listbox.Options>
+                                    </Transition>
+                                  </>
+                                )}
+                              </Listbox>
+                            </div>
+                          </div>
+                          <div className="block">
+                            <ul className="mt-4">
+                              <li>
+                                <div className="block">
+                                  <a href="" className="flex items-center">
+                                    <div className="rounded-lg h-20 overflow-hidden relative align-top w-36 z-[1]">
+                                      <Image
+                                        src={episode}
+                                        className="aspect-[16/9] object-cover object-center"
+                                        alt="Picture of the author"
+                                      />
+                                      <div className="bottom-1 left-0 absolute">
+                                        <span className="text-[8px] py-[3px] px-[6px] bg-white border border-solid border-gray-100 rounded-sm text-gray-900 block font-medium mb-1 ml-1">
+                                          GRATIS
+                                        </span>
+                                      </div>
+                                      <div className="bottom-2 absolute right-2">
+                                        <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/50 rounded-sm text-white text-center">
+                                          43:35
+                                        </time>
+                                      </div>
+                                    </div>
+                                    <div className="flex-[1_1] ml-2">
+                                      <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
+                                        Ep 01 - Harta, Tahta, Wanita
+                                      </h3>
+                                    </div>
+                                  </a>
+                                </div>
+                                <p className="line-clamp-2 text-white text-sm mt-1 max-h-[42px] text-left text-ellipsis break-words">
+                                  Rasya Perdana, pengacara handal dari keluarga
+                                  terpandang yang tersandung kasus video
+                                  perselingkuhannya. Siapa dalang dibalik
+                                  penyebaran video itu?
+                                </p>
+                              </li>
+                            </ul>
                           </div>
                         </div>
-                        <div className="block">
-                          <ul className="mt-4">
-                            <li>
-                              <div className="block">
-                                <a href="" className="flex items-center">
-                                  <div className="rounded-lg h-20 overflow-hidden relative align-top w-36 z-[1]">
-                                    <Image
-                                      src={episode}
-                                      className="aspect-[16/9] object-cover object-center"
-                                      alt="Picture of the author"
-                                    />
-                                    <div className="bottom-1 left-0 absolute">
-                                      <span className="text-[8px] py-[3px] px-[6px] bg-white border border-solid border-gray-100 rounded-sm text-gray-900 block font-medium mb-1 ml-1">
-                                        GRATIS
-                                      </span>
-                                    </div>
-                                    <div className="bottom-2 absolute right-2">
-                                      <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/50 rounded-sm text-white text-center">
-                                        43:35
-                                      </time>
-                                    </div>
-                                  </div>
-                                  <div className="flex-[1_1] ml-2">
-                                    <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
-                                      Ep 01 - Harta, Tahta, Wanita
-                                    </h3>
-                                  </div>
-                                </a>
-                              </div>
-                              <p className="line-clamp-2 text-white text-sm mt-1 max-h-[42px] text-left text-ellipsis break-words">
-                                Rasya Perdana, pengacara handal dari keluarga
-                                terpandang yang tersandung kasus video
-                                perselingkuhannya. Siapa dalang dibalik
-                                penyebaran video itu?
-                              </p>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </TabPanel>
-                    <TabPanel>
-                      <div className="mt-4 mx-4 min-h-[200px] pb-16">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <button
-                              type="button"
-                              className="flex flex-row shadow-md items-center gap-x-2 text-xs text-gray-300 font-semibold py-2 px-3 border border-solid rounded-md"
-                              onClick={() =>
-                                setOpensetSelectedFilterEpisode(
-                                  (current) => !current
-                                )
-                              }
-                            >
-                              {selectedtrailerextra.name}
-                              <ChevronUpDownIcon className="w-4 h-4"></ChevronUpDownIcon>
-                            </button>
-                          </div>
-                          <div
-                            className={`bg-black/50 bottom-0 left-0 fixed right-0 top-0 ${
-                              openselectedtrailerextra
-                                ? "detail-selected-bottom z-[9]"
-                                : "detail-selected-bottom-hidden z-[-1]"
-                            }`}
-                          >
-                            <div className="bg-pallete-5 rounded-tl-2xl rounded-tr-2xl bottom-0 max-h-[98%] py-8 px-6 absolute w-full">
+                      </TabPanel>
+                      <TabPanel>
+                        <div className="mt-4 mx-4 min-h-[100px] lg:min-h-[200px] pb-16">
+                          <div className="flex items-center justify-between">
+                            <div>
                               <button
                                 type="button"
-                                className="text-white bg-pallete-4/50 rounded-full p-2 absolute right-3 top-3"
+                                className="flex flex-row shadow-md items-center gap-x-2 text-xs text-gray-300 font-semibold py-2 px-3 border border-solid rounded-md"
                                 onClick={() =>
                                   setOpensetSelectedFilterEpisode(
                                     (current) => !current
                                   )
                                 }
                               >
-                                <XMarkIcon className="w-5 h-5"></XMarkIcon>
+                                {selectedtrailerextra.name}
+                                <ChevronUpDownIcon className="w-4 h-4"></ChevronUpDownIcon>
                               </button>
-                              <div className="max-h-[97vh] overflow-auto">
-                                <h2 className="text-white text-xl font-bold">
-                                  {" "}
-                                  Season
-                                </h2>
-                                <ul className="text-sm">
-                                  <li className="mt-6">
-                                    <button
-                                      type="button"
-                                      className="text-white font-sm text-left"
-                                    >
-                                      Trailer{" "}
-                                      <span className="text-gray-300 text-sm text-left">
-                                        ( 5 Episode )
-                                      </span>
-                                    </button>
-                                  </li>
-                                  <li className="mt-6">
-                                    <button
-                                      type="button"
-                                      className="text-white font-sm text-left"
-                                    >
-                                      Extras{" "}
-                                      <span className="text-gray-300 text-sm text-left">
-                                        ( 7 Episode )
-                                      </span>
-                                    </button>
-                                  </li>
-                                </ul>
+                            </div>
+                            <div
+                              className={`bg-black/50 bottom-0 left-0 fixed right-0 top-0 ${
+                                openselectedtrailerextra
+                                  ? "detail-selected-bottom z-[9]"
+                                  : "detail-selected-bottom-hidden z-[-1]"
+                              }`}
+                            >
+                              <div className="bg-pallete-5 rounded-tl-2xl rounded-tr-2xl bottom-0 max-h-[98%] py-8 px-6 absolute w-full">
+                                <button
+                                  type="button"
+                                  className="text-white bg-pallete-4/50 rounded-full p-2 absolute right-3 top-3"
+                                  onClick={() =>
+                                    setOpensetSelectedFilterEpisode(
+                                      (current) => !current
+                                    )
+                                  }
+                                >
+                                  <XMarkIcon className="w-5 h-5"></XMarkIcon>
+                                </button>
+                                <div className="max-h-[97vh] overflow-auto">
+                                  <h2 className="text-white text-xl font-bold">
+                                    {" "}
+                                    Season
+                                  </h2>
+                                  <ul className="text-sm">
+                                    <li className="mt-6">
+                                      <button
+                                        type="button"
+                                        className="text-white font-sm text-left"
+                                      >
+                                        Trailer{" "}
+                                        <span className="text-gray-300 text-sm text-left">
+                                          ( 5 Episode )
+                                        </span>
+                                      </button>
+                                    </li>
+                                    <li className="mt-6">
+                                      <button
+                                        type="button"
+                                        className="text-white font-sm text-left"
+                                      >
+                                        Extras{" "}
+                                        <span className="text-gray-300 text-sm text-left">
+                                          ( 7 Episode )
+                                        </span>
+                                      </button>
+                                    </li>
+                                  </ul>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div>
-                            <Listbox
-                              value={selectedfilterepisode}
-                              onChange={setSelectedFilterEpisode}
-                              as="div"
-                              className="relative"
-                            >
-                              {({ open }) => (
-                                <>
-                                  <Listbox.Button className=" flex flex-row items-center gap-x-2 text-xs text-gray-300 font-semibold ">
-                                    <FunnelIcon className="w-4 h-4"></FunnelIcon>
-                                    {selectedfilterepisode.name}
-                                    <ChevronUpDownIcon className="w-4 h-4"></ChevronUpDownIcon>
-                                  </Listbox.Button>
+                            <div>
+                              <Listbox
+                                value={selectedfilterepisode}
+                                onChange={setSelectedFilterEpisode}
+                                as="div"
+                                className="relative"
+                              >
+                                {({ open }) => (
+                                  <>
+                                    <Listbox.Button className=" flex flex-row items-center gap-x-2 text-xs text-gray-300 font-semibold ">
+                                      <FunnelIcon className="w-4 h-4"></FunnelIcon>
+                                      {selectedfilterepisode.name}
+                                      <ChevronUpDownIcon className="w-4 h-4"></ChevronUpDownIcon>
+                                    </Listbox.Button>
 
-                                  <Transition
-                                    show={open}
-                                    enter="transition duration-100 ease-out"
-                                    enterFrom="transform scale-95 opacity-0"
-                                    enterTo="transform scale-100 opacity-100"
-                                    leave="transition duration-75 ease-out"
-                                    leaveFrom="transform scale-100 opacity-100"
-                                    leaveTo="transform scale-95 opacity-0"
-                                  >
-                                    <Listbox.Options
-                                      static
-                                      className="absolute w-full z-10 text-center mt-2 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    <Transition
+                                      show={open}
+                                      enter="transition duration-100 ease-out"
+                                      enterFrom="transform scale-95 opacity-0"
+                                      enterTo="transform scale-100 opacity-100"
+                                      leave="transition duration-75 ease-out"
+                                      leaveFrom="transform scale-100 opacity-100"
+                                      leaveTo="transform scale-95 opacity-0"
                                     >
-                                      {filterepisode.map((filter) => (
-                                        <Listbox.Option
-                                          key={filter.id}
-                                          value={filter}
-                                          as={Fragment}
-                                        >
-                                          {({ active }) => (
-                                            <li
-                                              className={`cursor-pointer text-xs ${
-                                                active
-                                                  ? "bg-blue-500 text-white"
-                                                  : "bg-white text-gray-600"
-                                              }`}
-                                            >
-                                              {filter.name}
-                                            </li>
-                                          )}
-                                        </Listbox.Option>
-                                      ))}
-                                    </Listbox.Options>
-                                  </Transition>
-                                </>
-                              )}
-                            </Listbox>
+                                      <Listbox.Options
+                                        static
+                                        className="absolute w-full z-10 text-center mt-2 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                      >
+                                        {filterepisode.map((filter) => (
+                                          <Listbox.Option
+                                            key={filter.id}
+                                            value={filter}
+                                            as={Fragment}
+                                          >
+                                            {({ active }) => (
+                                              <li
+                                                className={`cursor-pointer text-xs ${
+                                                  active
+                                                    ? "bg-blue-500 text-white"
+                                                    : "bg-white text-gray-600"
+                                                }`}
+                                              >
+                                                {filter.name}
+                                              </li>
+                                            )}
+                                          </Listbox.Option>
+                                        ))}
+                                      </Listbox.Options>
+                                    </Transition>
+                                  </>
+                                )}
+                              </Listbox>
+                            </div>
+                          </div>
+                          <div className="block">
+                            {selectedtrailerextra.id == 1 ? (
+                              <ul className="mt-4">
+                                <li>
+                                  <div className="block">
+                                    <a href="" className="flex items-center">
+                                      <div className="rounded-lg h-20 overflow-hidden relative align-top w-36 z-[1]">
+                                        <Image
+                                          src={trailer}
+                                          className="aspect-[16/9] object-cover object-center"
+                                          alt="Picture of the author"
+                                        />
+                                        <div className="bottom-1 left-0 absolute">
+                                          <span className="text-[8px] py-[3px] px-[6px] bg-white border border-solid border-gray-100 rounded-sm text-gray-900 block font-medium mb-1 ml-1">
+                                            GRATIS
+                                          </span>
+                                        </div>
+                                        <div className="bottom-2 absolute right-2">
+                                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/50 rounded-sm text-white text-center">
+                                            00:45
+                                          </time>
+                                        </div>
+                                      </div>
+                                      <div className="flex-[1_1] ml-2">
+                                        <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
+                                          Merajut Dendam - Vidio Original Series
+                                          | Official Teaser
+                                        </h3>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <p className="line-clamp-2 text-white text-sm mt-1 max-h-[42px] text-left text-ellipsis break-words">
+                                    Nina memiliki segalanya; suami yang mapan
+                                    dan keluarga yang sempurna. Semua berubah
+                                    ketika suaminya, Rasya, dituduh sebagai
+                                    tersangka kasus pencabulan.
+                                  </p>
+                                </li>
+                              </ul>
+                            ) : (
+                              <ul className="mt-4">
+                                <li>
+                                  <div className="block">
+                                    <a href="" className="flex items-center">
+                                      <div className="rounded-lg h-20 overflow-hidden relative align-top w-36 z-[1]">
+                                        <Image
+                                          src={extra}
+                                          className="aspect-[16/9] object-cover object-center"
+                                          alt="Picture of the author"
+                                        />
+                                        <div className="bottom-1 left-0 absolute">
+                                          <span className="text-[8px] py-[3px] px-[6px] bg-white border border-solid border-gray-100 rounded-sm text-gray-900 block font-medium mb-1 ml-1">
+                                            GRATIS
+                                          </span>
+                                        </div>
+                                        <div className="bottom-2 absolute right-2">
+                                          <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/50 rounded-sm text-white text-center">
+                                            01:08
+                                          </time>
+                                        </div>
+                                      </div>
+                                      <div className="flex-[1_1] ml-2">
+                                        <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
+                                          Merajut Dendam - Vidio Original Series
+                                          | Next On Episode 2
+                                        </h3>
+                                      </div>
+                                    </a>
+                                  </div>
+                                </li>
+                              </ul>
+                            )}
                           </div>
                         </div>
-                        <div className="block">
-                          {selectedtrailerextra.id == 1 ? (
-                            <ul className="mt-4">
-                              <li>
-                                <div className="block">
-                                  <a href="" className="flex items-center">
-                                    <div className="rounded-lg h-20 overflow-hidden relative align-top w-36 z-[1]">
-                                      <Image
-                                        src={trailer}
-                                        className="aspect-[16/9] object-cover object-center"
-                                        alt="Picture of the author"
-                                      />
-                                      <div className="bottom-1 left-0 absolute">
-                                        <span className="text-[8px] py-[3px] px-[6px] bg-white border border-solid border-gray-100 rounded-sm text-gray-900 block font-medium mb-1 ml-1">
-                                          GRATIS
-                                        </span>
-                                      </div>
-                                      <div className="bottom-2 absolute right-2">
-                                        <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/50 rounded-sm text-white text-center">
-                                          00:45
-                                        </time>
-                                      </div>
-                                    </div>
-                                    <div className="flex-[1_1] ml-2">
-                                      <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
-                                        Merajut Dendam - Vidio Original Series |
-                                        Official Teaser
-                                      </h3>
-                                    </div>
-                                  </a>
-                                </div>
-                                <p className="line-clamp-2 text-white text-sm mt-1 max-h-[42px] text-left text-ellipsis break-words">
-                                  Nina memiliki segalanya; suami yang mapan dan
-                                  keluarga yang sempurna. Semua berubah ketika
-                                  suaminya, Rasya, dituduh sebagai tersangka
-                                  kasus pencabulan.
-                                </p>
-                              </li>
-                            </ul>
-                          ) : (
-                            <ul className="mt-4">
-                              <li>
-                                <div className="block">
-                                  <a href="" className="flex items-center">
-                                    <div className="rounded-lg h-20 overflow-hidden relative align-top w-36 z-[1]">
-                                      <Image
-                                        src={extra}
-                                        className="aspect-[16/9] object-cover object-center"
-                                        alt="Picture of the author"
-                                      />
-                                      <div className="bottom-1 left-0 absolute">
-                                        <span className="text-[8px] py-[3px] px-[6px] bg-white border border-solid border-gray-100 rounded-sm text-gray-900 block font-medium mb-1 ml-1">
-                                          GRATIS
-                                        </span>
-                                      </div>
-                                      <div className="bottom-2 absolute right-2">
-                                        <time className="text-[10px] font-normal py-[1px] px-[2px] bg-black/50 rounded-sm text-white text-center">
-                                          01:08
-                                        </time>
-                                      </div>
-                                    </div>
-                                    <div className="flex-[1_1] ml-2">
-                                      <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
-                                        Merajut Dendam - Vidio Original Series |
-                                        Next On Episode 2
-                                      </h3>
-                                    </div>
-                                  </a>
-                                </div>
-                              </li>
-                            </ul>
-                          )}
+                      </TabPanel>
+                      <TabPanel>
+                        <div className="mt-4 mx-4 min-h-[100px] lg:min-h-[200px] pb-16">
+                          <ul className="-m-3 similar-video-section">
+                            <ViewSimilarVideo
+                              onEnterViewport={() =>
+                                setStateProfileNavigation("playlist-similar")
+                              }
+                              onLeaveViewport={() => console.log("leave")}
+                            />
+                          </ul>
                         </div>
-                      </div>
-                    </TabPanel>
-                    <TabPanel>
-                      <div className="mt-4 mx-4 min-h-[200px] pb-16">
-                        <ul className="-m-3 similar-video-section">
-                          <ViewSimilarVideo
-                            onEnterViewport={() =>
-                              setStateProfileNavigation("playlist-similar")
-                            }
-                            onLeaveViewport={() => console.log("leave")}
-                          />
-                        </ul>
-                      </div>
-                    </TabPanel>
-                  </Tabs>
-                </div>
+                      </TabPanel>
+                    </Tabs>
+                  </div>
+                )
               ) : (
                 <div className="mt-12 overflow-hidden">
                   <main>
@@ -1023,7 +1189,9 @@ export default function Page() {
                               <div className="flex gap-2 mb-4">
                                 <button
                                   onClick={() =>
-                                    movePageFunction("/watch/632/merajut-dendam")
+                                    movePageFunction(
+                                      "/watch/632/merajut-dendam"
+                                    )
                                   }
                                   type="button"
                                   className="inline-flex py-3 px-6 text-center bg-pallete-4 hover:bg-pallete-3 rounded-md font-bold items-center shadow-lg text-white transition-all duration-200 ease-linear"
@@ -1175,7 +1343,9 @@ export default function Page() {
                                 <div className="flex gap-2 mb-4">
                                   <button
                                     onClick={() =>
-                                      movePageFunction("/watch/632/merajut-dendam")
+                                      movePageFunction(
+                                        "/watch/632/merajut-dendam"
+                                      )
                                     }
                                     type="button"
                                     className="inline-flex py-3 px-6 text-center bg-pallete-4 hover:bg-pallete-3 rounded-md font-bold items-center shadow-lg transition-all duration-200 ease-linear"
@@ -1660,7 +1830,16 @@ export default function Page() {
               <></>
             )}
           </div>
-          <div className={`curtain__panel ${headlinevisible?``:'h-[132vh]'} curtain__panel--right`} style={{height: headlinevisible? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
+          <div
+            className={`curtain__panel ${
+              headlinevisible ? `` : "h-[110vh] lg:h-[132vh]"
+            } curtain__panel--right`}
+            style={{
+              height: headlinevisible
+                ? `${curtaincontentRef.current?.offsetHeight}px`
+                : "",
+            }}
+          ></div>
         </div>
       </div>
     </>

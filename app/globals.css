@@ -71,12 +71,13 @@ body::-webkit-scrollbar {
   text-align: center;
   font-size: 18px;
   background: #00000054;
-
-  /* Center slide text vertically */
-  display: flex;
   justify-content: center;
   align-items: center;
   height: auto !important;
+}
+
+.mobile-carousel-swiper .swiper-slide {
+  display: flex;
 }
 
 .mobile-categories-swiper .swiper-slide {
@@ -256,7 +257,9 @@ body::-webkit-scrollbar {
   background: transparent !important;
 }
 
-.watch-carousel-swiper.watch-carousel-swiper-mobile .swiper-wrapper>.swiper-slide:first-child {
+.watch-carousel-swiper.watch-carousel-swiper-mobile
+  .swiper-wrapper
+  > .swiper-slide:first-child {
   margin-left: 16px;
 }
 
@@ -449,14 +452,14 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 
-.tabs-detail-video .react-tabs__tab-list{
+.tabs-detail-video .react-tabs__tab-list {
   border-color: #4b4b4b;
 }
 
-.tabs-detail-video  .react-tabs__tab.react-tabs__tab--selected {
+.tabs-detail-video .react-tabs__tab.react-tabs__tab--selected {
   background: transparent;
-  color: white;  
-  border-bottom-color:#223893;
+  color: white;
+  border-bottom-color: #223893;
 }
 
 .tabs-detail-video .react-tabs__tab {
@@ -494,7 +497,6 @@ body::-webkit-scrollbar {
   animation: fadeOutYSelectedBottom 0.5s ease-out both;
 }
 
-
 @keyframes fadeInYSelectedBottom {
   0% {
     opacity: 0;
@@ -518,8 +520,22 @@ body::-webkit-scrollbar {
 }
 
 .icon-arrow-right-view-all {
-  background: -webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,67%,.12)),color-stop(98.94%,hsla(0,0%,45%,.02)));
-  background: -webkit-linear-gradient(top,hsla(0,0%,67%,.12),hsla(0,0%,45%,.02) 98.94%);
-  background: linear-gradient(180deg,hsla(0,0%,67%,.12),hsla(0,0%,45%,.02) 98.94%);
-  border: 1px solid hsla(0,0%,60%,.1);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(hsla(0, 0%, 67%, 0.12)),
+    color-stop(98.94%, hsla(0, 0%, 45%, 0.02))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    hsla(0, 0%, 67%, 0.12),
+    hsla(0, 0%, 45%, 0.02) 98.94%
+  );
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 67%, 0.12),
+    hsla(0, 0%, 45%, 0.02) 98.94%
+  );
+  border: 1px solid hsla(0, 0%, 60%, 0.1);
 }

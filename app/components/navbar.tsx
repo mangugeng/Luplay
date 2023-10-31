@@ -24,7 +24,9 @@ import crown from "../../public/crown.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { usePathname } from "next/navigation";
-import logo from "../../public/logo.webp"
+import logo from "../../public/logo.webp";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -32,13 +34,11 @@ const navigation = [
   { name: "Movies", href: "/categories/1-dummy-video", current: false },
   { name: "Series", href: "/categories/1-dummy-video", current: false },
 ];
-
 const more = [
   { href: "/categories/1-dummy-video", label: "Kids" },
   { href: "/categories/1-dummy-video", label: "Premier" },
   { href: "/categories/1-dummy-video", label: "Entertainment" },
 ];
-
 const search = [
   { id: 1, name: "Promo" },
   { id: 3, name: "bidadari surgamu" },
@@ -58,6 +58,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const [toggleskeleton, setToggleSkeleton] = useState<boolean>(true);
   const [selectedsearch, setSelectedSearch] = useState(search[0]);
   const [query, setQuery] = useState("");
   const [openmodalsearch, setOpenModalSearch] = useState(false);
@@ -65,6 +66,14 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
   const [openmodalother, setOpenModalOther] = useState(false);
 
   const comboBtn = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTimeout(function () {
+        setToggleSkeleton(false);
+      }, 2000);
+    }
+  }, []);
 
   const filteredSearch =
     query === ""
@@ -406,54 +415,104 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
               </div>
             </div>
             <div className="lg:hidden overflow-hidden py-[6px] no-scrollbar">
-              <Swiper
-                slidesPerView={4.7}
-                spaceBetween={10}
-                className="mobile-categories-swiper"
-              >
-                <SwiperSlide>
-                  <a
-                    href="#"
-                    className="bg-pallete-1 shadow-md text-gray-900 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-                  >
-                    Home
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a
-                    href="#"
-                    className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-                  >
-                    TV Show
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a
-                    href="#"
-                    className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-                  >
-                    Movies
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <a
-                    href="#"
-                    className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-                  >
-                    Series
-                  </a>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button
-                    type="button"
-                    onClick={() => setOpenModalOther(true)}
-                    className="bg-pallete-4 shadow-md items-center gap-x-1 text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
-                  >
-                    Lainnya{" "}
-                    <ChevronDownIcon className="h-4 w-4"></ChevronDownIcon>
-                  </button>
-                </SwiperSlide>
-              </Swiper>
+              {toggleskeleton ? (
+                <ul className="flex gap-x-4">
+                  <li>
+                    <Skeleton
+                      baseColor="#202020"
+                      highlightColor="#444"
+                      height={32}
+                      width={64}
+                      className="!rounded-full"
+                    ></Skeleton>
+                  </li>
+                  <li>
+                    <Skeleton
+                      baseColor="#202020"
+                      highlightColor="#444"
+                      height={32}
+                      width={64}
+                      className="!rounded-full"
+                    ></Skeleton>
+                  </li>
+                  <li>
+                    <Skeleton
+                      baseColor="#202020"
+                      highlightColor="#444"
+                      height={32}
+                      width={64}
+                      className="!rounded-full"
+                    ></Skeleton>
+                  </li>
+                  <li>
+                    <Skeleton
+                      baseColor="#202020"
+                      highlightColor="#444"
+                      height={32}
+                      width={64}
+                      className="!rounded-full"
+                    ></Skeleton>
+                  </li>
+                  <li>
+                    <Skeleton
+                      baseColor="#202020"
+                      highlightColor="#444"
+                      height={32}
+                      width={64}
+                      className="!rounded-full"
+                    ></Skeleton>
+                  </li>
+                </ul>
+              ) : (
+                <Swiper
+                  slidesPerView={4.7}
+                  spaceBetween={10}
+                  className="mobile-categories-swiper"
+                >
+                  <SwiperSlide>
+                    <a
+                      href="#"
+                      className="bg-pallete-1 shadow-md text-gray-900 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                    >
+                      Home
+                    </a>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <a
+                      href="#"
+                      className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                    >
+                      TV Show
+                    </a>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <a
+                      href="#"
+                      className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                    >
+                      Movies
+                    </a>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <a
+                      href="#"
+                      className="bg-pallete-4 shadow-md text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                    >
+                      Series
+                    </a>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <button
+                      type="button"
+                      onClick={() => setOpenModalOther(true)}
+                      className="bg-pallete-4 shadow-md items-center gap-x-1 text-gray-100 font-semibold text-center rounded-2xl inline-flex text-sm min-w-fit py-[6.5px] px-3"
+                    >
+                      Lainnya{" "}
+                      <ChevronDownIcon className="h-4 w-4"></ChevronDownIcon>
+                    </button>
+                  </SwiperSlide>
+                </Swiper>
+              )}
             </div>
           </div>
 
