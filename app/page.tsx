@@ -14,6 +14,12 @@ import banner1 from "../public/banner-1.webp";
 import banner2 from "../public/banner-2.webp";
 import banner3 from "../public/banner-3.webp";
 import post1 from "../public/post-1.webp";
+import post2 from "../public/post-2.webp";
+import post3 from "../public/post-3.webp";
+import post4 from "../public/post-4.webp";
+import post5 from "../public/post-5.webp";
+import post6 from "../public/post-6.webp";
+import post7 from "../public/post-7.webp";
 import {
   ArrowPathIcon,
   ChevronRightIcon,
@@ -83,7 +89,7 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
           <a href="" className="group">
             <div className="relative overflow-hidden rounded-md">
               <Image
-                src={post1}
+                src={post2}
                 className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
@@ -94,7 +100,7 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
           <a href="" className="group">
             <div className="relative overflow-hidden rounded-md">
               <Image
-                src={post1}
+                src={post3}
                 className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
@@ -105,7 +111,7 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
           <a href="" className="group">
             <div className="relative overflow-hidden rounded-md">
               <Image
-                src={post1}
+                src={post4}
                 className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
@@ -116,7 +122,7 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
           <a href="" className="group">
             <div className="relative overflow-hidden rounded-md">
               <Image
-                src={post1}
+                src={post5}
                 className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
@@ -127,7 +133,7 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
           <a href="" className="group">
             <div className="relative overflow-hidden rounded-md">
               <Image
-                src={post1}
+                src={post6}
                 className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
@@ -138,7 +144,7 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
           <a href="" className="group">
             <div className="relative overflow-hidden rounded-md">
               <Image
-                src={post1}
+                src={post7}
                 className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
                 alt="Picture of the author"
               />
