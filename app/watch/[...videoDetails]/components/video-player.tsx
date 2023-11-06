@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, FC } from "react";
 import videojs from "video.js";
 import "./video-js.css";
-import '@videojs/http-streaming'
 
 interface VideoJSProps {
   options: any;

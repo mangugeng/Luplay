@@ -406,7 +406,7 @@ export default function Home() {
                           </h3>
                           <p className="text-white text-base font-normal line-clamp-3 text-left my-4">
                             NONTON SEKARANG! 2 Episode Terakhir tayang Eksklusif
-                            hanya di Vidio.
+                            hanya di Luplay.
                           </p>
                           <span className="flex">
                             <div

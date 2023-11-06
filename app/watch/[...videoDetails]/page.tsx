@@ -21,7 +21,7 @@ import {
   FlagIcon,
 } from "@heroicons/react/24/outline";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -80,6 +80,7 @@ export default function Page() {
   const [commentmobile, setCommentMobile] = useState<boolean>(false);
   const [trailerextramobile, setTrailerExtraMobile] = useState<boolean>(false);
   const [heightcurtain, setHeightCurtain] = useState<string>("100vh");
+  const [detailvideo, setDetailVideo] = useState<boolean>(false);
 
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const curtaincontentRef = useRef<HTMLDivElement>(null);
@@ -106,7 +107,7 @@ export default function Page() {
           );
         } else if (window.innerWidth >= 1280 && window.innerWidth <= 1535) {
           setHeightCurtain(
-            `calc(${curtaincontentRef.current?.offsetHeight}px - -35rem)`
+            `calc(${curtaincontentRef.current?.offsetHeight}px - -37srem)`
           );
         } else if (window.innerWidth >= 1024 && window.innerWidth <= 1279) {
           setHeightCurtain(
@@ -806,7 +807,7 @@ export default function Page() {
                                 </div>
                                 <div className="mt-2">
                                   <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
-                                    Merajut Dendam - Vidio Original Series |
+                                    Merajut Dendam - Luplay Original Series |
                                     Official Teaser
                                   </h3>
                                 </div>
@@ -828,7 +829,7 @@ export default function Page() {
                                 </div>
                                 <div className="mt-2">
                                   <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
-                                    Merajut Dendam - Vidio Original Series |
+                                    Merajut Dendam - Luplay Original Series |
                                     Official Teaser
                                   </h3>
                                 </div>
@@ -850,7 +851,7 @@ export default function Page() {
                                 </div>
                                 <div className="mt-2">
                                   <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
-                                    Merajut Dendam - Vidio Original Series |
+                                    Merajut Dendam - Luplay Original Series |
                                     Official Teaser
                                   </h3>
                                 </div>
@@ -872,7 +873,7 @@ export default function Page() {
                                 </div>
                                 <div className="mt-2">
                                   <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
-                                    Merajut Dendam - Vidio Original Series |
+                                    Merajut Dendam - Luplay Original Series |
                                     Official Teaser
                                   </h3>
                                 </div>
@@ -894,7 +895,7 @@ export default function Page() {
                                 </div>
                                 <div className="mt-2">
                                   <h3 className="group-hover:underline text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap font-normal">
-                                    Merajut Dendam - Vidio Original Series |
+                                    Merajut Dendam - Luplay Original Series |
                                     Official Teaser
                                   </h3>
                                 </div>
@@ -957,7 +958,7 @@ export default function Page() {
                                           </div>
                                           <div>
                                             <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
-                                              Merajut Dendam - Vidio Original
+                                              Merajut Dendam - Luplay Original
                                               Series | Official Teaser
                                             </h3>
                                           </div>
@@ -983,7 +984,7 @@ export default function Page() {
                                           </div>
                                           <div>
                                             <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
-                                              Merajut Dendam - Vidio Original
+                                              Merajut Dendam - Luplay Original
                                               Series | Official Teaser
                                             </h3>
                                           </div>
@@ -1009,7 +1010,7 @@ export default function Page() {
                                           </div>
                                           <div>
                                             <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
-                                              Merajut Dendam - Vidio Original
+                                              Merajut Dendam - Luplay Original
                                               Series | Official Teaser
                                             </h3>
                                           </div>
@@ -1035,7 +1036,7 @@ export default function Page() {
                                           </div>
                                           <div>
                                             <h3 className="line-clamp-2 text-white text-sm font-normal overflow-hidden text-ellipsis whitespace-normal">
-                                              Merajut Dendam - Vidio Original
+                                              Merajut Dendam - Luplay Original
                                               Series | Official Teaser
                                             </h3>
                                           </div>
@@ -1142,7 +1143,7 @@ export default function Page() {
                 </div>
               ) : (
                 <div className="p-0 mx-auto mt-12 before:content-[''] before:table">
-                  <main className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] grid gap-x-8 py-6 grid-rows-2 grid-flow-col lg:h-[calc(100vh--25rem)] xl:h-[calc(100vh--35rem)] 2xl:h-[calc(100vh--30rem)] 3xl:h-[calc(100vh--20rem)]">
+                  <main className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] grid gap-x-8 py-6 grid-rows-2 grid-flow-col lg:h-[calc(100vh--25rem)] xl:h-[calc(100vh--37rem)] 2xl:h-[calc(100vh--30rem)] 3xl:h-[calc(100vh--20rem)]">
                     <div className="lg:min-h-[459px] xl:min-h-[569px] lg:w-[698px] xl:w-[1012px] bg-black/40 block lg:h-[331px] xl:h-[441px] overflow-hidden relative">
                       <VideoPlayer options={VIDEOJS_OPTIONS} />
                     </div>
@@ -1173,79 +1174,89 @@ export default function Page() {
                                 penyebaran video itu?
                               </p>
                             </article>
-                            <div className="">
-                              <hr className="border-t border-gray-700 my-6"></hr>
-                              <h2 className="text-gray-100 text-base font-semibold mb-4 mt-6">
-                                Detail Serial
-                              </h2>
-                              <div className="flex gap-4">
-                                <a href="#" className="shrink-0">
-                                  <Image
-                                    src={poster}
-                                    alt="Picture of the author"
-                                    className=""
-                                    width={67}
-                                    height={100}
-                                  />
-                                </a>
-                                <div className="flex flex-col gap-3 justify-center">
-                                  <a
-                                    href="#"
-                                    className="text-gray-100 text-xl font-bold line-clamp-2 text-ellipsis hover:text-blue-700"
-                                  >
-                                    Merajut Dendam
+                            {detailvideo ? (
+                              <div className="">
+                                <hr className="border-t border-gray-700 my-6"></hr>
+                                <h2 className="text-gray-100 text-base font-semibold mb-4 mt-6">
+                                  Detail Serial
+                                </h2>
+                                <div className="flex gap-4">
+                                  <a href="#" className="shrink-0">
+                                    <Image
+                                      src={poster}
+                                      alt="Picture of the author"
+                                      className=""
+                                      width={67}
+                                      height={100}
+                                    />
                                   </a>
-                                  <div className="flex">
-                                    <span className="flex items-center after:border-r after:border-gray-600 after:content-[''] after:inline-block after:h-3 after:mx-3">
-                                      <Image
-                                        src={crown}
-                                        alt="Picture of the author"
-                                        className=""
-                                        height={20}
-                                        width={20}
-                                      />
-                                    </span>
-                                    <span className="text-sm text-gray-600 font-normal">
-                                      2023
-                                    </span>
+                                  <div className="flex flex-col gap-3 justify-center">
+                                    <a
+                                      href="#"
+                                      className="text-gray-100 text-xl font-bold line-clamp-2 text-ellipsis hover:text-blue-700"
+                                    >
+                                      Merajut Dendam
+                                    </a>
+                                    <div className="flex">
+                                      <span className="flex items-center after:border-r after:border-gray-600 after:content-[''] after:inline-block after:h-3 after:mx-3">
+                                        <Image
+                                          src={crown}
+                                          alt="Picture of the author"
+                                          className=""
+                                          height={20}
+                                          width={20}
+                                        />
+                                      </span>
+                                      <span className="text-sm text-gray-600 font-normal">
+                                        2023
+                                      </span>
+                                    </div>
+                                    <div className="px-2 py-1 bg-pallete-1 text-gray-700 text-xs">
+                                      Nonton Lebih Cepat Episode 4 & 5 dengan
+                                      Luplay Express!
+                                    </div>
                                   </div>
-                                  <div className="px-2 py-1 bg-pallete-1 text-gray-700 text-xs">
-                                    Nonton Lebih Cepat Episode 4 & 5 dengan
-                                    Vidio Express!
+                                </div>
+                                <article className="mt-4 text-gray-200 text-base font-normal">
+                                  <p className="mt-0 text-sm font-normal mb-3">
+                                    Nina memiliki segalanya; suami yang mapan
+                                    dan keluarga yang sempurna. Semua berubah
+                                    ketika suaminya, Rasya, dituduh sebagai
+                                    tersangka kasus pencabulan.
+                                  </p>
+                                </article>
+                                <hr className="border-t border-gray-700 my-6"></hr>
+                                <div className="mb-6">
+                                  <div className="flex flex-wrap">
+                                    <a
+                                      href="#"
+                                      className="text-xs font-semibold mr-2 bg-pallete-2 rounded text-gray-100 block mb-2 py-1 px-2 hover:text-blue-600"
+                                    >
+                                      Drama
+                                    </a>
+                                    <a
+                                      href="#"
+                                      className="text-xs font-semibold mr-2 bg-pallete-2 rounded text-gray-100 block mb-2 py-1 px-2 hover:text-blue-600"
+                                    >
+                                      Romance
+                                    </a>
                                   </div>
                                 </div>
                               </div>
-                              <article className="mt-4 text-gray-200 text-base font-normal">
-                                <p className="mt-0 text-sm font-normal mb-3">
-                                  Nina memiliki segalanya; suami yang mapan dan
-                                  keluarga yang sempurna. Semua berubah ketika
-                                  suaminya, Rasya, dituduh sebagai tersangka
-                                  kasus pencabulan.
-                                </p>
-                              </article>
-                              <hr className="border-t border-gray-700 my-6"></hr>
-                              <div className="mb-6">
-                                <div className="flex flex-wrap">
-                                  <a
-                                    href="#"
-                                    className="text-xs font-semibold mr-2 bg-pallete-2 rounded text-gray-100 block mb-2 py-1 px-2 hover:text-blue-600"
-                                  >
-                                    Drama
-                                  </a>
-                                  <a
-                                    href="#"
-                                    className="text-xs font-semibold mr-2 bg-pallete-2 rounded text-gray-100 block mb-2 py-1 px-2 hover:text-blue-600"
-                                  >
-                                    Romance
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
+                            ) : (
+                              <></>
+                            )}
                             <button
                               type="button"
-                              className="text-base font-base font-semibold text-blue-700"
+                              className="text-base font-base font-semibold text-blue-700 hover:text-blue-500"
+                              onClick={() =>
+                                setDetailVideo((current) => !current)
+                              }
                             >
-                              Lihat Lebih Banyak
+                              {detailvideo ?
+                              "Lihat Lebih Sedikit":
+                              "Lihat Lebih Banyak"                              
+                              }
                             </button>
                           </section>
                           <section className="my-4 block">
@@ -1300,7 +1311,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>
@@ -1322,7 +1333,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>
@@ -1344,7 +1355,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>
@@ -1366,7 +1377,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>
@@ -1388,7 +1399,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>
@@ -1410,7 +1421,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>
@@ -1432,7 +1443,7 @@ export default function Page() {
                                   </div>
                                   <div className="mt-2">
                                     <h3 className="group-hover:underline font-normal text-gray-100 text-xs mb-[2px] overflow-hidden text-ellipsis whitespace-nowrap">
-                                      Merajut Dendam - Vidio Original Series |
+                                      Merajut Dendam - Luplay Original Series |
                                       Official Teaser
                                     </h3>
                                   </div>

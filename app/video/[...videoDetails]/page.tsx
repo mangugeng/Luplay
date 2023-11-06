@@ -39,6 +39,41 @@ const filtertrailerextra = [
   { id: 2, name: "Extras" },
 ];
 
+const Synopsis = (props: InjectedViewportProps<HTMLDivElement>) => {
+  const { inViewport, forwardedRef } = props;
+  const animate = inViewport ? "inviewport" : "outviewport";
+  return (
+    <>
+      <div className={`${animate}`} ref={forwardedRef}>
+        <p className="text-white block text-sm mt-3 whitespace-normal">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+          <br></br>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+          1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+          Evil) by Cicero, written in 45 BC. This book is a treatise on the
+          theory of ethics, very popular during the Renaissance. The first line
+          of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+          section 1.10.32.
+        </p>
+      </div>
+    </>
+  );
+};
+
 const AllEpisode = (props: InjectedViewportProps<HTMLLIElement>) => {
   const { inViewport, forwardedRef } = props;
   const animate = inViewport ? "inviewport" : "outviewport";
@@ -157,7 +192,7 @@ const Trailer = (props: InjectedViewportProps<HTMLLIElement>) => {
           </div>
           <div className="inline-block ml-8 relative align-top w-[calc(100%-260px)] z-[1]">
             <h3 className="text-white block text-base font-black mb-2 group-hover:underline">
-              Merajut Dendam - Vidio Original Series | Official Teaser
+              Merajut Dendam - Luplay Original Series | Official Teaser
             </h3>
             <span className="text-gray-300 inline-block text-sm align-middle">
               &lt; 1 menit
@@ -187,7 +222,7 @@ const Trailer = (props: InjectedViewportProps<HTMLLIElement>) => {
           </div>
           <div className="inline-block ml-8 relative align-top w-[calc(100%-260px)] z-[1]">
             <h3 className="text-white block text-base font-black mb-2 group-hover:underline">
-              Merajut Dendam - Vidio Original Series | Official Teaser
+              Merajut Dendam - Luplay Original Series | Official Teaser
             </h3>
             <span className="text-gray-300 inline-block text-sm align-middle">
               &lt; 1 menit
@@ -217,7 +252,7 @@ const Trailer = (props: InjectedViewportProps<HTMLLIElement>) => {
           </div>
           <div className="inline-block ml-8 relative align-top w-[calc(100%-260px)] z-[1]">
             <h3 className="text-white block text-base font-black mb-2 group-hover:underline">
-              Merajut Dendam - Vidio Original Series | Official Teaser
+              Merajut Dendam - Luplay Original Series | Official Teaser
             </h3>
             <span className="text-gray-300 inline-block text-sm align-middle">
               &lt; 1 menit
@@ -256,7 +291,7 @@ const Extras = (props: InjectedViewportProps<HTMLLIElement>) => {
           </div>
           <div className="inline-block ml-8 relative align-top w-[calc(100%-260px)] z-[1]">
             <h3 className="text-white block text-base font-black mb-2 group-hover:underline">
-              Merajut Dendam - Vidio Original Series | Next On Episode 2
+              Merajut Dendam - Luplay Original Series | Next On Episode 2
             </h3>
             <span className="text-gray-300 inline-block text-sm align-middle">
               1 menit
@@ -282,7 +317,7 @@ const Extras = (props: InjectedViewportProps<HTMLLIElement>) => {
           </div>
           <div className="inline-block ml-8 relative align-top w-[calc(100%-260px)] z-[1]">
             <h3 className="text-white block text-base font-black mb-2 group-hover:underline">
-              Merajut Dendam - Vidio Original Series | Next On Episode 2
+              Merajut Dendam - Luplay Original Series | Next On Episode 2
             </h3>
             <span className="text-gray-300 inline-block text-sm align-middle">
               1 menit
@@ -308,7 +343,7 @@ const Extras = (props: InjectedViewportProps<HTMLLIElement>) => {
           </div>
           <div className="inline-block ml-8 relative align-top w-[calc(100%-260px)] z-[1]">
             <h3 className="text-white block text-base font-black mb-2 group-hover:underline">
-              Merajut Dendam - Vidio Original Series | Next On Episode 2
+              Merajut Dendam - Luplay Original Series | Next On Episode 2
             </h3>
             <span className="text-gray-300 inline-block text-sm align-middle">
               1 menit
@@ -429,6 +464,7 @@ const SimilarVideo = (props: InjectedViewportProps<HTMLLIElement>) => {
   );
 };
 
+const ViewSynopsis = handleViewport(Synopsis /** options: {}, config: {} **/);
 const ViewAllEpisode = handleViewport(
   AllEpisode /** options: {}, config: {} **/
 );
@@ -498,7 +534,6 @@ export default function Page() {
     }
     sleep(1000).then(() => router.push(param));
   };
-
   const previousPageFunction = () => {
     setCheckboxCurtain((current) => !current);
     function sleep(ms: number) {
@@ -633,32 +668,32 @@ export default function Page() {
                       </div>
                       <div className="my-4">
                         <div className="flex items-center gap-x-2">
-                            <div>
-                              <Skeleton
-                                baseColor="#202020"
-                                highlightColor="#444"
-                                height={81}
-                                width={144}
-                              ></Skeleton>
-                            </div>
-                            <div>
-                              <Skeleton
-                                baseColor="#202020"
-                                highlightColor="#444"
-                                height={15}
-                                width={200}
-                              ></Skeleton>
-                            </div>
+                          <div>
+                            <Skeleton
+                              baseColor="#202020"
+                              highlightColor="#444"
+                              height={81}
+                              width={144}
+                            ></Skeleton>
+                          </div>
+                          <div>
+                            <Skeleton
+                              baseColor="#202020"
+                              highlightColor="#444"
+                              height={15}
+                              width={200}
+                            ></Skeleton>
+                          </div>
                         </div>
                         <div>
-                              <Skeleton
-                                baseColor="#202020"
-                                highlightColor="#444"
-                                height={15}
-                                width={window.innerWidth}
-                                count={2}
-                              ></Skeleton>
-                            </div>
+                          <Skeleton
+                            baseColor="#202020"
+                            highlightColor="#444"
+                            height={15}
+                            width={window.innerWidth}
+                            count={2}
+                          ></Skeleton>
+                        </div>
                       </div>
                     </div>
                   </>
@@ -1098,7 +1133,7 @@ export default function Page() {
                                       </div>
                                       <div className="flex-[1_1] ml-2">
                                         <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
-                                          Merajut Dendam - Vidio Original Series
+                                          Merajut Dendam - Luplay Original Series
                                           | Official Teaser
                                         </h3>
                                       </div>
@@ -1136,7 +1171,7 @@ export default function Page() {
                                       </div>
                                       <div className="flex-[1_1] ml-2">
                                         <h3 className="line-clamp-3 max-h-[54px] break-words text-white text-sm font-semibold mb-[2px] text-ellipsis">
-                                          Merajut Dendam - Vidio Original Series
+                                          Merajut Dendam - Luplay Original Series
                                           | Next On Episode 2
                                         </h3>
                                       </div>
@@ -1153,7 +1188,7 @@ export default function Page() {
                           <ul className="-m-3 similar-video-section">
                             <ViewSimilarVideo
                               onEnterViewport={() =>
-                                setStateProfileNavigation("playlist-similar")
+                                setStateProfileNavigation("similar-video")
                               }
                               onLeaveViewport={() => console.log("leave")}
                             />
@@ -1338,7 +1373,7 @@ export default function Page() {
                                 </div>
                                 <div className="text-sm font-semibold mb-2">
                                   Nonton Lebih Cepat Episode 3 dengan
-                                  Vidio&nbsp;Express!
+                                  Luplay&nbsp;Express!
                                 </div>
                                 <div className="flex gap-2 mb-4">
                                   <button
@@ -1384,6 +1419,21 @@ export default function Page() {
                           <ul className="flex flex-col overflow-hidden">
                             <li>
                               <Link
+                                href="#synopsis-video"
+                                className={`${
+                                  stateprofilenavigation == "synopsis-video"
+                                    ? "text-white font-black border-l-pallete-3"
+                                    : "text-gray-300 font-normal hover:text-white"
+                                } block border-l-4 text-lg capitalize py-2 px-5`}
+                                onClick={() =>
+                                  setStateProfileNavigation("synopsis-video")
+                                }
+                              >
+                                Sinopsis
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
                                 href="#playlist-episode"
                                 className={`${
                                   stateprofilenavigation == "playlist-episode"
@@ -1417,14 +1467,14 @@ export default function Page() {
                             </li>
                             <li>
                               <Link
-                                href="#playlist-similar"
+                                href="#similar-video"
                                 className={`${
-                                  stateprofilenavigation == "playlist-similar"
+                                  stateprofilenavigation == "similar-video"
                                     ? "text-white font-black border-l-pallete-3"
                                     : "text-gray-300 font-normal hover:text-white"
                                 } block border-l-4 text-lg capitalize py-2 px-5`}
                                 onClick={() =>
-                                  setStateProfileNavigation("playlist-similar")
+                                  setStateProfileNavigation("similar-video")
                                 }
                               >
                                 Konten Sejenis
@@ -1437,6 +1487,24 @@ export default function Page() {
                         <hr className="border-b border-solid border-gray-700" />
                         <div>
                           <ul>
+                            <li>
+                              <section
+                                className="relative z-10 mt-7 scroll-mt-40"
+                                id="synopsis-video"
+                              >
+                                <div className="flex justify-between items-center">
+                                  <h2 className="text-base font-semibold text-white">
+                                    Sinopsis
+                                  </h2>
+                                </div>
+                                <ViewSynopsis
+                                  onEnterViewport={() =>
+                                    setStateProfileNavigation("synopsis-video")
+                                  }
+                                  onLeaveViewport={() => console.log("leave")}
+                                />
+                              </section>
+                            </li>
                             <li>
                               <section
                                 className="relative z-10 mt-7 scroll-mt-40"
@@ -1762,7 +1830,7 @@ export default function Page() {
                             </li>
                           </ul>
                         </div>
-                        <section id="playlist-similar">
+                        <section id="similar-video">
                           <div>
                             <div className="block my-0 mx-auto py-8">
                               <h2 className="text-xl font-black mb-6 text-white">
@@ -1810,9 +1878,7 @@ export default function Page() {
                                 ) : (
                                   <ViewSimilarVideo
                                     onEnterViewport={() =>
-                                      setStateProfileNavigation(
-                                        "playlist-similar"
-                                      )
+                                      setStateProfileNavigation("similar-video")
                                     }
                                     onLeaveViewport={() => console.log("leave")}
                                   />

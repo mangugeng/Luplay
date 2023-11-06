@@ -50,7 +50,7 @@ export default function Page() {
               </div>
             </div>
             <div className="mt-4 mb-8 text-center text-xs text-gray-100">
-              Dengan mendaftar di Vidio kamu setuju untuk mengikuti{" "}
+              Dengan mendaftar di Luplay kamu setuju untuk mengikuti{" "}
               <Link
                 href="#"
                 className="text-blue-400 hover:text-blue-200 font-semibold"
