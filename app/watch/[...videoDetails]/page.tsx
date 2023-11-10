@@ -97,23 +97,9 @@ export default function Page() {
   useEffect(() => {
     const changeHeightCurtain = () => {
       if (window.scrollY >= 80) {
-        if (window.innerWidth >= 1920) {
-          setHeightCurtain(
-            `calc(${curtaincontentRef.current?.offsetHeight}px - -20rem)`
-          );
-        } else if (window.innerWidth >= 1536 && window.innerWidth <= 1919) {
-          setHeightCurtain(
-            `calc(${curtaincontentRef.current?.offsetHeight}px - -30rem)`
-          );
-        } else if (window.innerWidth >= 1280 && window.innerWidth <= 1535) {
-          setHeightCurtain(
-            `calc(${curtaincontentRef.current?.offsetHeight}px - -37srem)`
-          );
-        } else if (window.innerWidth >= 1024 && window.innerWidth <= 1279) {
-          setHeightCurtain(
-            `calc(${curtaincontentRef.current?.offsetHeight}px - -40rem)`
-          );
-        }
+        setHeightCurtain(
+          `calc(${curtaincontentRef.current?.offsetHeight}px - 0rem)`
+        );
       } else {
         setHeightCurtain("100vh");
       }
@@ -1142,12 +1128,12 @@ export default function Page() {
                   </div>
                 </div>
               ) : (
-                <div className="p-0 mx-auto mt-12 before:content-[''] before:table">
-                  <main className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] grid gap-x-8 py-6 grid-rows-2 grid-flow-col lg:h-[calc(100vh--25rem)] xl:h-[calc(100vh--37rem)] 2xl:h-[calc(100vh--30rem)] 3xl:h-[calc(100vh--20rem)]">
-                    <div className="lg:min-h-[459px] xl:min-h-[569px] lg:w-[698px] xl:w-[1012px] bg-black/40 block lg:h-[331px] xl:h-[441px] overflow-hidden relative">
+                <div className="p-0 mx-auto mt-12 overflow-hidden">
+                  <main className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] gap-x-8 py-6 after:clear-both" style={{display:'grid', gridTemplate:'"video sidebar-column" min-content "main-column sidebar-column" 1fr'}}>
+                    <div className="lg:min-h-[459px] xl:min-h-[569px] lg:w-[698px] xl:w-[1012px] bg-black/40 block lg:h-[331px] xl:h-[441px] overflow-hidden relative" style={{gridArea:"video"}}>
                       <VideoPlayer options={VIDEOJS_OPTIONS} />
                     </div>
-                    <div className="lg:w-[698px] xl:w-[1012px]">
+                    <div className="lg:w-[698px] xl:w-[1012px]" style={{gridArea:"main-column"}}>
                       <div className="w-full">
                         <div>
                           <section className="my-4 block">
@@ -1612,7 +1598,7 @@ export default function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="lg:w-[284px] xl:w-[316px] lg:min-h-[459px] xl:min-h-[569px] inline-block">
+                    <div className="lg:w-[284px] xl:w-[316px] inline-block" style={{gridArea:"sidebar-column"}}>
                       <section className="lg:mb-4 xl:my-4 rounded overflow-y-scroll lg:h-[460px] xl:h-[570px] no-scrollbar">
                         <div className="p-4">
                           <span className="rounded-lg inline-block text-sm py-3 px-4 border border-solid border-gray-300 text-gray-100 font-semibold">
@@ -1818,8 +1804,6 @@ export default function Page() {
                           </li>
                         </ul>
                       </section>
-                    </div>
-                    <div className="lg:w-[284px] xl:w-[316px] inline-block">
                       <section className="mb-8 mt-4">
                         <div className="mb-4 flex items-center justify-between relative">
                           <h3 className="text-xl font-bold line-clamp-1 text-gray-100 text-ellipsis whitespace-normal">

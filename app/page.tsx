@@ -365,7 +365,7 @@ export default function Home() {
                           alt="Picture of the author"
                         />
                       </div>
-                      <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
+                      <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1052px] z-[3]">
                         <div className="inline-block h-auto lg:left-40 xl:left-[5px] absolute text-left lg:top-[50%] xl:top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
                           <h3 className="text-4xl text-white font-bold text-left">
                             Dia Yang Kau Pilih
@@ -405,7 +405,7 @@ export default function Home() {
                           alt="Picture of the author"
                         />
                       </div>
-                      <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
+                      <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1052px] z-[3]">
                         <div className="inline-block h-auto lg:left-40 xl:left-[5px] absolute text-left lg:top-[50%] xl:top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
                           <h3 className="text-4xl text-white font-bold text-left">
                             Cinta Setelah Cinta
@@ -481,7 +481,7 @@ export default function Home() {
                           </button>
                         </>
                       )}
-                      <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1152px] z-[3]">
+                      <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1052px] z-[3]">
                         <div className="inline-block h-auto lg:left-40 xl:left-[5px] absolute text-left lg:top-[50%] xl:top-[40%] -translate-y-1/2 whitespace-normal w-96 z-[3]">
                           <h3 className="text-4xl text-white font-bold text-left">
                             Merajut Dendam
