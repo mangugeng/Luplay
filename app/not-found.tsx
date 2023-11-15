@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Navbar from "./components/navbar";
+import Navbar from "../components/navbar";
 import Image from "next/image";
 import notfound from "../public/not-found.svg";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
