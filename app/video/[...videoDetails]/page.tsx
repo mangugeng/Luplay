@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, Fragment, useRef } from "react";
-import Navbar from "../../../components/navbar";
+import Navbar from "../../../components/navbar/navbar";
 import Image from "next/image";
 import banner from "../../../public/banner-detail.webp";
 import bannermobile from "../../../public/banner-detail-mobile.webp";

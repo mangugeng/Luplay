@@ -17,14 +17,14 @@ import {
   ChevronRightIcon,
   ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
-import promo from "../public/discount.svg";
+import promo from "../../public/discount.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import crown from "../public/crown.png";
+import crown from "../../public/crown.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { usePathname } from "next/navigation";
-import logo from "../public/logo.webp";
+import logo from "../../public/logo.webp";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 

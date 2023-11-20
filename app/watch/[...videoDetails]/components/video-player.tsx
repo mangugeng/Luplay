@@ -32,10 +32,91 @@ const VideoPlayer: FC<VideoJSProps> = (props) => {
       player.autoplay(options.autoplay);
       player.src(options.sources);
     }
-  }, []);
-
-  React.useEffect(() => {
+  }, [onReady, options]);
+  useEffect(() => {
     const player = videoRef.current;
+
+  let qualityLevels = player.qualityLevels();
+        // Listen to change events for when the player selects a new quality level
+        qualityLevels.on('change', function () {
+            console.log('Quality Level changed!');
+            console.log('New level:', qualityLevels[qualityLevels.selectedIndex]);
+        });      
+
+        // show what levels are enabled
+        let showEnabledLevels = () => {
+            for (var i = 0; i < qualityLevels.length; i++) {
+                let qualityLevel = qualityLevels[i];
+                console.log(qualityLevel.enabled, qualityLevel.height);
+            }            
+        }
+
+        // enable quality level by index, set other levels to false
+        let enableQualityLevel = (level: number) => {
+
+            for (var i = 0; i < qualityLevels.length; i++) {
+                let qualityLevel = qualityLevels[i];
+                qualityLevel.enabled = i === level ? true : false;
+            }
+
+            qualityLevels.selectedIndex_ = level;
+            qualityLevels.trigger({ type: 'change', selectedIndex: level });    
+        }
+
+
+        // set min quality level
+        document.getElementById("setMinLevel")?.addEventListener('click', () => {
+            console.log("Set Min quality level")
+            enableQualityLevel(0);          
+
+            console.log("qualityLevels.selectedIndex: ", qualityLevels.selectedIndex);
+            
+            showEnabledLevels();
+        })
+
+        // set max quality level 
+        document.getElementById("setMaxLevel")?.addEventListener('click', () => {
+            console.log("Set Max quality level")
+            enableQualityLevel(qualityLevels.length-1); 
+
+            console.log("qualityLevels.selectedIndex: ", qualityLevels.selectedIndex);
+
+            showEnabledLevels();
+        })        
+
+        player.on('timeupdate', function (){
+            console.log("Playing now: ", player.videoHeight());
+        })
+
+        player.on('loadedmetadata', function () {
+
+            // track currently rendered segments change
+            let tracks = player.textTracks();
+            let segmentMetadataTrack:any;
+
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].label === 'segment-metadata') {
+                    segmentMetadataTrack = tracks[i];
+                }
+            }
+
+            let previousPlaylist:any;
+
+            if (segmentMetadataTrack) {
+                segmentMetadataTrack.on('cuechange', function () {
+                    let activeCue = segmentMetadataTrack.activeCues[0];
+
+                    if (activeCue) {
+                        if (previousPlaylist !== activeCue.value.playlist) {
+                            console.log('Switched from rendition ' + previousPlaylist +
+                                ' to rendition ' + activeCue.value.playlist, activeCue.value.resolution.height);
+                        }
+                        previousPlaylist = activeCue.value.playlist;
+                    }
+                });
+            }
+
+        });
     return () => {
       if (player) {
         player.dispose();

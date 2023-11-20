@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Fragment, useState, useRef, useEffect } from "react";
-import Navbar from "@/app/components/navbar";
+import Navbar from "../../../components/navbar/navbar";
 import VideoPlayer from "./components/video-player";
 import crown from "../../../public/crown.png";
 import poster from "../../../public/poster.webp";
@@ -21,7 +21,7 @@ import {
   FlagIcon,
 } from "@heroicons/react/24/outline";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -56,7 +56,7 @@ export default function Page() {
     fluid: true,
     sources: [
       {
-        src: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+        src: "https://firebasestorage.googleapis.com/v0/b/beshare-9640e.appspot.com/o/4.m3u8?alt=media&token=8814f663-b20f-4d10-9e52-a5b0b1194c2e",
         type: "application/x-mpegURL",
       },
     ],
@@ -1129,13 +1129,28 @@ export default function Page() {
                 </div>
               ) : (
                 <div className="p-0 mx-auto mt-12 overflow-hidden">
-                  <main className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] gap-x-8 py-6 after:clear-both" style={{display:'grid', gridTemplate:'"video sidebar-column" min-content "main-column sidebar-column" 1fr'}}>
-                    <div className="lg:min-h-[459px] xl:min-h-[569px] lg:w-[698px] xl:w-[1012px] bg-black/40 block lg:h-[331px] xl:h-[441px] overflow-hidden relative" style={{gridArea:"video"}}>
+                  <main
+                    className="justify-between mx-auto lg:max-w-[1012px] xl:max-w-[1360px] lg:w-[1012px] xl:w-[1360px] gap-x-8 py-6 after:clear-both"
+                    style={{
+                      display: "grid",
+                      gridTemplate:
+                        '"video sidebar-column" min-content "main-column sidebar-column" 1fr',
+                    }}
+                  >
+                    <div
+                      className="lg:min-h-[459px] xl:min-h-[569px] lg:w-[698px] xl:w-[1012px] bg-black/40 block lg:h-[331px] xl:h-[441px] overflow-hidden relative"
+                      style={{ gridArea: "video" }}
+                    >
                       <VideoPlayer options={VIDEOJS_OPTIONS} />
                     </div>
-                    <div className="lg:w-[698px] xl:w-[1012px]" style={{gridArea:"main-column"}}>
+                    <div
+                      className="lg:w-[698px] xl:w-[1012px]"
+                      style={{ gridArea: "main-column" }}
+                    >
                       <div className="w-full">
                         <div>
+                    <button id="setMinLevel">Set min quality level</button>
+                    <button id="setMaxLevel">Set max quality level</button>
                           <section className="my-4 block">
                             <h1 className="line-clamp-2 text-ellipsis text-2xl font-bold mb-4 text-gray-100">
                               Merajut Dendam
@@ -1239,10 +1254,9 @@ export default function Page() {
                                 setDetailVideo((current) => !current)
                               }
                             >
-                              {detailvideo ?
-                              "Lihat Lebih Sedikit":
-                              "Lihat Lebih Banyak"                              
-                              }
+                              {detailvideo
+                                ? "Lihat Lebih Sedikit"
+                                : "Lihat Lebih Banyak"}
                             </button>
                           </section>
                           <section className="my-4 block">
@@ -1598,7 +1612,10 @@ export default function Page() {
                         </div>
                       </div>
                     </div>
-                    <div className="lg:w-[284px] xl:w-[316px] inline-block" style={{gridArea:"sidebar-column"}}>
+                    <div
+                      className="lg:w-[284px] xl:w-[316px] inline-block"
+                      style={{ gridArea: "sidebar-column" }}
+                    >
                       <section className="lg:mb-4 xl:my-4 rounded overflow-y-scroll lg:h-[460px] xl:h-[570px] no-scrollbar">
                         <div className="p-4">
                           <span className="rounded-lg inline-block text-sm py-3 px-4 border border-solid border-gray-300 text-gray-100 font-semibold">
