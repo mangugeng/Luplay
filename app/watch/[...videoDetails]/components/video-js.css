@@ -593,6 +593,10 @@
   height: 0;
 }
 
+.vjs-fluid:not(.vjs-audio-only-mode) {
+  padding-top: 56.25% !important;
+}
+
 .video-js.vjs-16-9:not(.vjs-audio-only-mode) {
   padding-top: 56.25%;
 }
