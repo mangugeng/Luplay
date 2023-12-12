@@ -100,7 +100,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
                   <button className="flex flex-row items-center gap-x-2 text-sm text-yellow-700 font-bold border border-yellow-700 rounded-md px-2 p-1">
                     <div
                       className="bg-[50%] bg-no-repeat bg-[length:24px_24px] inline-block h-4 w-4 relative"
-                      style={{ backgroundImage: `url(${crown.src})` }}
+                      style={{ backgroundImage: `url(/crown.png)` }}
                     ></div>
                     Langganan
                   </button>
@@ -402,9 +402,9 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
                           </Menu.Item>
                           <Menu.Item>
                             <div className="text-gray-400 text-[10px] font-normal p-2">
-                              Hak Cipta ©2023 LunarPlay.com
+                              Hak Cipta ©2023 Luplay.co.id
                               <br></br>
-                              PT Lunar Film. Hak cipta dilindungi Undang-undang.
+                              PT Universal Sarana Media. Hak cipta dilindungi Undang-undang.
                             </div>
                           </Menu.Item>
                         </Menu.Items>

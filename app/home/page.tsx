@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/Navbar/navbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -30,7 +30,7 @@ import crown from "../../public/crown.png";
 import { useRouter } from "next/navigation";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import NavbarBottomMobiel from "../../components/navbar/navbar-bottom-mobile";
+import NavbarBottomMobiel from "../../components/Navbar/navbar-bottom-mobile";
 import bannermobile1 from "../../public/banner-mobile-1.webp";
 import bannermobile2 from "../../public/banner-mobile-2.webp";
 import bannermobile3 from "../../public/banner-mobile-3.webp";
@@ -242,8 +242,8 @@ export default function Home({ bucketdata }: Props) {
       <header
         className={`fixed z-50 top-0 w-full transition-all duration-300 ${
           colorchange
-            ? "bg-pallete-5 shadow-md "
-            : "bg-transparent inner-shadow-header max-[768px]:bg-pallete-5"
+            ? "bg-black xl:bg-pallete-5  shadow-md "
+            : "bg-transparent inner-shadow-header max-[768px]:bg-black"
         }`}
       >
         <Navbar movePageFunction={movePageFunction}></Navbar>
@@ -277,7 +277,7 @@ export default function Home({ bucketdata }: Props) {
                       <SwiperSlide className="rounded">
                         <button type="button" className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/632/merajut-dendam")
+                            movePageFunction("/video/videoDetails/merajut-dendam")
                           }
                         >
                           <Image
@@ -293,7 +293,7 @@ export default function Home({ bucketdata }: Props) {
                         <button
                           type="button" className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/632/merajut-dendam")
+                            movePageFunction("/video/videoDetails/merajut-dendam")
                           }
                         >
                           <Image
@@ -309,7 +309,7 @@ export default function Home({ bucketdata }: Props) {
                         <button
                           type="button" className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/632/merajut-dendam")
+                            movePageFunction("/video/videoDetails/merajut-dendam")
                           }
                         >
                           <Image
@@ -325,7 +325,7 @@ export default function Home({ bucketdata }: Props) {
                         <button
                           type="button" className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/632/merajut-dendam")
+                            movePageFunction("/video/videoDetails/merajut-dendam")
                           }
                         >
                           <Image
@@ -389,7 +389,7 @@ export default function Home({ bucketdata }: Props) {
                           </span>
                           <button
                             onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
+                              movePageFunction("/video/videoDetails/merajut-dendam")
                             }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
@@ -429,7 +429,7 @@ export default function Home({ bucketdata }: Props) {
                           </span>
                           <button
                             onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
+                              movePageFunction("/video/videoDetails/merajut-dendam")
                             }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
@@ -507,7 +507,7 @@ export default function Home({ bucketdata }: Props) {
                           </span>
                           <button
                             onClick={() =>
-                              movePageFunction("/video/632/merajut-dendam")
+                              movePageFunction("/video/videoDetails/merajut-dendam")
                             }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"

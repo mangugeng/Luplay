@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <>
       <div className="block h-0"></div>
-      <header className="relative w-full z-10 top-0 bg-pallete-5 shadow-md">
+      <header className="relative w-full z-10 top-0 bg-black xl:bg-pallete-5 shadow-md">
         <Navbar></Navbar>
       </header>
       <div className="m-auto pt-16 w-[384px]">

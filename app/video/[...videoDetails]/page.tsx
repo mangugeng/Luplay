@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, Fragment, useRef } from "react";
-import Navbar from "../../../components/navbar/navbar";
+import Navbar from "../../../components/Navbar/navbar";
 import Image from "next/image";
 import banner from "../../../public/banner-detail.webp";
 import bannermobile from "../../../public/banner-detail-mobile.webp";
@@ -81,7 +81,7 @@ const AllEpisode = (props: InjectedViewportProps<HTMLLIElement>) => {
     <>
       <li className={`block list-episode ${animate}`} ref={forwardedRef}>
         <Link
-          href="/watch/632/merajut-dendam"
+          href="/watch/videoDetails/merajut-dendam"
           className="group block py-4 relative before:bg-transparent before:rounded-md before:content-[''] before:h-full before:-left-4 before:absolute before:top-0 before:ease-linear before:transition-all before:duration-200 before:w-[calc(100%+32px)]"
         >
           <div className="bg-gray-950 rounded-md inline-block h-32 overflow-hidden relative align-top w-56 z-[1] after:bg-black/40 after:bg-play-episode after:bg-[56%] after:bg-no-repeat after:bg-[length:32px_32px] after:rounded-[100%] after:content-[''] after:inline-block after:h-[50px] after:left-1/2 after:opacity-0 group-hover:after:opacity-100 after:absolute after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[50px]">
@@ -111,7 +111,7 @@ const AllEpisode = (props: InjectedViewportProps<HTMLLIElement>) => {
       </li>
       <li className={`block list-episode ${animate}`}>
         <Link
-          href="/watch/632/merajut-dendam"
+          href="/watch/videoDetails/merajut-dendam"
           className="group block py-4 relative before:bg-transparent before:rounded-md before:content-[''] before:h-full before:-left-4 before:absolute before:top-0 before:ease-linear before:transition-all before:duration-200 before:w-[calc(100%+32px)]"
         >
           <div className="bg-gray-950 rounded-md inline-block h-32 overflow-hidden relative align-top w-56 z-[1] after:bg-black/40 after:bg-play-episode after:bg-[56%] after:bg-no-repeat after:bg-[length:32px_32px] after:rounded-[100%] after:content-[''] after:inline-block after:h-[50px] after:left-1/2 after:opacity-0 group-hover:after:opacity-100 after:absolute after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[50px]">
@@ -141,7 +141,7 @@ const AllEpisode = (props: InjectedViewportProps<HTMLLIElement>) => {
       </li>
       <li className={`block list-episode ${animate}`}>
         <Link
-          href="/watch/632/merajut-dendam"
+          href="/watch/videoDetails/merajut-dendam"
           className="group block py-4 relative before:bg-transparent before:rounded-md before:content-[''] before:h-full before:-left-4 before:absolute before:top-0 before:ease-linear before:transition-all before:duration-200 before:w-[calc(100%+32px)]"
         >
           <div className="bg-gray-950 rounded-md inline-block h-32 overflow-hidden relative align-top w-56 z-[1] after:bg-black/40 after:bg-play-episode after:bg-[56%] after:bg-no-repeat after:bg-[length:32px_32px] after:rounded-[100%] after:content-[''] after:inline-block after:h-[50px] after:left-1/2 after:opacity-0 group-hover:after:opacity-100 after:absolute after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:w-[50px]">
@@ -378,7 +378,7 @@ const SimilarVideo = (props: InjectedViewportProps<HTMLLIElement>) => {
             <div
               className="bottom-2 h-6 left-2 absolute w-6 bg-contain bg-no-repeat"
               style={{
-                backgroundImage: `url(${crown.src})`,
+                backgroundImage: `url(/crown.png)`,
               }}
             ></div>
           </div>
@@ -397,7 +397,7 @@ const SimilarVideo = (props: InjectedViewportProps<HTMLLIElement>) => {
             <div
               className="bottom-2 h-6 left-2 absolute w-6 bg-contain bg-no-repeat"
               style={{
-                backgroundImage: `url(${crown.src})`,
+                backgroundImage: `url(/crown.png)`,
               }}
             ></div>
           </div>
@@ -416,7 +416,7 @@ const SimilarVideo = (props: InjectedViewportProps<HTMLLIElement>) => {
             <div
               className="bottom-2 h-6 left-2 absolute w-6 bg-contain bg-no-repeat"
               style={{
-                backgroundImage: `url(${crown.src})`,
+                backgroundImage: `url(/crown.png)`,
               }}
             ></div>
           </div>
@@ -435,7 +435,7 @@ const SimilarVideo = (props: InjectedViewportProps<HTMLLIElement>) => {
             <div
               className="bottom-2 h-6 left-2 absolute w-6 bg-contain bg-no-repeat"
               style={{
-                backgroundImage: `url(${crown.src})`,
+                backgroundImage: `url(/crown.png)`,
               }}
             ></div>
           </div>
@@ -454,7 +454,7 @@ const SimilarVideo = (props: InjectedViewportProps<HTMLLIElement>) => {
             <div
               className="bottom-2 h-6 left-2 absolute w-6 bg-contain bg-no-repeat"
               style={{
-                backgroundImage: `url(${crown.src})`,
+                backgroundImage: `url(/crown.png)`,
               }}
             ></div>
           </div>
@@ -544,7 +544,7 @@ export default function Page() {
 
   return (
     <>
-      <header className="fixed z-50 w-full top-0 bg-pallete-5 shadow-md hidden lg:block">
+      <header className="fixed z-50 w-full top-0 bg-black xl:bg-pallete-5  shadow-md hidden lg:block">
         <Navbar movePageFunction={movePageFunction}></Navbar>
       </header>
       <div className={pageloaded ? "curtain" : "curtain h-screen"}>
@@ -720,7 +720,7 @@ export default function Page() {
                         <button
                           type="button"
                           onClick={() =>
-                            movePageFunction("/watch/632/merajut-dendam")
+                            movePageFunction("/watch/videoDetails/merajut-dendam")
                           }
                           className="text-white text-base py-3 px-6 bg-pallete-4 items-center rounded inline-flex font-bold justify-center"
                         >
@@ -750,7 +750,7 @@ export default function Page() {
                       type="button"
                       className="block pt-[56.27%] relative w-full"
                       onClick={() =>
-                        movePageFunction("/watch/632/merajut-dendam")
+                        movePageFunction("/watch/videoDetails/merajut-dendam")
                       }
                     >
                       <picture className="top-0 right-0 bottom-0 left-0 absolute">
@@ -805,7 +805,7 @@ export default function Page() {
                         <button
                           type="button"
                           onClick={() =>
-                            movePageFunction("/watch/632/merajut-dendam")
+                            movePageFunction("/watch/videoDetails/merajut-dendam")
                           }
                           className="text-sm font-bold mx-auto whitespace-nowrap w-full min-w-[40px] py-2 px-4 items-center rounded inline-flex justify-center bg-pallete-4 shadow-md"
                         >
@@ -1225,7 +1225,7 @@ export default function Page() {
                                 <button
                                   onClick={() =>
                                     movePageFunction(
-                                      "/watch/632/merajut-dendam"
+                                      "/watch/videoDetails/merajut-dendam"
                                     )
                                   }
                                   type="button"
@@ -1281,7 +1281,7 @@ export default function Page() {
                                   <div
                                     className="h-6 w-6 bg-contain bg-no-repeat"
                                     style={{
-                                      backgroundImage: `url(${crown.src})`,
+                                      backgroundImage: `url(/crown.png)`,
                                     }}
                                   ></div>
                                   <span className="separator">•</span>
@@ -1379,7 +1379,7 @@ export default function Page() {
                                   <button
                                     onClick={() =>
                                       movePageFunction(
-                                        "/watch/632/merajut-dendam"
+                                        "/watch/videoDetails/merajut-dendam"
                                       )
                                     }
                                     type="button"

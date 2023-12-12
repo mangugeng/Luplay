@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import Home from "./home/page";
 
 export const metadata: Metadata = {
-  title: "Video Page | Lunar Play Dashboard",
+  title: "Luplay",
   description: "",
   // other metadata
 };

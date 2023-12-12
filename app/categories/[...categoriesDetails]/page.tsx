@@ -1,5 +1,5 @@
 "use client";
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/components/Navbar/navbar";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -82,11 +82,13 @@ export default function Home() {
       <header
         className={`fixed z-10 w-full transition-all duration-300 ${
           colorchange
-            ? "bg-pallete-5 shadow-md "
-            : "bg-transparent inner-shadow-header"
+            ? "bg-black xl:bg-pallete-5 shadow-md "
+            : "bg-transparent inner-shadow-header max-[768px]:bg-black"
         }`}
       >
-        <Navbar></Navbar>
+        <Navbar movePageFunction={function (param: string): void {
+          throw new Error("Function not implemented.");
+        } }></Navbar>
       </header>
       <main>
         <Swiper
@@ -135,7 +137,7 @@ export default function Home() {
                   </div>
                 </span>
                 <button
-                  onClick={() => router.push("/video/632/merajut-dendam")}
+                  onClick={() => router.push("/video/videoDetails/merajut-dendam")}
                   type="button"
                   className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
@@ -173,7 +175,7 @@ export default function Home() {
                   </div>
                 </span>
                 <button
-                  onClick={() => router.push("/video/632/merajut-dendam")}
+                  onClick={() => router.push("/video/videoDetails/merajut-dendam")}
                   type="button"
                   className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >
@@ -248,7 +250,7 @@ export default function Home() {
                   </div>
                 </span>
                 <button
-                  onClick={() => router.push("/video/632/merajut-dendam")}
+                  onClick={() => router.push("/video/videoDetails/merajut-dendam")}
                   type="button"
                   className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                 >

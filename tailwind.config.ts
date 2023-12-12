@@ -25,9 +25,9 @@ const config: Config = {
       },
     },
     backgroundImage: {
-      "play-episode": "url('../public/play-button.svg')",
-      google: "url('../public/google.svg')",
-      facebook: "url('../public/facebook.svg')",
+      "play-episode": "url('/play-button.svg')",
+      google: "url('/google.svg')",
+      facebook: "url('/facebook.svg')",
     },
   },
   plugins: [require("@tailwindcss/forms")],

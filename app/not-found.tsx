@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/Navbar/navbar";
 import Image from "next/image";
 import notfound from "../public/not-found.svg";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
@@ -11,13 +11,15 @@ import trailer from "../public/trailer-1.webp";
 export default function NotFound() {
   return (
     <>
-      <header className="fixed z-10 w-full transition-all duration-300 bg-pallete-5 shadow-md ">
-        <Navbar></Navbar>
+      <header className="fixed z-10 w-full transition-all duration-300 bg-black xl:bg-pallete-5 shadow-md ">
+        <Navbar movePageFunction={function (param: string): void {
+          throw new Error("Function not implemented.");
+        } }></Navbar>
       </header>
       <div className="container mx-auto px-4 pt-4">
         <div className="flex flex-col justify-center items-center text-lg my-12 mx-auto relative text-center w-[544px] z-[1]">
           <Image
-            src={notfound}
+            src={"/not-found.svg"}
             alt="Picture of the author"
             className="h-80 w-80"
           />
@@ -42,7 +44,7 @@ export default function NotFound() {
               <a href="#" className="group">
                 <div className="relative">
                   <Image
-                    src={trailer}
+                    src={"/trailer-1.webp"}
                     className="rounded-lg"
                     alt="Picture of the author"
                   />
@@ -63,7 +65,7 @@ export default function NotFound() {
               <a href="#" className="group">
                 <div className="relative">
                   <Image
-                    src={trailer}
+                    src={"/trailer-1.webp"}
                     className="rounded-lg"
                     alt="Picture of the author"
                   />
@@ -84,7 +86,7 @@ export default function NotFound() {
               <a href="#" className="group">
                 <div className="relative">
                   <Image
-                    src={trailer}
+                    src={"/trailer-1.webp"}
                     className="rounded-lg"
                     alt="Picture of the author"
                   />
@@ -105,7 +107,7 @@ export default function NotFound() {
               <a href="#" className="group">
                 <div className="relative">
                   <Image
-                    src={trailer}
+                    src={"/trailer-1.webp"}
                     className="rounded-lg"
                     alt="Picture of the author"
                   />
@@ -126,7 +128,7 @@ export default function NotFound() {
               <a href="#" className="group">
                 <div className="relative">
                   <Image
-                    src={trailer}
+                    src={"/trailer-1.webp"}
                     className="rounded-lg"
                     alt="Picture of the author"
                   />

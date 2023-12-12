@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/components/Navbar/navbar";
 import Image from "next/image";
 import post from "../../../public/post-1.webp";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
@@ -9,8 +9,10 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 export default function Page() {
   return (
     <>
-      <header className="fixed z-50 w-full top-0 bg-pallete-5 shadow-md">
-        <Navbar></Navbar>
+      <header className="fixed z-50 w-full top-0 bg-black xl:bg-pallete-5 shadow-md">
+        <Navbar movePageFunction={function (param: string): void {
+          throw new Error("Function not implemented.");
+        } }></Navbar>
       </header>
       <div className="min-h-[96vh] mx-auto before:content-[''] before:table">
         <div className="float-right w-full">
