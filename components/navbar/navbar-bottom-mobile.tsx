@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import React from "react";
 
-export default function NavbarBottomMobiel() {
+export default function NavbarBottomMobile() {
   return (
     <div className="fixed bottom-0 left-0 z-10 w-full h-16 bg-black border-t border-black shadow-[0_-4px_8px_-1px_rgba(0,0,0,0.5)]">
       <ul className="flex h-14 pt-2 pb-[6px]">

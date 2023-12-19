@@ -13,13 +13,6 @@ import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import banner1 from "../../public/banner-1.webp";
 import banner2 from "../../public/banner-2.webp";
 import banner3 from "../../public/banner-3.webp";
-import post1 from "../../public/post-1.webp";
-import post2 from "../../public/post-2.webp";
-import post3 from "../../public/post-3.webp";
-import post4 from "../../public/post-4.webp";
-import post5 from "../../public/post-5.webp";
-import post6 from "../../public/post-6.webp";
-import post7 from "../../public/post-7.webp";
 import {
   ArrowPathIcon,
   ChevronRightIcon,
@@ -30,16 +23,17 @@ import crown from "../../public/crown.png";
 import { useRouter } from "next/navigation";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import NavbarBottomMobiel from "../../components/Navbar/navbar-bottom-mobile";
+import NavbarBottomMobile from "@/components/navbar/navbar-bottom-mobile";
 import bannermobile1 from "../../public/banner-mobile-1.webp";
 import bannermobile2 from "../../public/banner-mobile-2.webp";
 import bannermobile3 from "../../public/banner-mobile-3.webp";
 import handleViewport, { type InjectedViewportProps } from "react-in-viewport";
 import Link from "next/link";
 
-const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
+const LunarPlay = (props: any | InjectedViewportProps<HTMLDivElement>) => {
   const { inViewport, forwardedRef } = props;
   const animate = inViewport ? "inviewport" : "outviewport";
+  const bucketdata = props.bucketdata;
   return (
     <section className="mt-6 lg:mt-0 viewport-block" ref={forwardedRef}>
       <div className="flex justify-between mb-3 items-center">
@@ -74,83 +68,29 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
         modules={[Navigation]}
         className={`home-carousel-swiper`}
       >
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post1}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post2}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post3}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post4}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post5}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post6}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
-        <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
-          <a href="" className="group">
-            <div className="relative overflow-hidden rounded-md">
-              <Image
-                src={post7}
-                className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
-                alt="Picture of the author"
-              />
-            </div>
-          </a>
-        </SwiperSlide>
+        {bucketdata.map((item: any, index: number) => (
+          <SwiperSlide
+            className={`rounded-md shadow-md ${animate}`}
+            key={index}
+          >
+            <button
+              onClick={() =>
+                props.movePageFunction(`/video/${item.id_doc}/${item.title}`)
+              }
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-md">
+                <Image
+                  src={item.image_potrait_thumbnail}
+                  width={156}
+                  height={225}
+                  className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100 group-hover:scale-105"
+                  alt="Picture of the author"
+                />
+              </div>
+            </button>
+          </SwiperSlide>
+        ))}
         <SwiperSlide className={`rounded-md shadow-md ${animate}`}>
           <a href="" className="group">
             <div className="relative contents">
@@ -171,8 +111,8 @@ const LunarPlay = (props: InjectedViewportProps<HTMLDivElement>) => {
 const ViewLunarPlay = handleViewport(LunarPlay /** options: {}, config: {} **/);
 
 interface Props {
-    bucketdata: any[];
-  }
+  bucketdata: any[];
+}
 
 export default function Home({ bucketdata }: Props) {
   const router = useRouter();
@@ -248,7 +188,7 @@ export default function Home({ bucketdata }: Props) {
       >
         <Navbar movePageFunction={movePageFunction}></Navbar>
       </header>
-      {devicemobile ? <NavbarBottomMobiel></NavbarBottomMobiel> : <></>}
+      {devicemobile ? <NavbarBottomMobile></NavbarBottomMobile> : <></>}
       <div className={pageloaded ? "curtain" : "curtain h-screen"}>
         <div className="curtain__wrapper" id="curtain-wrappper">
           <input
@@ -257,7 +197,16 @@ export default function Home({ bucketdata }: Props) {
             checked={!checkboxcurtain}
             className={`${pageloaded ? "z-0" : "z-50"}`}
           ></input>
-          <div className={`curtain__panel ${colorchange?``:'h-screen'} curtain__panel--left`} style={{height: colorchange? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
+          <div
+            className={`curtain__panel ${
+              colorchange ? `` : "h-screen"
+            } curtain__panel--left`}
+            style={{
+              height: colorchange
+                ? `${curtaincontentRef.current?.offsetHeight}px`
+                : "",
+            }}
+          ></div>
           <div className="curtain__content" ref={curtaincontentRef}>
             {pageloaded ? (
               <main>
@@ -275,9 +224,13 @@ export default function Home({ bucketdata }: Props) {
                       className="mobile-carousel-swiper"
                     >
                       <SwiperSlide className="rounded">
-                        <button type="button" className="w-full"
+                        <button
+                          type="button"
+                          className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/videoDetails/merajut-dendam")
+                            movePageFunction(
+                              "/video/videoDetails/merajut-dendam"
+                            )
                           }
                         >
                           <Image
@@ -291,9 +244,12 @@ export default function Home({ bucketdata }: Props) {
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
                         <button
-                          type="button" className="w-full"
+                          type="button"
+                          className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/videoDetails/merajut-dendam")
+                            movePageFunction(
+                              "/video/videoDetails/merajut-dendam"
+                            )
                           }
                         >
                           <Image
@@ -307,9 +263,12 @@ export default function Home({ bucketdata }: Props) {
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
                         <button
-                          type="button" className="w-full"
+                          type="button"
+                          className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/videoDetails/merajut-dendam")
+                            movePageFunction(
+                              "/video/videoDetails/merajut-dendam"
+                            )
                           }
                         >
                           <Image
@@ -323,9 +282,12 @@ export default function Home({ bucketdata }: Props) {
                       </SwiperSlide>
                       <SwiperSlide className="rounded">
                         <button
-                          type="button" className="w-full"
+                          type="button"
+                          className="w-full"
                           onClick={() =>
-                            movePageFunction("/video/videoDetails/merajut-dendam")
+                            movePageFunction(
+                              "/video/videoDetails/merajut-dendam"
+                            )
                           }
                         >
                           <Image
@@ -388,9 +350,11 @@ export default function Home({ bucketdata }: Props) {
                             </div>
                           </span>
                           <button
-                            onClick={() =>
-                              movePageFunction("/video/videoDetails/merajut-dendam")
-                            }
+                            // onClick={() =>
+                            //   movePageFunction(
+                            //     "/video/videoDetails/merajut-dendam"
+                            //   )
+                            // }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -428,9 +392,11 @@ export default function Home({ bucketdata }: Props) {
                             </div>
                           </span>
                           <button
-                            onClick={() =>
-                              movePageFunction("/video/videoDetails/merajut-dendam")
-                            }
+                            // onClick={() =>
+                            //   movePageFunction(
+                            //     "/video/videoDetails/merajut-dendam"
+                            //   )
+                            // }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -506,9 +472,11 @@ export default function Home({ bucketdata }: Props) {
                             </div>
                           </span>
                           <button
-                            onClick={() =>
-                              movePageFunction("/video/videoDetails/merajut-dendam")
-                            }
+                            // onClick={() =>
+                            //   movePageFunction(
+                            //     "/video/videoDetails/merajut-dendam"
+                            //   )
+                            // }
                             type="button"
                             className="flex flex-row items-center gap-x-2 mt-8 bg-pallete-4 hover:bg-pallete-3 text-white px-12 py-3 text-sm rounded-full font-semibold transition-all duration-200 ease-linear"
                           >
@@ -580,6 +548,8 @@ export default function Home({ bucketdata }: Props) {
                     <ViewLunarPlay
                       onEnterViewport={() => console.log("enter")}
                       onLeaveViewport={() => console.log("leave")}
+                      bucketdata={bucketdata}
+                      movePageFunction={movePageFunction}
                     />
                   )}
                 </div>
@@ -588,7 +558,16 @@ export default function Home({ bucketdata }: Props) {
               <></>
             )}
           </div>
-          <div className={`curtain__panel ${colorchange?``:'h-screen'} curtain__panel--right`} style={{height: colorchange? `${curtaincontentRef.current?.offsetHeight}px`:''}}></div>
+          <div
+            className={`curtain__panel ${
+              colorchange ? `` : "h-screen"
+            } curtain__panel--right`}
+            style={{
+              height: colorchange
+                ? `${curtaincontentRef.current?.offsetHeight}px`
+                : "",
+            }}
+          ></div>
         </div>
       </div>
     </>
