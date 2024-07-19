@@ -23,7 +23,7 @@ export default function Page() {
 
   const fetchDataWishlist = async () => {
     try {
-      await fetch(`http://localhost:3002/api/user/watchlist/GET`, {
+      await fetch(`https://luplay.co.id/api/user/watchlist/GET`, {
         method: "GET",
       }).then(async (response) => {
         const data = await response.json();
@@ -32,7 +32,7 @@ export default function Page() {
         } else {
           let bucketwacthlist: any[] = [];
           try {
-            await fetch(`http://localhost:3002/api/data/video/movies`, {
+            await fetch(`https://luplay.co.id/api/data/video/movies`, {
               method: "GET",
             }).then(async (response) => {
               const data = await response.json();
@@ -47,7 +47,7 @@ export default function Page() {
           }
 
           try {
-            await fetch(`http://localhost:3002/api/data/video/series`, {
+            await fetch(`https://luplay.co.id/api/data/video/series`, {
               method: "GET",
             }).then(async (response) => {
               const data = await response.json();
@@ -119,7 +119,7 @@ export default function Page() {
   const handleDeleteWatchlist = async (param: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3002/api/user/watchlist/DELETE?id_doc=${param}`,
+        `https://luplay.co.id/api/user/watchlist/DELETE?id_doc=${param}`,
         {
           method: "DELETE",
         }

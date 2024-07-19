@@ -7,15 +7,15 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await fetch(
     params.type == "movies" || params.type == "trailer-movies"
-      ? `http://localhost:3002/api/data/video/movies/${params.uid}`
-      : `http://localhost:3002/api/data/video/series/${params.uid}`,
+      ? `https://luplay.co.id/api/data/video/movies/${params.uid}`
+      : `https://luplay.co.id/api/data/video/series/${params.uid}`,
     {
       method: "GET",
     }
   ).then((res) => res.json());
 
   const episode = await fetch(
-    `http://localhost:3002/api/data/video/series/episode`
+    `https://luplay.co.id/api/data/video/series/episode`
   ).then((res) =>
     res.json().then((data) => {
       return data.bucketdata
@@ -99,7 +99,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             params.title.slice(1).replace(/-/g, " "),
       type: "website",
       url:
-        "http://localhost:3002/watch/" +
+        "https://luplay.co.id/watch/" +
         params.type +
         "/" +
         params.uid +

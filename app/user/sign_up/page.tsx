@@ -132,7 +132,7 @@ export default function Page() {
     )
       .then(async (userCredential) => {
         const user = userCredential.user;
-        await fetch("http://localhost:3002/api/user/sign_up", {
+        await fetch("https://luplay.co.id/api/user/sign_up", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export default function Page() {
                 formData.password
               ).then(async (userCredential) => {
                 const response = await fetch(
-                  "http://localhost:3002/api/user/sign_in",
+                  "https://luplay.co.id/api/user/sign_in",
                   {
                     method: "POST",
                     headers: {

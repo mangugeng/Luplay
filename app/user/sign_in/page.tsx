@@ -129,7 +129,7 @@ export default function Page() {
       );
       const user = userCredential.user;
 
-      const response = await fetch("http://localhost:3002/api/user/sign_in", {
+      const response = await fetch("https://luplay.co.id/api/user/sign_in", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${await user.getIdToken()}`,
@@ -192,7 +192,7 @@ export default function Page() {
 
     try {
       const response = await fetch(
-        "http://localhost:3002/api/user/reset/POST",
+        "https://luplay.co.id/api/user/reset/POST",
         {
           method: "POST",
           headers: {

@@ -20,7 +20,7 @@ export async function middleware(request: NextRequest) {
 
   let response;
   try {
-    response = await fetch("http://localhost:3002/api", {
+    response = await fetch("https://luplay.co.id/api", {
       headers: {
         Cookie: `session=${session?.value}`,
       },

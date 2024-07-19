@@ -56,7 +56,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:3002/api/user/", {
+        const response = await fetch("https://luplay.co.id/api/user/", {
           method: "GET",
         });
 
@@ -235,7 +235,7 @@ export default function Profile() {
         formDataToSend.append(key, value);
       });
 
-      const response = await fetch("http://localhost:3002/api/user/edit", {
+      const response = await fetch("https://luplay.co.id/api/user/edit", {
         method: "PATCH",
         body: formDataToSend,
       });

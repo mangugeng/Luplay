@@ -280,8 +280,8 @@ const SimilarVideo = (props: any | InjectedViewportProps<HTMLLIElement>) => {
       try {
         await fetch(
           props.type == "movies"
-            ? `http://localhost:3002/api/data/video/movies`
-            : `http://localhost:3002/api/data/video/series`,
+            ? `https://luplay.co.id/api/data/video/movies`
+            : `https://luplay.co.id/api/data/video/series`,
           {
             method: "GET",
           }
@@ -408,7 +408,7 @@ export default function Page() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:3002/api/user/", {
+        const response = await fetch("https://luplay.co.id/api/user/", {
           method: "GET",
         });
 
@@ -422,7 +422,7 @@ export default function Page() {
     const fetchDataMovies = async () => {
       try {
         await fetch(
-          `http://localhost:3002/api/data/video/movies/${params.uid}`,
+          `https://luplay.co.id/api/data/video/movies/${params.uid}`,
           {
             method: "GET",
           }
@@ -442,7 +442,7 @@ export default function Page() {
     const fetchDataSeries = async () => {
       try {
         await fetch(
-          `http://localhost:3002/api/data/video/series/${params.uid}`,
+          `https://luplay.co.id/api/data/video/series/${params.uid}`,
           {
             method: "GET",
           }
@@ -468,7 +468,7 @@ export default function Page() {
 
     const fetchDataWishlist = async () => {
       try {
-        await fetch(`http://localhost:3002/api/user/watchlist/GET`, {
+        await fetch(`https://luplay.co.id/api/user/watchlist/GET`, {
           method: "GET",
         }).then(async (response) => {
           const data = await response.json();
@@ -560,7 +560,7 @@ export default function Page() {
   const handleAddWatchlist = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/api/user/watchlist/POST?id_doc=${params.uid}`,
+        `https://luplay.co.id/api/user/watchlist/POST?id_doc=${params.uid}`,
         {
           method: "POST",
         }
@@ -599,7 +599,7 @@ export default function Page() {
   const handleDeleteWatchlist = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3002/api/user/watchlist/DELETE?id_doc=${params.uid}`,
+        `https://luplay.co.id/api/user/watchlist/DELETE?id_doc=${params.uid}`,
         {
           method: "DELETE",
         }
@@ -642,7 +642,7 @@ export default function Page() {
 
   const handleShareFacebook = async () => {
     const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      "http://localhost:3002/" +
+      "https://luplay.co.id/" +
         params.type +
         "/" +
         params.uid +
@@ -655,7 +655,7 @@ export default function Page() {
 
   const handleShareTwitter = async () => {
     const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      "http://localhost:3002/" +
+      "https://luplay.co.id/" +
         params.type +
         "/" +
         params.uid +
@@ -2326,7 +2326,7 @@ export default function Page() {
                                         className="border border-gray-400 rounded h-[100px] resize-none w-full text-gray-900 text-[0.8em]"
                                         readOnly
                                         value={
-                                          "http://localhost:3002/" +
+                                          "https://luplay.co.id/" +
                                           params.type +
                                           "/" +
                                           params.uid +

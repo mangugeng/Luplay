@@ -4,14 +4,14 @@ export async function GET(request: NextRequest, response: NextResponse) {
   const searchParams = request.nextUrl.searchParams;
   const query = searchParams.get("q");
 
-  const movies = await fetch(`http://localhost:3002/api/data/video/movies`, {
+  const movies = await fetch(`https://luplay.co.id/api/data/video/movies`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
 
-  const series = await fetch(`http://localhost:3002/api/data/video/series`, {
+  const series = await fetch(`https://luplay.co.id/api/data/video/series`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
   });
 
   const episode = await fetch(
-    `http://localhost:3002/api/data/video/series/episode`,
+    `https://luplay.co.id/api/data/video/series/episode`,
     {
       method: "GET",
       headers: {

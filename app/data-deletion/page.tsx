@@ -27,7 +27,7 @@ export default function DataDeletion() {
   ) => {
     try {
       setStatusSbutton(true);
-      await fetch("http://localhost:3002/api/user/delete", {
+      await fetch("https://luplay.co.id/api/user/delete", {
         method: "DELETE",
         cache: "no-store",
         body: JSON.stringify({

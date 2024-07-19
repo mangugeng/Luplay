@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const content = await fetch(
     params.type == "movies"
-      ? `http://localhost:3002/api/data/video/movies/${params.uid}`
-      : `http://localhost:3002/api/data/video/series/${params.uid}`,
+      ? `https://luplay.co.id/api/data/video/movies/${params.uid}`
+      : `https://luplay.co.id/api/data/video/series/${params.uid}`,
     {
       method: "GET",
     }
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         result,
       type: "website",
       url:
-        "http://localhost:3002/" +
+        "https://luplay.co.id/" +
         params.type +
         "/" +
         params.uid +

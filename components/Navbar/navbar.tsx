@@ -78,7 +78,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch("http://localhost:3002/api/user/", {
+      const response = await fetch("https://luplay.co.id/api/user/", {
         method: "GET",
       });
 
@@ -106,7 +106,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
       const fetchData = async () => {
         try {
           const response = await fetch(
-            `http://localhost:3002/api/search/navbar?q=${query}`,
+            `https://luplay.co.id/api/search/navbar?q=${query}`,
             {
               method: "GET",
             }
@@ -149,7 +149,7 @@ const Navbar: FC<NavbarProps> = ({ movePageFunction }) => {
   const handleSignOut = async () => {
     try {
       await signOut(auth).then(async () => {
-        const response = await fetch("http://localhost:3002/api/user/sign_out", {
+        const response = await fetch("https://luplay.co.id/api/user/sign_out", {
           method: "POST",
         });
 

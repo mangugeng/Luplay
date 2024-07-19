@@ -40,7 +40,7 @@ export default function SearchPage() {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:3002/api/search?q=${query}`,
+          `https://luplay.co.id/api/search?q=${query}`,
           {
             method: "GET",
           }
