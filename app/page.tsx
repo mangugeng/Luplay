@@ -8,19 +8,10 @@ export const metadata: Metadata = {
 };
 
 const Layout = async () => {
-  const bucketdata = await fetch(`http://localhost:3002/api/data/video/movies`, {
-    method: "GET",
-  }).then(async (response) => {
-    const data = await response.json();
-    if (response.status != 200) {
-      alert("No data found");
-    }
-    return data.bucketdata;
-  });
 
   return (
     <>
-      <Home bucketdata={bucketdata}></Home>
+      <Home></Home>
     </>
   );
 };

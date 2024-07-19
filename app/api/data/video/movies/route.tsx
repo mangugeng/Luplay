@@ -1,5 +1,5 @@
-import { db } from "@/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic"; // defaults to auto
@@ -28,13 +28,10 @@ export async function GET(request: NextRequest, response: NextResponse) {
       ...data,
       id_doc: doc.id,
       create_at_formatted: formatFirestoreTimestamp(data.create_at),
+      type: 'movies'
     };
     bucketdata.push(JSON.parse(JSON.stringify(newData)));
   });
-
-  if (bucketdata.length === 0) {
-    return NextResponse.json({ error: "Data not found!" }, { status: 404 });
-  }
 
   return NextResponse.json({ bucketdata: bucketdata }, { status: 200 });
 }
