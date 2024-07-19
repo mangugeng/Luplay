@@ -1,25 +1,24 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContextProvider } from "@/context/auth-context";
 
-export const metadata: Metadata = {
-  title: 'Luplay',
-  description: '',
-  icons:{
-      icon: '/icon.png',
-  }
-}
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className+' '+'bg-black xl:bg-pallete-5'}>{children}</body>
+      <body className={inter.className + " bg-black xl:bg-pallete-5"}>
+        <ToastContainer />
+        <AuthContextProvider>{children}</AuthContextProvider>
+      </body>
     </html>
-  )
+  );
 }

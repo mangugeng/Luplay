@@ -30,6 +30,8 @@ const config: Config = {
       facebook: "url('/facebook.svg')",
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+  ],
 };
 export default config;
