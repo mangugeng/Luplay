@@ -22,7 +22,7 @@ export default function Page() {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://luplay.co.id/api/user/verification?mode=verifyEmail&oobCode=${actionCode}&lang=${lang}`,
+        `https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/verification?mode=verifyEmail&oobCode=${actionCode}&lang=${lang}`,
         {
           method: "GET",
         }

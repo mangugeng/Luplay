@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const content = await fetch(
     params.type == "movies"
-      ? `https://luplay.co.id/api/data/video/movies/${params.uid}`
-      : `https://luplay.co.id/api/data/video/series/${params.uid}`,
+      ? `https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/movies/${params.uid}`
+      : `https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/series/${params.uid}`,
     {
       method: "GET",
     }
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 
   return {
-    metadataBase: new URL("https://luplay.co.id"),
+    metadataBase: new URL("https://luplay-web--lunarvisionapp.us-central1.hosted.app"),
     title:
       "Luplay - Detail " +
       params.type.charAt(0).toUpperCase() +
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         result,
       type: "website",
       url:
-        "https://luplay.co.id/" +
+        "https://luplay-web--lunarvisionapp.us-central1.hosted.app/" +
         params.type +
         "/" +
         params.uid +

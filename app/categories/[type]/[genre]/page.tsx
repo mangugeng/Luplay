@@ -23,7 +23,7 @@ export default function Page() {
 
   const fetchDataMovies = async () => {
     try {
-      await fetch(`https://luplay.co.id/api/data/video/movies`, {
+      await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/movies`, {
         method: "GET",
       }).then(async (response) => {
         const data = await response.json();
@@ -40,7 +40,7 @@ export default function Page() {
 
   const fetchDataSeries = async () => {
     try {
-      await fetch(`https://luplay.co.id/api/data/video/series`, {
+      await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/series`, {
         method: "GET",
       }).then(async (response) => {
         const data = await response.json();
@@ -274,7 +274,7 @@ export default function Page() {
           <div className="bg-pallete-4 rounded-lg mx-auto 3xl:max-w-7xl p-4 md:flex md:items-center justify-center">
             <span className="text-sm text-gray-100 text-center">
               © 2024{" "}
-              <a href="https://luplay.co.id/" className="hover:underline">
+              <a href="https://luplay-web--lunarvisionapp.us-central1.hosted.app/" className="hover:underline">
                 Luplay.co.id
               </a>
               . All Rights Reserved.
