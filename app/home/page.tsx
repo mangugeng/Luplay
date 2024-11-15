@@ -250,7 +250,7 @@ export default function Home() {
   useEffect(() => {
     const fetchDataMovies = async () => {
       try {
-        await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/movies`, {
+        await fetch(`https://luplay.co.id/api/data/video/movies`, {
           method: "GET",
         }).then(async (response) => {
           const data = await response.json();
@@ -267,7 +267,7 @@ export default function Home() {
 
     const fetchDataSeries = async () => {
       try {
-        await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/series`, {
+        await fetch(`https://luplay.co.id/api/data/video/series`, {
           method: "GET",
         }).then(async (response) => {
           const data = await response.json();
@@ -284,7 +284,7 @@ export default function Home() {
 
     const fetchDataSlider = async () => {
       try {
-        await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/slider`, {
+        await fetch(`https://luplay.co.id/api/data/slider`, {
           method: "GET",
         }).then(async (response) => {
           const data = await response.json();
@@ -364,7 +364,6 @@ export default function Home() {
 
   const initializeVideoPlayer = (url: string) => {
     if (videoRef.current) {
-      // Initialize Video.js player here
       const options = {
         fluid: true,
         autoplay: true,
@@ -375,40 +374,45 @@ export default function Home() {
             type: "application/x-mpegURL",
           },
         ],
-        // Add any other configuration options
       };
-
+  
       const player: any = videojs(videoRef.current, options);
-
+  
       let qualityLevels = player.qualityLevels();
-
-      qualityLevels.on("change", function () {
+  
+      player.on("loadedmetadata", () => {
+        console.log("Metadata loaded");
         enableQualityLevel(3);
       });
-
+  
       let enableQualityLevel = (level: number) => {
-        for (var i = 0; i < qualityLevels.length; i++) {
-          let qualityLevel = qualityLevels[i];
-          qualityLevel.enabled = i === level ? true : false;
+        for (let i = 0; i < qualityLevels.length; i++) {
+          qualityLevels[i].enabled = i === level;
         }
-
-        qualityLevels.selectedIndex_ = level;
-        qualityLevels.trigger({ type: "change", selectedIndex: level });
       };
-
+  
       player.on("playing", () => {
         setVideoPlay(true);
       });
-
+  
       player.on("pause", () => {
         setVideoPlay(false);
       });
-
+  
       player.on("ended", () => {
         setVideoFinished(true);
       });
+  
+      player.on("error", () => {
+        console.error("Player error:", player.error());
+      });
+  
+      qualityLevels.on("error", () => {
+        console.error("Quality levels error");
+      });
     }
   };
+  
 
   const handleTogglePlay = () => {
     if (videoRef.current) {
@@ -824,7 +828,7 @@ export default function Home() {
           <div className="bg-pallete-4 rounded-lg mx-auto 3xl:max-w-7xl p-4 md:flex md:items-center justify-center">
             <span className="text-sm text-gray-100 text-center">
               © 2024{" "}
-              <a href="https://luplay-web--lunarvisionapp.us-central1.hosted.app/" className="hover:underline">
+              <a href="https://luplay.co.id/" className="hover:underline">
                 Luplay.co.id
               </a>
               . All Rights Reserved.

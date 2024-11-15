@@ -20,7 +20,7 @@ export async function middleware(request: NextRequest) {
 
   let response;
   try {
-    response = await fetch("https://luplay-web--lunarvisionapp.us-central1.hosted.app/api", {
+    response = await fetch("https://luplay.co.id/api", {
       headers: {
         Cookie: `session=${session?.value}`,
       },

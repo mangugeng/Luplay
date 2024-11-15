@@ -46,7 +46,7 @@ export default function Profile() {
 
   const fetchDataWishlist = async () => {
     try {
-      await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/watchlist/GET`, {
+      await fetch(`https://luplay.co.id/api/user/watchlist/GET`, {
         method: "GET",
       }).then(async (response) => {
         const data = await response.json();
@@ -55,7 +55,7 @@ export default function Profile() {
         } else {
           let bucketwacthlist: any[] = [];
           try {
-            await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/movies`, {
+            await fetch(`https://luplay.co.id/api/data/video/movies`, {
               method: "GET",
             }).then(async (response) => {
               const data = await response.json();
@@ -70,7 +70,7 @@ export default function Profile() {
           }
 
           try {
-            await fetch(`https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/data/video/series`, {
+            await fetch(`https://luplay.co.id/api/data/video/series`, {
               method: "GET",
             }).then(async (response) => {
               const data = await response.json();
@@ -100,7 +100,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/", {
+        const response = await fetch("https://luplay.co.id/api/user/", {
           method: "GET",
         });
         const userData = await response.json();
@@ -334,7 +334,7 @@ export default function Profile() {
     setButtonResetPasswordDisabled(true);
     try {
       const response = await fetch(
-        "https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/reset/POST",
+        "https://luplay.co.id/api/user/reset/POST",
         {
           method: "POST",
           headers: {
@@ -399,7 +399,7 @@ export default function Profile() {
     try {
       await signOut(auth).then(async () => {
         const response = await fetch(
-          "https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/sign_out",
+          "https://luplay.co.id/api/user/sign_out",
           {
             method: "POST",
           }
@@ -873,7 +873,7 @@ export default function Profile() {
           <div className="bg-pallete-4 rounded-lg mx-auto 3xl:max-w-7xl p-4 md:flex md:items-center justify-center">
             <span className="text-sm text-gray-100 text-center">
               © 2024{" "}
-              <a href="https://luplay-web--lunarvisionapp.us-central1.hosted.app/" className="hover:underline">
+              <a href="https://luplay.co.id/" className="hover:underline">
                 Luplay.co.id
               </a>
               . All Rights Reserved.

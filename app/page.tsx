@@ -8,12 +8,7 @@ export const metadata: Metadata = {
 };
 
 const Layout = async () => {
-
-  return (
-    <>
-      <Home></Home>
-    </>
-  );
+  return <Home></Home>;
 };
 
 export default Layout;

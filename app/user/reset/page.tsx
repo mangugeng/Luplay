@@ -41,7 +41,7 @@ export default function Page() {
   ) => {
     try {
       const response = await fetch(
-        `https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/reset/GET?mode=resetPassword&oobCode=${actionCode}&lang=${lang}`,
+        `https://luplay.co.id/api/user/reset/GET?mode=resetPassword&oobCode=${actionCode}&lang=${lang}`,
         {
           method: "GET",
         }
@@ -139,7 +139,7 @@ export default function Page() {
     if (statusverification) {
       try {
         const response = await fetch(
-          `https://luplay-web--lunarvisionapp.us-central1.hosted.app/api/user/reset/PATCH?oobCode=${searchParams.get(
+          `https://luplay.co.id/api/user/reset/PATCH?oobCode=${searchParams.get(
             "oobCode"
           )}`,
           {
