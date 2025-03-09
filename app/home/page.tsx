@@ -28,6 +28,8 @@ import videojs from "video.js";
 import "video.js/dist/video-js.css"; // Import CSS Video.js
 import Loading from "@/components/Loading/loading";
 import { analytics } from "@/lib/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const Movies = (props: any | InjectedViewportProps<HTMLDivElement>) => {
   const { inViewport, forwardedRef } = props;
@@ -181,10 +183,7 @@ const Series = (props: any | InjectedViewportProps<HTMLDivElement>) => {
               <button
                 onClick={() =>
                   props.movePageFunction(
-                    `/${item.type}/${item.id_doc}/${item.title.replace(
-                      /\s+/g,
-                      "-"
-                    )}`
+                    `/series/${item.id_doc}/${item.title.replace(/\s+/g, "-")}`
                   )
                 }
                 className="group"
@@ -250,16 +249,14 @@ export default function Home() {
   useEffect(() => {
     const fetchDataMovies = async () => {
       try {
-        await fetch(`https://luplay.co.id/api/data/video/movies`, {
-          method: "GET",
-        }).then(async (response) => {
-          const data = await response.json();
-          if (response.status != 200) {
-            // console.error(response);
-          } else {
-            setBucketDataMovies(data.bucketdata);
-          }
-        });
+        const moviesRef = collection(db, "movies");
+        const moviesQuery = query(moviesRef, where("status", "==", "live"));
+        const moviesSnapshot = await getDocs(moviesQuery);
+        const moviesData = moviesSnapshot.docs.map(doc => ({
+          id_doc: doc.id,
+          ...doc.data()
+        }));
+        setBucketDataMovies(moviesData);
       } catch (error) {
         console.log(error);
       }
@@ -267,16 +264,14 @@ export default function Home() {
 
     const fetchDataSeries = async () => {
       try {
-        await fetch(`https://luplay.co.id/api/data/video/series`, {
-          method: "GET",
-        }).then(async (response) => {
-          const data = await response.json();
-          if (response.status != 200) {
-            // console.error(response);
-          } else {
-            setBucketDataSeries(data.bucketdata);
-          }
-        });
+        const seriesRef = collection(db, "series");
+        const seriesQuery = query(seriesRef, where("status", "==", "live"));
+        const seriesSnapshot = await getDocs(seriesQuery);
+        const seriesData = seriesSnapshot.docs.map(doc => ({
+          id_doc: doc.id,
+          ...doc.data()
+        }));
+        setBucketDataSeries(seriesData);
       } catch (error) {
         console.log(error);
       }
@@ -284,16 +279,13 @@ export default function Home() {
 
     const fetchDataSlider = async () => {
       try {
-        await fetch(`https://luplay.co.id/api/data/slider`, {
-          method: "GET",
-        }).then(async (response) => {
-          const data = await response.json();
-          if (response.status != 200) {
-            // console.error(response);
-          } else {
-            setBucketDataSlider(data.bucketdata);
-          }
-        });
+        const sliderRef = collection(db, "slider");
+        const sliderSnapshot = await getDocs(sliderRef);
+        const sliderData = sliderSnapshot.docs.map(doc => ({
+          id_doc: doc.id,
+          ...doc.data()
+        }));
+        setBucketDataSlider(sliderData);
       } catch (error) {
         console.log(error);
       }
@@ -303,6 +295,7 @@ export default function Home() {
     fetchDataSeries();
     fetchDataSlider();
   }, []);
+
   useEffect(() => {
     if (timeleft === 0) {
       setTimeLeft(null);
@@ -321,6 +314,7 @@ export default function Home() {
     }, 1000);
     return () => clearInterval(intervalId);
   }, [bucketdatamovies, bucketdataseries, bucketdataslider, timeleft]);
+
   useEffect(() => {
     const changeNavbarColor = () => {
       if (window.scrollY >= 80) {
@@ -332,6 +326,7 @@ export default function Home() {
     window.addEventListener("scroll", changeNavbarColor);
     return () => window.removeEventListener("scroll", changeNavbarColor);
   }, []);
+
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setDeviceMobile(true);
@@ -339,9 +334,10 @@ export default function Home() {
       setDeviceMobile(false);
     }
   }, []);
+
   useEffect(() => {
-    if (bucketdatamovies.length !== 0 || bucketdataseries.length !== 0) {
-      setTimeout(function () {
+    if (bucketdatamovies.length > 0 || bucketdataseries.length > 0) {
+      setTimeout(() => {
         setToggleSkeleton(false);
       }, 2000);
     }
@@ -359,7 +355,13 @@ export default function Home() {
     function sleep(ms: number) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
-    sleep(1000).then(() => router.push(param, { scroll: false }));
+    sleep(1000).then(() => {
+      if (param.startsWith('/')) {
+        router.push(param, { scroll: false });
+      } else {
+        router.push(`/${param}`, { scroll: false });
+      }
+    });
   };
 
   const initializeVideoPlayer = (url: string) => {
@@ -425,6 +427,10 @@ export default function Home() {
       }
     }
   };
+
+  if (!pageloaded) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -680,68 +686,6 @@ export default function Home() {
                       ))}
                   </Swiper>
                 )}
-                {/* <div className="mx-4 sm:mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl py-0 lg:py-12 mb-6 lg:mb-0">
-                  {toggleskeleton ? (
-                    <>
-                      <SkeletonTheme
-                        baseColor="#202020"
-                        highlightColor="#444"
-                        height={20}
-                      >
-                        <Skeleton />
-                      </SkeletonTheme>
-                      <div className="flex gap-x-2 overflow-clip mt-3">
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                        <Skeleton
-                          baseColor="#202020"
-                          highlightColor="#444"
-                          height={devicemobile ? 150 : 211}
-                          width={devicemobile ? 135 : 156}
-                        ></Skeleton>
-                      </div>
-                    </>
-                  ) : (
-                    <ViewMovies
-                      bucketdatamovies={bucketdatamovies}
-                      movePageFunction={movePageFunction}
-                    />
-                  )}
-                </div> */}
                 <div className="mx-4 sm:mx-auto sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl py-0 lg:py-12 mb-6 lg:mb-0">
                   {toggleskeleton ? (
                     <>
