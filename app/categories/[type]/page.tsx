@@ -1,7 +1,7 @@
 "use client";
 import Navbar from "@/components/Navbar/navbar";
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Fragment } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,10 +14,30 @@ import crown from "../../../public/crown.png";
 import { notFound, useParams, useRouter } from "next/navigation";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import number1 from "../../../public/number.svg";
+import number2 from "../../../public/number2.svg";
+import number3 from "../../../public/number3.svg";
+import number4 from "../../../public/number4.svg";
+import number5 from "../../../public/number5.svg";
+import number6 from "../../../public/number6.svg";
+import number7 from "../../../public/number7.svg";
+import number8 from "../../../public/number8.svg";
+import number9 from "../../../public/number9.svg";
+import number10 from "../../../public/number10.svg";
+import number11 from "../../../public/number11.svg";
+import number12 from "../../../public/number12.svg";
+import number13 from "../../../public/number13.svg";
+import number14 from "../../../public/number14.svg";
+import number15 from "../../../public/number15.svg";
+import number16 from "../../../public/number16.svg";
+import number17 from "../../../public/number17.svg";
+import number18 from "../../../public/number18.svg";
+import number19 from "../../../public/number19.svg";
+import number20 from "../../../public/number20.svg";
+import star from "../../../public/star.svg"
 import Loading from "@/components/Loading/loading";
 import NavbarBottomMobile from "@/components/Navbar/navbar-bottom-mobile";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { analytics } from "@/lib/firebase";
 
 export default function Home() {
   const router = useRouter();
@@ -37,14 +57,16 @@ export default function Home() {
   useEffect(() => {
     const fetchDataMovies = async () => {
       try {
-        const moviesRef = collection(db, "movies");
-        const moviesQuery = query(moviesRef, where("status", "==", "live"));
-        const moviesSnapshot = await getDocs(moviesQuery);
-        const moviesData = moviesSnapshot.docs.map(doc => ({
-          id_doc: doc.id,
-          ...doc.data()
-        }));
-        setBucketDataMovies(moviesData);
+        await fetch(`https://luplay.co.id/api/data/video/movies`, {
+          method: "GET",
+        }).then(async (response) => {
+          const data = await response.json();
+          if (response.status != 200) {
+            // console.error(response);
+          } else {
+            setBucketDataMovies(data.bucketdata);
+          }
+        });
       } catch (error) {
         console.log(error);
       }
@@ -52,14 +74,16 @@ export default function Home() {
 
     const fetchDataSeries = async () => {
       try {
-        const seriesRef = collection(db, "series");
-        const seriesQuery = query(seriesRef, where("status", "==", "live"));
-        const seriesSnapshot = await getDocs(seriesQuery);
-        const seriesData = seriesSnapshot.docs.map(doc => ({
-          id_doc: doc.id,
-          ...doc.data()
-        }));
-        setBucketDataSeries(seriesData);
+        await fetch(`https://luplay.co.id/api/data/video/series`, {
+          method: "GET",
+        }).then(async (response) => {
+          const data = await response.json();
+          if (response.status != 200) {
+            // console.error(response);
+          } else {
+            setBucketDataSeries(data.bucketdata);
+          }
+        });
       } catch (error) {
         console.log(error);
       }
@@ -67,48 +91,59 @@ export default function Home() {
 
     const fetchDataSlider = async () => {
       try {
-        const sliderRef = collection(db, "slider");
-        const sliderSnapshot = await getDocs(sliderRef);
-        const sliderData = sliderSnapshot.docs.map(doc => ({
-          id_doc: doc.id,
-          ...doc.data()
-        }));
-        
-        if (params.type === "movies") {
-          const resultArray = sliderData.filter(item => {
-            return bucketdatamovies.some(movie => movie.id_doc === item.video?.id);
-          });
-          setBucketDataSlider(resultArray);
-        } else if (params.type === "series") {
-          const resultArray = sliderData.filter(item => {
-            return bucketdataseries.some(series => series.id_doc === item.video?.id);
-          });
-          setBucketDataSlider(resultArray);
-        }
+        await fetch(`https://luplay.co.id/api/data/slider`, {
+          method: "GET",
+        }).then(async (response) => {
+          const data = await response.json();
+          if (response.status != 200) {
+            // console.error(response);
+          } else {
+            if (params.type == "movies") {
+              const resultArray: Array<any> = bucketdatamovies
+                .map((item1: any) => {
+                  return data.bucketdata.find(
+                    (item2: any) => item1.id_doc === item2.video.id
+                  );
+                })
+                .filter(
+                  (matchedItem2: any | undefined) => matchedItem2 !== undefined
+                ) as Array<any>;
+              setBucketDataSlider(resultArray);
+            } else if (params.type == "series") {
+              const resultArray: Array<any> = bucketdataseries
+                .map((item1: any) => {
+                  return data.bucketdata.find(
+                    (item2: any) => item1.id_doc === item2.video.id
+                  );
+                })
+                .filter(
+                  (matchedItem2: any | undefined) => matchedItem2 !== undefined
+                ) as Array<any>;
+              setBucketDataSlider(resultArray);
+            }
+          }
+        });
       } catch (error) {
         console.log(error);
       }
     };
 
-    if (params.type === "movies") {
+    if (params.type == "movies") {
       fetchDataMovies();
-    } else if (params.type === "series") {
+    } else if (params.type == "series") {
       fetchDataSeries();
     } else {
       return notFound;
     }
-
-    if (bucketdatamovies.length > 0 || bucketdataseries.length > 0) {
+    if (bucketdatamovies.length !== 0 || bucketdataseries.length !== 0) {
       fetchDataSlider();
     }
   }, [params.type, bucketdatamovies, bucketdataseries]);
-
   useEffect(() => {
-    setTimeout(() => {
+    setTimeout(function () {
       setToggleSkeleton(false);
     }, 2000);
   }, []);
-
   useEffect(() => {
     if (window.pageYOffset >= 80) {
       setColorChange(true);
@@ -121,18 +156,9 @@ export default function Home() {
       }
     };
     window.addEventListener("scroll", changeNavbarColor);
+
     return () => window.removeEventListener("scroll", changeNavbarColor);
   }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (bucketdatamovies.length > 0 || bucketdataseries.length > 0) {
-        setPageLoaded(true);
-        setCheckboxCurtain(true);
-      }
-    }
-  }, [bucketdatamovies.length, bucketdataseries.length]);
-
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setDeviceMobile(true);
@@ -140,15 +166,35 @@ export default function Home() {
       setDeviceMobile(false);
     }
   }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      analytics;
+      if (
+        bucketdatamovies.length != 0 ||
+        bucketdataslider.length != 0 ||
+        bucketdataseries.length !== 0
+      ) {
+        setPageLoaded(true);
+        setCheckboxCurtain(true);
+      }
+    }
+  }, [
+    bucketdatamovies.length,
+    bucketdataseries.length,
+    bucketdataslider.length,
+  ]);
+
+  const calculateDelay = (index: number) => {
+    return index * 0.25;
+  };
 
   const movePageFunction = (param: string) => {
-    setCheckboxCurtain(current => !current);
+    setCheckboxCurtain((current) => !current);
     function sleep(ms: number) {
-      return new Promise(resolve => setTimeout(resolve, ms));
+      return new Promise((resolve) => setTimeout(resolve, ms));
     }
     sleep(1000).then(() => router.push(param, { scroll: false }));
   };
-
   return (
     <>
       <header
@@ -1380,98 +1426,6 @@ export default function Home() {
                       ) : (
                         <></>
                       )}
-                      <section className="mb-6 relative">
-                        <h2 className="text-xl text-gray-100 font-semibold mb-3">
-                          Top{" "}
-                          {bucketdataseries
-                            .filter((item: any) => item.status === "live")
-                            .sort((a, b) => b.views - a.views).length > 20
-                            ? "20"
-                            : bucketdataseries
-                                .filter((item: any) => item.status === "live")
-                                .sort((a, b) => b.views - a.views).length}{" "}
-                          Minggu Ini
-                        </h2>
-                        {toggleskeleton ? (
-                          <SkeletonTheme
-                            baseColor="#202020"
-                            highlightColor="#444"
-                            height={232}
-                          >
-                            <Skeleton></Skeleton>
-                          </SkeletonTheme>
-                        ) : (
-                          <Swiper
-                            breakpoints={{
-                              0: {
-                                slidesPerView: 2.7,
-                                spaceBetween: 10,
-                              },
-                              768: {
-                                slidesPerView: 3.7,
-                                spaceBetween: 10,
-                              },
-                              1024: {
-                                slidesPerView: 5.7,
-                                spaceBetween: 10,
-                              },
-                              1280: {
-                                slidesPerView: 6,
-                                spaceBetween: 10,
-                              },
-                            }}
-                            centeredSlides={false}
-                            navigation={true}
-                            modules={[Navigation]}
-                            className={`top-carousel-swiper bg-black h-auto lg:h-[230px] xl:h-[280px] rounded-md`}
-                          >
-                            {bucketdataseries
-                              .slice(0, 20)
-                              .filter((item: any) => item.status === "live")
-                              .sort((a, b) => b.views - a.views)
-                              .map((item: any, index: number) => (
-                                <SwiperSlide
-                                  className="rounded-md shadow-md !flex items-center pl-6"
-                                  key={index}
-                                >
-                                  <div
-                                    className={`self-end flex absolute left-0 z-10 bg-pallete-4/80 p-2
-                                    } rounded-full`}
-                                  >
-                                    <Image
-                                      src={star}
-                                      className="top-number h-8 w-auto"
-                                      alt={`number-${index + 1}-top-series`}
-                                      height={48}
-                                      width={48}
-                                    />
-                                  </div>
-                                  <button
-                                    type="button"
-                                    onClick={() =>
-                                      movePageFunction(
-                                        `/${item.type}/${
-                                          item.id_doc
-                                        }/${item.title.replace(/\s+/g, "-")}`
-                                      )
-                                    }
-                                    className="group"
-                                  >
-                                    <div className="relative">
-                                      <Image
-                                        src={item.image_potrait_thumbnail}
-                                        className="rounded-md brightness-75 transition-all ease-in duration-200 group-hover:brightness-100"
-                                        alt={item.title + `-potrait-thumbnails`}
-                                        width={156}
-                                        height={225}
-                                      />
-                                    </div>
-                                  </button>
-                                </SwiperSlide>
-                              ))}
-                          </Swiper>
-                        )}
-                      </section>
                     </div>
                   </main>
                 ) : (
@@ -1576,6 +1530,7 @@ export default function Home() {
                                   width={1366}
                                   height={480}
                                   alt={item.video.title + `-banner-desktop`}
+                                  priority
                                 />
                               </div>
                               <div className="h-full left-1/2 absolute top-0 -translate-x-1/2 w-[1052px] z-[3]">
@@ -1808,7 +1763,6 @@ export default function Home() {
                             </div>
                           </div>
                         </ul>
-                        <div className="relative"></div>
                       </section>
                       {bucketdataseries.filter(
                         (item: any) =>

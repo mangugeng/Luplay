@@ -1,66 +1,36 @@
-# Luplay
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Luplay adalah platform streaming video yang menyediakan berbagai konten original series dan film. Platform ini dibangun menggunakan Next.js dan Firebase.
+## Getting Started
 
-## Fitur
+First, run the development server:
 
-- Streaming video
-- Manajemen konten (Series, Episode, Trailer)
-- Sistem watchlist
-- Berbagi konten ke media sosial
-- Responsive design untuk mobile dan desktop
-- Filter dan pengurutan episode
-
-## Teknologi
-
-- Next.js 13+
-- Firebase (Firestore)
-- TypeScript
-- Tailwind CSS
-- Styled Components
-- Headless UI
-
-## Instalasi
-
-1. Clone repository
-```bash
-git clone https://github.com/mangugeng/luplay.git
-cd luplay
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Setup environment variables
-```bash
-cp .env.example .env.local
-```
-Isi `.env.local` dengan kredensial Firebase Anda.
-
-4. Jalankan development server
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Struktur Proyek
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```
-luplay/
-├── app/               # Next.js app router
-├── components/        # React components
-├── lib/              # Utility functions & configurations
-├── public/           # Static assets
-└── styles/           # Global styles
-```
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Kontribusi
+## Learn More
 
-Silakan buat issue atau pull request untuk berkontribusi pada proyek ini.
+To learn more about Next.js, take a look at the following resources:
 
-## Lisensi
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-[MIT License](LICENSE)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
